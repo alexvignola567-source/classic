@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FantaLega Classic - Il Fantacalcio di una volta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Auth Container -->
+        <div id="auth-container" class="container">
+            <div class="auth-box">
+                <div class="auth-logo">
+                    <div class="auth-logo-icon"><i class="fas fa-futbol"></i></div>
+                    <h1>FantaLega Classic</h1>
+                    <p>Il Fantacalcio come una volta</p>
+                </div>
+
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="login-email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="login-email" required autocomplete="email" placeholder="nome@esempio.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="login-password" required autocomplete="current-password" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
+                    </div>
+                    <button type="submit" class="btn btn-gold btn-full"><i class="fas fa-sign-in-alt"></i> Entra in campo</button>
+                    <p class="switch-form">Nuovo giocatore? <a href="#" id="show-register">Registrati ora</a></p>
+                </form>
+
+                <form id="register-form" class="auth-form hidden">
+                    <div class="form-group">
+                        <label for="register-name"><i class="fas fa-user"></i> Nome Allenatore</label>
+                        <input type="text" id="register-name" required autocomplete="name" placeholder="Il tuo nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="register-email" required autocomplete="email" placeholder="nome@esempio.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="register-password" minlength="6" required autocomplete="new-password" placeholder="Minimo 6 caratteri">
+                    </div>
+                    <button type="submit" class="btn btn-gold btn-full"><i class="fas fa-user-plus"></i> Crea il tuo account</button>
+                    <p class="switch-form">GiÃ  registrato? <a href="#" id="show-login">Accedi</a></p>
+                </form>
+
+                <div id="auth-message" class="message"></div>
+            </div>
+        </div>
+
+        <!-- Home Container -->
+        <div id="home-container" class="container hidden">
+            <header>
+                <div class="header-top-bar">
+                    <span><i class="fas fa-calendar-alt"></i> Stagione 2025/2026 | <i class="fas fa-clock"></i> <span id="current-time"></span></span>
+                </div>
+                <nav>
+                    <div class="logo" onclick="showSection('home')">
+                        <div class="logo-icon"><i class="fas fa-futbol"></i></div>
+                        <div class="logo-text">
+                            <span class="logo-title">FantaLega Classic</span>
+                            <span class="logo-subtitle">Il Fantacalcio di una volta</span>
+                        </div>
+                    </div>
+                    <div class="nav-user">
+                        <span id="user-greeting"></span>
+                        
+                        <!-- Notification Bell -->
+                        <div class="nav-avatar-container">
+                            <div class="notification-bell" id="notification-bell">
+                                <i class="fas fa-bell"></i>
+                                <span id="notification-badge" class="badge hidden">0</span>
+                            </div>
+                            <div class="notification-dropdown" id="notification-dropdown">
+                                <div class="notification-header">
+                                    <h3><i class="fas fa-bell"></i> Notifiche</h3>
+                                    <button class="btn btn-ghost btn-sm" id="mark-all-read">Segna lette</button>
+                                </div>
+                                <div class="notification-list" id="notification-list">
+                                    <div class="notification-empty">
+                                        <div class="notification-empty-icon"><i class="fas fa-bell-slash"></i></div>
+                                        <p>Nessuna notifica</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nav-avatar-container">
+                            <div class="nav-avatar" id="nav-avatar">M</div>
+                            <div class="nav-dropdown" id="nav-dropdown">
+                                <div class="nav-dropdown-header">
+                                    <div class="nav-dropdown-name" id="dropdown-name">Nome</div>
+                                    <div class="nav-dropdown-id" id="dropdown-id">#000000</div>
+                                </div>
+                                <div class="nav-dropdown-menu">
+                                    <button class="nav-dropdown-item" data-section="profile">
+                                        <span class="nav-dropdown-icon"><i class="fas fa-user-circle"></i></span>
+                                        Il mio profilo
+                                    </button>
+                                    <button class="nav-dropdown-item" data-section="friends">
+                                        <span class="nav-dropdown-icon"><i class="fas fa-users"></i></span>
+                                        Compagni di Lega
+                                    </button>
+                                    
+                                    <div class="nav-dropdown-divider"></div>
+                                    <div class="nav-dropdown-section-title"><i class="fas fa-trophy"></i> Le tue Leghe</div>
+                                    <div class="nav-groups-list" id="nav-groups-list">
+                                        <!-- Leagues will be rendered here -->
+                                    </div>
+                                    
+                                    <div class="nav-dropdown-divider"></div>
+                                    <button class="nav-dropdown-item danger" id="dropdown-logout">
+                                        <span class="nav-dropdown-icon"><i class="fas fa-sign-out-alt"></i></span>
+                                        Esci
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <main>
+                <!-- Home Section -->
+                <section id="section-home" class="section">
+                    <div class="section-header">
+                        <div class="section-header-text">
+                            <h1><i class="fas fa-home"></i> Bacheca Allenatore</h1>
+                            <p>Benvenuto Mister! Gestisci le tue leghe e i tuoi contatti.</p>
+                        </div>
+                    </div>
+
+                    <div class="cards-grid">
+                        <div class="card" onclick="showSection('friends')">
+                            <div class="card-header">
+                                <h3><i class="fas fa-users"></i> Compagni di Lega</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Aggiungi altri allenatori alla tua lista contatti per sfidarli nelle leghe.</p>
+                            </div>
+                        </div>
+                        <div class="card" onclick="showSection('profile')">
+                            <div class="card-header">
+                                <h3><i class="fas fa-id-card"></i> Scheda Allenatore</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Modifica il tuo profilo allenatore, il nickname e la tua foto.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-comments"></i> Messaggi</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Chatta con gli altri allenatori per concordare scambi e strategie.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leagues Section -->
+                    <div class="leagues-section">
+                        <div class="leagues-section-header">
+                            <h2><i class="fas fa-trophy"></i> Le tue Leghe</h2>
+                            <button class="btn btn-gold" onclick="openCreateGroupModal()">
+                                <i class="fas fa-plus"></i> Crea Lega
+                            </button>
+                        </div>
+
+                        <div id="groups-list">
+                            <!-- Leagues will be rendered here -->
+                        </div>
+
+                        <!-- Join League -->
+                        <div class="retro-panel" style="margin-top: 1.25rem;">
+                            <div class="retro-panel-header">
+                                <i class="fas fa-ticket-alt"></i> Unisciti a una Lega
+                            </div>
+                            <div class="retro-panel-body">
+                                <p style="color: var(--gray-500); font-size: 0.8125rem; margin-bottom: 0.875rem;">
+                                    Hai ricevuto un codice lega? Inseriscilo qui per entrare a far parte della competizione.
+                                </p>
+                                <div class="join-league-form">
+                                    <input type="text" id="join-group-code" placeholder="ABC123" maxlength="6">
+                                    <button class="btn btn-primary" onclick="joinGroupByCode()"><i class="fas fa-sign-in-alt"></i> Unisciti</button>
+                                </div>
+                                <div id="join-group-message" class="message"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="section-profile" class="section hidden">
+                    <div class="section-header">
+                        <div class="section-header-text">
+                            <h1><i class="fas fa-id-card"></i> Scheda Allenatore</h1>
+                            <p>Personalizza il tuo profilo</p>
+                        </div>
+                        <button class="btn btn-secondary" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Torna alla Bacheca</button>
+                    </div>
+
+                    <div class="profile-container">
+                        <div class="profile-card">
+                            <div class="profile-header">
+                                <div class="avatar-container">
+                                    <div class="avatar" id="profile-avatar">M</div>
+                                    <label class="avatar-edit" title="Cambia foto">
+                                        <i class="fas fa-camera"></i>
+                                        <input type="file" id="avatar-upload" accept="image/*">
+                                    </label>
+                                </div>
+                                <div class="profile-info">
+                                    <h2 id="profile-display-name">Nome Allenatore</h2>
+                                    <div class="user-id-badge">
+                                        <i class="fas fa-hashtag"></i> <span id="profile-user-id">000000</span>
+                                        <button type="button" class="copy-btn" onclick="copyUserId()" title="Copia ID"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                    <div class="status-badge">
+                                        <span class="status-dot"></span>
+                                        In panchina
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-body">
+                                <form id="profile-form" class="profile-form">
+                                    <div class="form-group">
+                                        <label for="profile-name"><i class="fas fa-user"></i> Nome Allenatore</label>
+                                        <input type="text" id="profile-name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-email"><i class="fas fa-envelope"></i> Email</label>
+                                        <input type="email" id="profile-email" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-bio"><i class="fas fa-quote-left"></i> Motto</label>
+                                        <textarea id="profile-bio" rows="3" placeholder="Il tuo motto da allenatore..."></textarea>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Salva modifiche</button>
+                                        <button type="button" class="btn btn-secondary" onclick="showSection('home')"><i class="fas fa-times"></i> Annulla</button>
+                                    </div>
+                                </form>
+
+                                <div class="danger-zone">
+                                    <h3><i class="fas fa-exclamation-triangle"></i> Zona Pericolosa</h3>
+                                    <p>Disconnetti il tuo account da questo dispositivo.</p>
+                                    <button type="button" id="btn-logout" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Esci dall'account</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="profile-message" class="message"></div>
+                    </div>
+                </section>
+
+                <!-- Friends Section -->
+                <section id="section-friends" class="section hidden">
+                    <div class="section-header">
+                        <div class="section-header-text">
+                            <h1><i class="fas fa-users"></i> Compagni di Lega</h1>
+                            <p>Gestisci i tuoi contatti</p>
+                        </div>
+                        <button class="btn btn-secondary" onclick="goBackFromFriends()"><i class="fas fa-arrow-left"></i> Indietro</button>
+                    </div>
+
+                    <div class="friends-container">
+                        <div class="profile-card">
+                            <div class="profile-body">
+                                <h3 class="section-title"><i class="fas fa-user-plus"></i> Aggiungi Compagno</h3>
+                                <p style="color: var(--gray-500); font-size: 0.8125rem; margin-bottom: 0.875rem;">
+                                    Inserisci l'ID a 6 cifre dell'allenatore per inviargli una richiesta di amicizia.
+                                </p>
+                                <div class="add-friend-form">
+                                    <input type="text" id="friend-id-input" placeholder="000000" maxlength="6">
+                                    <button type="button" id="btn-add-friend" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Invia richiesta</button>
+                                </div>
+                                <div id="friend-message" class="message"></div>
+
+                                <div style="margin-top: 1.5rem;">
+                                    <div class="tabs">
+                                        <button class="tab active" data-tab="friends">
+                                            <i class="fas fa-user-friends"></i> Compagni
+                                            <span class="tab-badge hidden" id="friends-count-badge">0</span>
+                                        </button>
+                                        <button class="tab" data-tab="requests">
+                                            <i class="fas fa-inbox"></i> Richieste
+                                            <span class="tab-badge hidden" id="requests-badge">0</span>
+                                        </button>
+                                        <button class="tab" data-tab="sent">
+                                            <i class="fas fa-paper-plane"></i> Inviate
+                                            <span class="tab-badge hidden" id="sent-badge">0</span>
+                                        </button>
+                                    </div>
+
+                                    <div id="tab-friends" class="list-container">
+                                        <div id="friends-list"></div>
+                                    </div>
+
+                                    <div id="tab-requests" class="list-container hidden">
+                                        <div id="requests-list"></div>
+                                    </div>
+
+                                    <div id="tab-sent" class="list-container hidden">
+                                        <div id="sent-list"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- League Detail Section -->
+                <section id="section-group" class="section hidden">
+                    <div class="section-header">
+                        <div class="section-header-text">
+                            <h1 id="group-detail-title"><i class="fas fa-trophy"></i> Nome Lega</h1>
+                            <p>Gestisci la tua lega</p>
+                        </div>
+                        <button class="btn btn-secondary" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Torna alla Bacheca</button>
+                    </div>
+
+                    <div class="league-container">
+                        <div class="league-detail-card">
+                            <div class="league-detail-header">
+                                <div class="league-detail-top">
+                                    <div class="league-detail-avatar-container">
+                                        <div class="league-detail-avatar" id="group-avatar-large">G</div>
+                                        <label class="league-avatar-edit" id="group-avatar-edit-label" title="Cambia immagine">
+                                            <i class="fas fa-camera"></i>
+                                            <input type="file" id="group-avatar-upload" accept="image/*">
+                                        </label>
+                                    </div>
+                                    <div class="league-detail-info">
+                                        <h2 id="group-name-display">Nome Lega</h2>
+                                        <div class="league-code-badge" id="group-code-section">
+                                            <i class="fas fa-ticket-alt"></i> Codice: <span id="group-code-display">ABC123</span>
+                                            <button type="button" class="copy-btn" id="copy-group-code-btn" onclick="copyGroupCode()" title="Copia codice"><i class="fas fa-copy"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="league-stats">
+                                    <div class="league-stat">
+                                        <div class="league-stat-value" id="group-members-count">1</div>
+                                        <div class="league-stat-label">Partecipanti</div>
+                                    </div>
+                                    <div class="league-stat">
+                                        <div class="league-stat-value" id="group-created-date">-</div>
+                                        <div class="league-stat-label">Fondata</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="league-detail-body">
+                                <div class="league-section" id="invite-friends-section">
+                                    <h3><i class="fas fa-user-plus"></i> Invita Allenatori</h3>
+                                    <div id="invite-friends-list">
+                                        <!-- Invite friends cards will be here -->
+                                    </div>
+                                </div>
+
+                                <div class="league-section" id="share-code-section">
+                                    <h3><i class="fas fa-share-alt"></i> Condividi Codice</h3>
+                                    <div class="invite-card">
+                                        <div class="invite-card-icon"><i class="fas fa-qrcode"></i></div>
+                                        <div class="invite-card-content">
+                                            <h4>Condividi il codice lega</h4>
+                                            <p>Chiunque con questo codice puÃ² partecipare</p>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm" onclick="copyGroupCode()"><i class="fas fa-copy"></i> Copia</button>
+                                    </div>
+                                </div>
+
+                                <div class="league-section">
+                                    <h3><i class="fas fa-users"></i> Partecipanti (<span id="members-count-label">0</span>)</h3>
+                                    <div class="member-list" id="group-members-list">
+                                        <!-- Members will be rendered here -->
+                                    </div>
+                                </div>
+
+                                <div class="league-section" id="group-settings-section">
+                                    <h3><i class="fas fa-cog"></i> Impostazioni Lega</h3>
+                                    <div id="group-settings-content">
+                                        <!-- Settings will be rendered here -->
+                                    </div>
+                                </div>
+
+                                <div class="danger-zone" id="group-danger-zone">
+                                    <h3><i class="fas fa-exclamation-triangle"></i> Zona Pericolosa</h3>
+                                    <p id="group-danger-text">Abbandona la lega o eliminala se sei l'amministratore.</p>
+                                    <button type="button" class="btn btn-danger" id="btn-leave-group"><i class="fas fa-door-open"></i> Abbandona lega</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <p><i class="fas fa-futbol"></i> FantaLega Classic Â© 2025 - Il Fantacalcio come una volta</p>
+            </footer>
+        </div>
+
+        <!-- Toast Container -->
+        <div class="toast-container" id="toast-container"></div>
+
+        <!-- Confirm Modal -->
+        <div class="modal-overlay" id="confirm-modal">
+            <div class="modal">
+                <div class="modal-body" style="padding-top: 1.5rem;">
+                    <h3 id="modal-title"><i class="fas fa-question-circle"></i> Conferma</h3>
+                    <p id="modal-message">Sei sicuro?</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="closeModal()"><i class="fas fa-times"></i> Annulla</button>
+                    <button class="btn btn-danger" id="modal-confirm"><i class="fas fa-check"></i> Conferma</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile View Modal -->
+        <div class="modal-overlay" id="profile-view-modal">
+            <div class="modal">
+                <div class="profile-modal-content">
+                    <div class="profile-modal-avatar" id="view-profile-avatar">M</div>
+                    <div class="profile-modal-name" id="view-profile-name">Nome</div>
+                    <div class="profile-modal-id" id="view-profile-id">#000000</div>
+                    <div class="profile-modal-status" id="view-profile-status">
+                        <span class="status-dot"></span>
+                        In panchina
+                    </div>
+                    <div class="profile-modal-bio" id="view-profile-bio">Nessun motto</div>
+                    <div class="profile-modal-actions" id="view-profile-actions">
+                        <!-- Actions will be dynamically added -->
+                    </div>
+                </div>
+                <div class="modal-actions" style="justify-content: center;">
+                    <button class="btn btn-secondary" onclick="closeProfileModal()"><i class="fas fa-times"></i> Chiudi</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create League Modal -->
+        <div class="modal-overlay create-league-modal" id="create-group-modal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3><i class="fas fa-trophy"></i> Crea una Nuova Lega</h3>
+                </div>
+                <div class="modal-body">
+                    <p style="color: var(--gray-500); font-size: 0.875rem; margin-bottom: 1rem;">Crea una lega per sfidare i tuoi amici allenatori.</p>
+                    
+                    <form class="create-league-form" id="create-group-form">
+                        <div class="league-avatar-upload">
+                            <div class="league-avatar-preview" id="new-group-avatar-preview">L</div>
+                            <div class="league-avatar-upload-content">
+                                <h4>Stemma Lega</h4>
+                                <p>JPG, PNG. Max 2MB</p>
+                                <label class="league-avatar-upload-btn">
+                                    <i class="fas fa-upload"></i> Carica stemma
+                                    <input type="file" id="new-group-avatar" accept="image/*">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="group-name"><i class="fas fa-signature"></i> Nome Lega *</label>
+                            <input type="text" id="group-name" required placeholder="Es. Lega dei Campioni" maxlength="50">
+                            <div class="form-hint">Scegli un nome memorabile per la tua lega</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="group-description"><i class="fas fa-align-left"></i> Descrizione (opzionale)</label>
+                            <textarea id="group-description" rows="2" placeholder="Descrivi la tua lega..." maxlength="200"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="group-visibility"><i class="fas fa-eye"></i> VisibilitÃ </label>
+                                <select id="group-visibility">
+                                    <option value="invite">Solo su invito</option>
+                                    <option value="code">Chiunque con codice</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="group-invite-permission"><i class="fas fa-user-shield"></i> Chi puÃ² invitare</label>
+                                <select id="group-invite-permission">
+                                    <option value="all">Tutti i partecipanti</option>
+                                    <option value="admin">Solo amministratori</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="group-max-members"><i class="fas fa-users-cog"></i> Numero partecipanti</label>
+                            <select id="group-max-members">
+                                <option value="8">8 allenatori</option>
+                                <option value="10" selected>10 allenatori</option>
+                                <option value="12">12 allenatori</option>
+                                <option value="14">14 allenatori</option>
+                                <option value="16">16 allenatori</option>
+                                <option value="20">20 allenatori</option>
+                                <option value="0">Illimitato</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeCreateGroupModal()"><i class="fas fa-times"></i> Annulla</button>
+                    <button type="submit" form="create-group-form" class="btn btn-gold"><i class="fas fa-plus"></i> Crea Lega</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit League Settings Modal -->
+        <div class="modal-overlay" id="edit-group-modal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3><i class="fas fa-cog"></i> Modifica Impostazioni Lega</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-group-form">
+                        <div class="form-group">
+                            <label for="edit-group-name"><i class="fas fa-signature"></i> Nome Lega</label>
+                            <input type="text" id="edit-group-name" required maxlength="50">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-group-description"><i class="fas fa-align-left"></i> Descrizione</label>
+                            <textarea id="edit-group-description" rows="2" maxlength="200"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="edit-group-visibility"><i class="fas fa-eye"></i> VisibilitÃ </label>
+                                <select id="edit-group-visibility">
+                                    <option value="invite">Solo su invito</option>
+                                    <option value="code">Chiunque con codice</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-group-invite-permission"><i class="fas fa-user-shield"></i> Chi puÃ² invitare</label>
+                                <select id="edit-group-invite-permission">
+                                    <option value="all">Tutti i partecipanti</option>
+                                    <option value="admin">Solo amministratori</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-group-max-members"><i class="fas fa-users-cog"></i> Numero partecipanti</label>
+                            <select id="edit-group-max-members">
+                                <option value="8">8 allenatori</option>
+                                <option value="10">10 allenatori</option>
+                                <option value="12">12 allenatori</option>
+                                <option value="14">14 allenatori</option>
+                                <option value="16">16 allenatori</option>
+                                <option value="20">20 allenatori</option>
+                                <option value="0">Illimitato</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeEditGroupModal()"><i class="fas fa-times"></i> Annulla</button>
+                    <button type="submit" form="edit-group-form" class="btn btn-primary"><i class="fas fa-save"></i> Salva</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invite to League Modal -->
+        <div class="modal-overlay" id="invite-group-modal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3><i class="fas fa-user-plus"></i> Invita alla Lega</h3>
+                </div>
+                <div class="modal-body">
+                    <p style="color: var(--gray-500); font-size: 0.875rem; margin-bottom: 1rem;">Seleziona i compagni da invitare</p>
+                    <div id="invite-friends-modal-list" style="max-height: 280px; overflow-y: auto;">
+                        <!-- Friends list will be here -->
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="closeInviteModal()"><i class="fas fa-times"></i> Chiudi</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transfer Ownership Modal -->
+        <div class="modal-overlay" id="transfer-ownership-modal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3><i class="fas fa-crown"></i> Trasferisci Presidenza</h3>
+                </div>
+                <div class="modal-body">
+                    <p style="color: var(--gray-500); font-size: 0.875rem; margin-bottom: 1rem;">Seleziona il nuovo presidente della lega. Questa azione Ã¨ irreversibile.</p>
+                    <div id="transfer-members-list" style="max-height: 280px; overflow-y: auto;">
+                        <!-- Members list will be here -->
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="closeTransferModal()"><i class="fas fa-times"></i> Annulla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script src="script.js"></script>
+</body>
+</html>
