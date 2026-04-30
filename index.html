@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FantaLega Classic - Il Fantacalcio di una volta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap)" rel="stylesheet">
+    <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--pri:#1a5f2a;--pri-d:#0d4a1c;--pri-l:#2d8a42;--pri-s:#e8f5e9;--sec:#c9a227;--sec-d:#a68520;--sec-l:#e6c547;--ok:#2e7d32;--ok-l:#c8e6c9;--err:#c62828;--err-l:#ffcdd2;--warn:#f57f17;--warn-l:#fff9c4;--w:#fff;--g50:#fafafa;--g100:#f0f0f0;--g200:#e0e0e0;--g300:#bdbdbd;--g400:#9e9e9e;--g500:#757575;--g600:#616161;--g700:#424242;--g800:#2d2d2d;--g900:#1a1a1a;--r:4px;--sh:0 2px 4px rgba(0,0,0,.2);--sh-lg:0 8px 16px -2px rgba(0,0,0,.3);--sh-in:inset 0 2px 4px rgba(0,0,0,.15);--tr:150ms ease;--grad-h:linear-gradient(180deg,#1a5f2a,#0d4a1c);--grad-g:linear-gradient(180deg,#e6c547,#c9a227);--grad-f:linear-gradient(180deg,#2e7d32,#1b5e20);--font-title:'Oswald','Trebuchet MS',Impact,sans-serif;--font-body:Tahoma,Verdana,Geneva,sans-serif}
         body{font-family:var(--font-body);background:#d8d8d8 url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='[w3.org](http://www.w3.org/2000/svg)'%3E%3Cg fill='%23c0c0c0' fill-opacity='.5'%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3C/g%3E%3C/svg%3E");color:var(--g900);line-height:1.5;min-height:100vh;font-size:13px}
         .hidden{display:none!important}
         
-        /* FIX: Rimosse animazioni problematiche dalle card */
         .animate-fade{animation:fadeIn .25s ease-out forwards}
         .animate-slide{animation:slideIn .25s ease-out forwards}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
         @keyframes slideIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
         @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+        @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
         
-        /* FIX: Icone Font Awesome - assicura visibilità */
         .fas, .far, .fab, .fa {
             font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands' !important;
             font-style: normal;
@@ -179,7 +178,6 @@
         .section-header-text p{color:var(--g500);font-size:.85rem}
         .section-header-actions{display:flex;gap:.5rem;flex-wrap:wrap}
         
-        /* FIX: Card senza animazione problematica */
         .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
         .card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border:2px solid var(--g400);border-radius:var(--r);transition:border-color var(--tr), box-shadow var(--tr), transform var(--tr);cursor:pointer;position:relative;overflow:hidden;box-shadow:var(--sh)}
         .card:hover{border-color:var(--pri);box-shadow:var(--sh-lg);transform:translateY(-3px)}
@@ -194,11 +192,9 @@
         .leagues-section-header h2,.teams-section-header h2{font-family:var(--font-title);font-size:1.05rem;color:var(--pri-d);display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.05em}
         .leagues-section-header h2 i,.teams-section-header h2 i{color:var(--sec);font-size:1.1rem}
         
-        /* FIX: Griglia squadre migliorata */
         .leagues-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
-        .teams-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem}
+        .teams-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
         
-        /* FIX: Card squadre/leghe senza animazione flash */
         .league-card,.team-card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:var(--r);border:2px solid var(--g400);overflow:hidden;cursor:pointer;transition:border-color var(--tr), box-shadow var(--tr), transform var(--tr);box-shadow:var(--sh)}
         .league-card:hover,.team-card:hover{border-color:var(--pri);box-shadow:var(--sh-lg);transform:translateY(-3px)}
         
@@ -216,7 +212,15 @@
         .league-members-count{font-size:.75rem;color:var(--g500)}
         .league-members-count i{margin-right:.3rem;color:var(--pri)}
         
-        /* Team card stats migliorati */
+        /* ===== NEW TEAM CARD WITH KIT PREVIEW ===== */
+        .team-card-header-custom{position:relative;padding:1rem;display:flex;align-items:center;gap:1rem;border-bottom:3px solid var(--sec);min-height:80px}
+        .team-card-kit-preview{width:50px;height:60px;position:relative;flex-shrink:0}
+        .team-card-kit-preview .kit-shirt{width:100%;height:100%}
+        .team-card-info-custom{flex:1}
+        .team-card-info-custom h3{font-family:var(--font-title);font-size:.95rem;color:var(--w);margin-bottom:.2rem;text-transform:uppercase;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
+        .team-card-info-custom p{font-size:.7rem;color:rgba(255,255,255,.8)}
+        .team-card-badge{position:absolute;top:.5rem;right:.5rem;background:rgba(0,0,0,.3);padding:.2rem .5rem;border-radius:3px;font-size:.6rem;color:var(--w);font-family:var(--font-title);text-transform:uppercase}
+        
         .team-card-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;background:linear-gradient(180deg,#f5f5f5 0%,#eee 100%);padding:.75rem;border-radius:4px;margin-bottom:.75rem}
         .team-card-stat{text-align:center}
         .team-card-stat-value{font-family:var(--font-title);font-size:1.1rem;color:var(--pri-d)}
@@ -236,10 +240,10 @@
         .profile-container{max-width:600px}
         .friends-container{max-width:750px}
         .league-container{max-width:750px}
-        .team-container{max-width:850px}
+        .team-container{max-width:950px}
         
         .profile-card,.league-detail-card,.team-detail-card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:var(--r);border:2px solid var(--g400);overflow:hidden;box-shadow:var(--sh)}
-        .profile-header,.league-detail-header,.team-detail-header{padding:1.5rem;border-bottom:3px solid var(--sec);display:flex;align-items:center;gap:1.25rem;background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 40%,#0d4a1c 100%)}
+        .profile-header,.league-detail-header{padding:1.5rem;border-bottom:3px solid var(--sec);display:flex;align-items:center;gap:1.25rem;background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 40%,#0d4a1c 100%)}
         
         .avatar-container,.league-detail-avatar-container,.team-avatar-container{position:relative;flex-shrink:0}
         .avatar,.league-detail-avatar,.team-avatar{width:75px;height:75px;border-radius:var(--r);background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:1.8rem;color:var(--g600);overflow:hidden;border:3px solid var(--sec);box-shadow:0 3px 10px rgba(0,0,0,.2)}
@@ -451,6 +455,135 @@
         .league-badge i{color:var(--sec)}
         .league-badge.linked{background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);border-color:var(--pri);color:var(--pri-d)}
         
+        /* ===== NEW TEAM DETAIL HEADER WITH KIT ===== */
+        .team-detail-header{position:relative;padding:0;border-bottom:none;overflow:hidden}
+        .team-header-bg{position:absolute;inset:0;opacity:.15}
+        .team-header-content{position:relative;padding:1.5rem;display:flex;gap:1.5rem;align-items:flex-start}
+        .team-kit-showcase{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+        .team-kit-large{width:100px;height:120px;position:relative;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3))}
+        .team-kit-large .kit-shirt{width:100%;height:100%}
+        .team-kit-edit-btn{background:rgba(255,255,255,.9);border:none;padding:.4rem .8rem;border-radius:3px;font-size:.7rem;font-family:var(--font-title);color:var(--g700);cursor:pointer;transition:all var(--tr);display:flex;align-items:center;gap:.3rem}
+        .team-kit-edit-btn:hover{background:var(--w);color:var(--pri)}
+        .team-kit-edit-btn i{font-size:.75rem}
+        
+        .team-header-info{flex:1;color:var(--w)}
+        .team-header-info h2{font-family:var(--font-title);font-size:1.5rem;margin-bottom:.3rem;text-transform:uppercase;text-shadow:2px 2px 4px rgba(0,0,0,.4)}
+        .team-header-motto{font-style:italic;font-size:.8rem;color:rgba(255,255,255,.8);margin-bottom:1rem}
+        .team-header-stats{display:flex;gap:1.5rem;flex-wrap:wrap}
+        .team-header-stat{text-align:center;background:rgba(0,0,0,.2);padding:.6rem 1rem;border-radius:4px;min-width:70px}
+        .team-header-stat-value{font-family:var(--font-title);font-size:1.3rem;color:var(--w)}
+        .team-header-stat-label{font-size:.6rem;color:rgba(255,255,255,.7);text-transform:uppercase}
+        
+        /* ===== TEAM TABS NAVIGATION ===== */
+        .team-tabs{display:flex;border-bottom:3px solid var(--sec);background:linear-gradient(180deg,#f5f5f5 0%,#e8e8e8 100%)}
+        .team-tab{flex:1;padding:.9rem 1rem;border:none;background:transparent;font-family:var(--font-title);font-size:.8rem;color:var(--g500);cursor:pointer;transition:all var(--tr);text-transform:uppercase;letter-spacing:.03em;position:relative}
+        .team-tab i{margin-right:.4rem}
+        .team-tab:hover{color:var(--g700);background:rgba(0,0,0,.03)}
+        .team-tab.active{color:var(--pri-d);background:var(--w)}
+        .team-tab.active::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:3px;background:var(--pri)}
+        .team-tab-badge{background:var(--sec);color:var(--g900);font-size:.6rem;padding:.1rem .4rem;border-radius:10px;margin-left:.3rem}
+        
+        .team-tab-content{display:none;padding:1.5rem}
+        .team-tab-content.active{display:block}
+        
+        /* ===== KIT CUSTOMIZATION ===== */
+        .kit-customizer{display:grid;grid-template-columns:1fr 280px;gap:2rem}
+        .kit-preview-section{display:flex;flex-direction:column;align-items:center;gap:1.5rem}
+        .kit-preview-container{background:linear-gradient(135deg,#f5f5f5 0%,#e0e0e0 100%);border-radius:8px;padding:2rem;width:100%;display:flex;justify-content:center;align-items:center;min-height:280px;position:relative;border:2px solid var(--g400);box-shadow:inset 0 2px 10px rgba(0,0,0,.1)}
+        .kit-preview-3d{width:160px;height:200px;position:relative;transform-style:preserve-3d;animation:kitRotate 20s linear infinite paused}
+        .kit-preview-3d:hover{animation-play-state:running}
+        .kit-preview-3d .kit-shirt{width:100%;height:100%;filter:drop-shadow(0 8px 16px rgba(0,0,0,.25))}
+        @keyframes kitRotate{0%,100%{transform:rotateY(0deg)}50%{transform:rotateY(10deg)}}
+        
+        .kit-preview-label{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.6);color:var(--w);padding:.3rem .8rem;border-radius:3px;font-size:.7rem;font-family:var(--font-title);text-transform:uppercase}
+        
+        .kit-options-section{display:flex;flex-direction:column;gap:1.25rem}
+        .kit-option-group{background:linear-gradient(180deg,#fff 0%,#fafafa 100%);border-radius:4px;padding:1rem;border:2px solid var(--g300)}
+        .kit-option-group h4{font-family:var(--font-title);font-size:.8rem;color:var(--g800);margin-bottom:.75rem;display:flex;align-items:center;gap:.4rem;text-transform:uppercase}
+        .kit-option-group h4 i{color:var(--sec)}
+        
+        .color-picker-row{display:flex;gap:.75rem;align-items:center;margin-bottom:.75rem}
+        .color-picker-row:last-child{margin-bottom:0}
+        .color-picker-label{font-size:.75rem;color:var(--g600);width:80px;font-weight:600}
+        .color-picker-input{display:flex;gap:.5rem;align-items:center;flex:1}
+        .color-picker-input input[type="color"]{width:36px;height:36px;border:2px solid var(--g400);border-radius:4px;cursor:pointer;padding:0;background:none}
+        .color-picker-input input[type="color"]::-webkit-color-swatch-wrapper{padding:2px}
+        .color-picker-input input[type="color"]::-webkit-color-swatch{border-radius:2px;border:none}
+        .color-hex{font-family:'Courier New',monospace;font-size:.75rem;color:var(--g500);background:var(--g100);padding:.3rem .5rem;border-radius:3px;min-width:70px;text-align:center}
+        
+        .pattern-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+        .pattern-item{aspect-ratio:1;border-radius:4px;border:2px solid var(--g300);cursor:pointer;transition:all var(--tr);overflow:hidden;position:relative}
+        .pattern-item:hover{border-color:var(--g500);transform:scale(1.05)}
+        .pattern-item.selected{border-color:var(--pri);border-width:3px;box-shadow:0 0 0 3px rgba(26,95,42,.2)}
+        .pattern-item svg{width:100%;height:100%}
+        .pattern-item-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.7);color:var(--w);font-size:.5rem;text-align:center;padding:.15rem;font-family:var(--font-title);text-transform:uppercase}
+        
+        .style-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+        .style-item{padding:.6rem;border-radius:4px;border:2px solid var(--g300);cursor:pointer;transition:all var(--tr);text-align:center;background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%)}
+        .style-item:hover{border-color:var(--g500)}
+        .style-item.selected{border-color:var(--pri);background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%)}
+        .style-item i{font-size:1.2rem;color:var(--g600);margin-bottom:.25rem;display:block}
+        .style-item.selected i{color:var(--pri)}
+        .style-item span{font-size:.65rem;color:var(--g500);font-family:var(--font-title);text-transform:uppercase}
+        .style-item.selected span{color:var(--pri-d)}
+        
+        .kit-preset-section{margin-top:1rem}
+        .kit-preset-section h5{font-size:.7rem;color:var(--g500);margin-bottom:.5rem;text-transform:uppercase}
+        .kit-presets-grid{display:flex;gap:.5rem;flex-wrap:wrap}
+        .kit-preset{width:40px;height:50px;border-radius:4px;border:2px solid var(--g300);cursor:pointer;overflow:hidden;transition:all var(--tr)}
+        .kit-preset:hover{border-color:var(--g500);transform:scale(1.1)}
+        .kit-preset.selected{border-color:var(--sec);border-width:3px}
+        .kit-preset svg{width:100%;height:100%}
+        
+        /* ===== TEAM SETTINGS SECTION ===== */
+        .team-settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+        .team-setting-card{background:linear-gradient(180deg,#fff 0%,#fafafa 100%);border-radius:4px;padding:1.25rem;border:2px solid var(--g300)}
+        .team-setting-card h4{font-family:var(--font-title);font-size:.85rem;color:var(--g800);margin-bottom:1rem;display:flex;align-items:center;gap:.4rem;text-transform:uppercase;border-bottom:2px solid var(--g200);padding-bottom:.5rem}
+        .team-setting-card h4 i{color:var(--sec)}
+        
+        .team-info-field{margin-bottom:1rem}
+        .team-info-field:last-child{margin-bottom:0}
+        .team-info-field label{display:block;font-size:.7rem;color:var(--g500);margin-bottom:.3rem;text-transform:uppercase;font-weight:600}
+        .team-info-field input,.team-info-field textarea{width:100%;padding:.6rem;border:2px solid var(--g300);border-radius:3px;font-size:.85rem;transition:all var(--tr)}
+        .team-info-field input:focus,.team-info-field textarea:focus{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px rgba(26,95,42,.15)}
+        
+        .team-founded-display{display:flex;align-items:center;gap:.75rem;padding:.75rem;background:var(--g100);border-radius:4px}
+        .team-founded-display i{font-size:1.5rem;color:var(--sec)}
+        .team-founded-display .date{font-family:var(--font-title);font-size:1.1rem;color:var(--g800)}
+        .team-founded-display .label{font-size:.7rem;color:var(--g500)}
+        
+        /* ===== CATALOG MODAL ===== */
+        .catalog-modal .modal{max-width:700px}
+        .catalog-tabs{display:flex;border-bottom:2px solid var(--g300);margin-bottom:1rem}
+        .catalog-tab{padding:.6rem 1rem;border:none;background:transparent;font-family:var(--font-title);font-size:.75rem;color:var(--g500);cursor:pointer;transition:all var(--tr);text-transform:uppercase}
+        .catalog-tab:hover{color:var(--g700)}
+        .catalog-tab.active{color:var(--pri);border-bottom:2px solid var(--pri);margin-bottom:-2px}
+        .catalog-tab i{margin-right:.3rem}
+        
+        .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:1rem;max-height:400px;overflow-y:auto;padding:.5rem}
+        .catalog-item{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:4px;border:2px solid var(--g300);padding:.75rem;cursor:pointer;transition:all var(--tr);text-align:center}
+        .catalog-item:hover{border-color:var(--g500);transform:translateY(-2px);box-shadow:var(--sh)}
+        .catalog-item.selected{border-color:var(--pri);background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%)}
+        .catalog-item.locked{opacity:.5;cursor:not-allowed}
+        .catalog-item-preview{height:60px;display:flex;align-items:center;justify-content:center;margin-bottom:.5rem}
+        .catalog-item-preview svg{max-height:100%;max-width:100%}
+        .catalog-item-name{font-size:.7rem;color:var(--g700);font-weight:600}
+        .catalog-item-price{font-size:.65rem;color:var(--sec-d);font-family:var(--font-title);margin-top:.2rem}
+        .catalog-item-badge{position:absolute;top:.25rem;right:.25rem;background:var(--sec);color:var(--g900);font-size:.5rem;padding:.1rem .3rem;border-radius:2px;font-family:var(--font-title)}
+        
+        .catalog-filter{display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap}
+        .catalog-filter-btn{padding:.4rem .8rem;border:1px solid var(--g300);border-radius:3px;background:var(--w);font-size:.7rem;cursor:pointer;transition:all var(--tr);font-family:var(--font-body)}
+        .catalog-filter-btn:hover{border-color:var(--g500)}
+        .catalog-filter-btn.active{background:var(--pri);color:var(--w);border-color:var(--pri)}
+        
+        @media(max-width:768px){
+            .kit-customizer{grid-template-columns:1fr}
+            .kit-preview-section{order:-1}
+            .team-header-content{flex-direction:column;align-items:center;text-align:center}
+            .team-header-info h2{font-size:1.2rem}
+            .team-header-stats{justify-content:center}
+        }
+        
         @media(max-width:640px){
             .auth-form{padding:1.25rem 1.5rem 1.5rem}
             nav{padding:.75rem 1rem}
@@ -472,6 +605,10 @@
             .add-player-form{grid-template-columns:1fr;gap:.75rem}
             .roster-summary{grid-template-columns:repeat(2,1fr)}
             .team-card-stats{grid-template-columns:repeat(2,1fr)}
+            .team-tabs{flex-wrap:wrap}
+            .team-tab{flex:1 1 45%;font-size:.7rem;padding:.7rem .5rem}
+            .pattern-grid{grid-template-columns:repeat(3,1fr)}
+            .style-grid{grid-template-columns:repeat(2,1fr)}
         }
     </style>
 </head>
@@ -586,7 +723,6 @@
                         <div class="card" onclick="showSection('profile')"><div class="card-header"><h3><i class="fas fa-id-card"></i> Scheda Allenatore</h3></div><div class="card-body"><p>Modifica il tuo profilo allenatore, il nickname e la tua foto.</p></div></div>
                     </div>
                     
-                    <!-- Teams Section -->
                     <div class="teams-section">
                         <div class="teams-section-header">
                             <h2><i class="fas fa-shield-alt"></i> Le tue Squadre</h2>
@@ -697,28 +833,41 @@
 
                 <section id="section-team" class="section hidden">
                     <div class="section-header">
-                        <div class="section-header-text"><h1 id="team-detail-title"><i class="fas fa-shield-alt"></i> Nome Squadra</h1><p>Gestisci la tua rosa</p></div>
+                        <div class="section-header-text"><h1 id="team-detail-title"><i class="fas fa-shield-alt"></i> Nome Squadra</h1><p>Gestisci la tua rosa e personalizza la tua squadra</p></div>
                         <button class="btn btn-secondary" onclick="showSection('myteams')"><i class="fas fa-arrow-left"></i> Torna alle Squadre</button>
                     </div>
                     <div class="team-container">
                         <div class="team-detail-card">
-                            <div class="team-detail-header">
-                                <div class="team-detail-top">
-                                    <div class="team-avatar-container">
-                                        <div class="team-avatar" id="team-avatar-large">S</div>
-                                        <label class="team-avatar-edit" title="Cambia stemma"><i class="fas fa-camera"></i><input type="file" id="team-avatar-upload" accept="image/*"></label>
+                            <!-- New Team Header with Kit Preview -->
+                            <div class="team-detail-header" id="team-header-styled">
+                                <div class="team-header-bg" id="team-header-bg"></div>
+                                <div class="team-header-content">
+                                    <div class="team-kit-showcase">
+                                        <div class="team-kit-large" id="team-kit-preview"></div>
+                                        <button class="team-kit-edit-btn" onclick="switchToKitTab()"><i class="fas fa-palette"></i> Personalizza</button>
                                     </div>
-                                    <div class="team-detail-info">
-                                        <h2 id="team-name-display">Nome Squadra</h2>
-                                        <div id="team-league-badge" class="league-badge"><i class="fas fa-trophy"></i> <span>Nessuna lega</span></div>
+                                    <div class="team-header-info">
+                                        <h2 id="team-name-header">Nome Squadra</h2>
+                                        <div class="team-header-motto" id="team-motto-display">Il motto della tua squadra</div>
+                                        <div id="team-league-badge-header" class="league-badge"><i class="fas fa-trophy"></i> <span>Nessuna lega</span></div>
+                                        <div class="team-header-stats">
+                                            <div class="team-header-stat"><div class="team-header-stat-value" id="team-stat-players">0</div><div class="team-header-stat-label">Giocatori</div></div>
+                                            <div class="team-header-stat"><div class="team-header-stat-value" id="team-stat-budget">500</div><div class="team-header-stat-label">Crediti</div></div>
+                                            <div class="team-header-stat"><div class="team-header-stat-value" id="team-stat-value">0</div><div class="team-header-stat-label">Valore</div></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="team-stats">
-                                    <div class="team-stat"><div class="team-stat-value" id="team-players-count">0</div><div class="team-stat-label"><i class="fas fa-users"></i> Giocatori</div></div>
-                                    <div class="team-stat"><div class="team-stat-value" id="team-budget-display">500</div><div class="team-stat-label"><i class="fas fa-coins"></i> Crediti</div></div>
                                 </div>
                             </div>
-                            <div class="team-detail-body">
+                            
+                            <!-- Team Tabs Navigation -->
+                            <div class="team-tabs">
+                                <button class="team-tab active" data-team-tab="roster"><i class="fas fa-tshirt"></i> Rosa<span class="team-tab-badge" id="roster-badge">0</span></button>
+                                <button class="team-tab" data-team-tab="kit"><i class="fas fa-palette"></i> Divisa</button>
+                                <button class="team-tab" data-team-tab="settings"><i class="fas fa-cog"></i> Impostazioni</button>
+                            </div>
+                            
+                            <!-- Tab: Rosa -->
+                            <div class="team-tab-content active" id="team-tab-roster">
                                 <!-- League Association -->
                                 <div class="league-select-section" id="league-select-section">
                                     <h4><i class="fas fa-link"></i> Associa a una Lega</h4>
@@ -742,21 +891,9 @@
                                     <div class="roster-summary-item"><div class="role">Attaccanti</div><div class="count" id="count-A">0</div></div>
                                 </div>
                                 
-                                <!-- Team Settings -->
-                                <div class="team-section" id="team-settings-section">
-                                    <h3><i class="fas fa-cog"></i> Impostazioni Squadra</h3>
-                                    <div class="settings-item">
-                                        <div class="settings-item-info">
-                                            <strong><i class="fas fa-signature"></i> Nome Squadra</strong>
-                                            <p id="team-settings-name">Nome</p>
-                                        </div>
-                                        <button class="btn btn-secondary btn-sm" onclick="openEditTeamModal()"><i class="fas fa-edit"></i> Modifica</button>
-                                    </div>
-                                </div>
-                                
                                 <!-- Players List -->
                                 <div class="team-section">
-                                    <h3><i class="fas fa-tshirt"></i> Rosa (<span id="players-count-label">0</span>)</h3>
+                                    <h3><i class="fas fa-users"></i> Rosa (<span id="players-count-label">0</span>)</h3>
                                     <div class="player-list" id="team-players-list"></div>
                                     
                                     <!-- Add Player Form -->
@@ -788,9 +925,115 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            
+                            <!-- Tab: Kit Customization -->
+                            <div class="team-tab-content" id="team-tab-kit">
+                                <div class="kit-customizer">
+                                    <div class="kit-preview-section">
+                                        <div class="kit-preview-container">
+                                            <div class="kit-preview-3d" id="kit-preview-large"></div>
+                                            <span class="kit-preview-label">Anteprima Divisa</span>
+                                        </div>
+                                        <div class="kit-preset-section">
+                                            <h5>Kit Rapidi</h5>
+                                            <div class="kit-presets-grid" id="kit-presets"></div>
+                                        </div>
+                                    </div>
+                                    <div class="kit-options-section">
+                                        <div class="kit-option-group">
+                                            <h4><i class="fas fa-fill-drip"></i> Colori</h4>
+                                            <div class="color-picker-row">
+                                                <span class="color-picker-label">Primario</span>
+                                                <div class="color-picker-input">
+                                                    <input type="color" id="kit-color-primary" value="#1a5f2a">
+                                                    <span class="color-hex" id="hex-primary">#1a5f2a</span>
+                                                </div>
+                                            </div>
+                                            <div class="color-picker-row">
+                                                <span class="color-picker-label">Secondario</span>
+                                                <div class="color-picker-input">
+                                                    <input type="color" id="kit-color-secondary" value="#ffffff">
+                                                    <span class="color-hex" id="hex-secondary">#ffffff</span>
+                                                </div>
+                                            </div>
+                                            <div class="color-picker-row">
+                                                <span class="color-picker-label">Dettagli</span>
+                                                <div class="color-picker-input">
+                                                    <input type="color" id="kit-color-accent" value="#c9a227">
+                                                    <span class="color-hex" id="hex-accent">#c9a227</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="kit-option-group">
+                                            <h4><i class="fas fa-th"></i> Pattern</h4>
+                                            <div class="pattern-grid" id="pattern-grid"></div>
+                                        </div>
+                                        
+                                        <div class="kit-option-group">
+                                            <h4><i class="fas fa-ruler-combined"></i> Stile Colletto</h4>
+                                            <div class="style-grid" id="collar-grid"></div>
+                                        </div>
+                                        
+                                        <button class="btn btn-primary btn-full" onclick="saveKitCustomization()"><i class="fas fa-save"></i> Salva Divisa</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab: Settings -->
+                            <div class="team-tab-content" id="team-tab-settings">
+                                <div class="team-settings-grid">
+                                    <div class="team-setting-card">
+                                        <h4><i class="fas fa-info-circle"></i> Informazioni Squadra</h4>
+                                        <div class="team-info-field">
+                                            <label>Nome Squadra</label>
+                                            <input type="text" id="settings-team-name" placeholder="Nome della tua squadra">
+                                        </div>
+                                        <div class="team-info-field">
+                                            <label>Motto / Slogan</label>
+                                            <input type="text" id="settings-team-motto" placeholder="Es. Vincere non è importante..." maxlength="60">
+                                        </div>
+                                        <div class="team-info-field">
+                                            <label>Stadio</label>
+                                            <input type="text" id="settings-team-stadium" placeholder="Es. Arena Fantacalcio" maxlength="40">
+                                        </div>
+                                        <button class="btn btn-primary" onclick="saveTeamSettings()" style="margin-top:.75rem"><i class="fas fa-save"></i> Salva Info</button>
+                                    </div>
+                                    
+                                    <div class="team-setting-card">
+                                        <h4><i class="fas fa-calendar-alt"></i> Dettagli</h4>
+                                        <div class="team-founded-display">
+                                            <i class="fas fa-flag-checkered"></i>
+                                            <div>
+                                                <div class="date" id="team-founded-date">-</div>
+                                                <div class="label">Data Fondazione</div>
+                                            </div>
+                                        </div>
+                                        <div class="team-info-field" style="margin-top:1rem">
+                                            <label>Lega Associata</label>
+                                            <select id="settings-team-league">
+                                                <option value="">-- Nessuna lega --</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-secondary btn-sm" onclick="updateTeamLeague()" style="margin-top:.5rem"><i class="fas fa-link"></i> Aggiorna Lega</button>
+                                    </div>
+                                    
+                                    <div class="team-setting-card">
+                                        <h4><i class="fas fa-image"></i> Stemma Squadra</h4>
+                                        <div style="text-align:center;padding:1rem">
+                                            <div class="team-avatar" id="settings-team-avatar" style="width:80px;height:80px;margin:0 auto 1rem;font-size:2rem">S</div>
+                                            <label class="btn btn-secondary btn-sm">
+                                                <i class="fas fa-camera"></i> Carica Stemma
+                                                <input type="file" id="settings-avatar-upload" accept="image/*" style="display:none">
+                                            </label>
+                                            <p style="font-size:.7rem;color:var(--g400);margin-top:.5rem">JPG, PNG. Max 2MB</p>
+                                        </div>
+                                    </div>
+                                </div>
                                 
                                 <!-- Danger Zone -->
-                                <div class="danger-zone">
+                                <div class="danger-zone" style="margin-top:1.5rem">
                                     <h3><i class="fas fa-exclamation-triangle"></i> Zona Pericolosa</h3>
                                     <p>Elimina definitivamente questa squadra e tutti i suoi giocatori.</p>
                                     <button type="button" class="btn btn-danger" id="btn-delete-team"><i class="fas fa-trash"></i> Elimina squadra</button>
@@ -825,7 +1068,6 @@
                                 </div>
                             </div>
                             <div class="league-detail-body">
-                                <!-- League Teams -->
                                 <div class="league-section">
                                     <h3><i class="fas fa-shield-alt"></i> Squadre in Lega (<span id="league-teams-count-label">0</span>)</h3>
                                     <div id="league-teams-list"></div>
@@ -942,7 +1184,6 @@
             </div>
         </div>
 
-        <!-- Create Team Modal -->
         <div class="modal-overlay create-team-modal" id="create-team-modal">
             <div class="modal">
                 <div class="modal-header"><h3><i class="fas fa-shield-alt"></i> Crea una Nuova Squadra</h3></div>
@@ -965,7 +1206,6 @@
             </div>
         </div>
 
-        <!-- Edit Team Modal -->
         <div class="modal-overlay" id="edit-team-modal">
             <div class="modal">
                 <div class="modal-header"><h3><i class="fas fa-edit"></i> Modifica Squadra</h3></div>
@@ -988,6 +1228,53 @@ const genCode=()=>{const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let r='';for(let i
 const initials=n=>n.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
 const fmtDate=d=>{const now=new Date(),diff=now-new Date(d),m=Math.floor(diff/6e4),h=Math.floor(diff/36e5),dy=Math.floor(diff/864e5);return m<1?'Ora':m<60?m+'m fa':h<24?h+'h fa':dy<7?dy+'g fa':new Date(d).toLocaleDateString('it-IT',{day:'numeric',month:'short'})};
 const copy=t=>navigator.clipboard?.writeText(t)||Promise.resolve();
+
+// Kit Catalog Data
+const KIT_PATTERNS = [
+    {id:'solid',name:'Tinta Unita',svg:(c1,c2)=>`<rect width="100%" height="100%" fill="${c1}"/>`},
+    {id:'stripes-v',name:'Righe Verticali',svg:(c1,c2)=>`<rect width="100%" height="100%" fill="${c1}"/><rect x="20%" width="20%" height="100%" fill="${c2}"/><rect x="60%" width="20%" height="100%" fill="${c2}"/>`},
+    {id:'stripes-h',name:'Righe Orizzontali',svg:(c1,c2)=>`<rect width="100%" height="100%" fill="${c1}"/><rect y="20%" width="100%" height="20%" fill="${c2}"/><rect y="60%" width="100%" height="20%" fill="${c2}"/>`},
+    {id:'half-v',name:'Metà Verticale',svg:(c1,c2)=>`<rect width="50%" height="100%" fill="${c1}"/><rect x="50%" width="50%" height="100%" fill="${c2}"/>`},
+    {id:'half-h',name:'Metà Orizzontale',svg:(c1,c2)=>`<rect width="100%" height="50%" fill="${c1}"/><rect y="50%" width="100%" height="50%" fill="${c2}"/>`},
+    {id:'diagonal',name:'Diagonale',svg:(c1,c2)=>`<rect width="100%" height="100%" fill="${c1}"/><polygon points="0,0 100,0 100,100" fill="${c2}"/>`},
+    {id:'chest-band',name:'Fascia Petto',svg:(c1,c2)=>`<rect width="100%" height="100%" fill="${c1}"/><rect y="35%" width="100%" height="30%" fill="${c2}"/>`},
+    {id:'checkered',name:'Scacchi',svg:(c1,c2)=>`<rect width="100%" height="100%" fill="${c1}"/><rect width="50%" height="50%" fill="${c2}"/><rect x="50%" y="50%" width="50%" height="50%" fill="${c2}"/>`}
+];
+
+const KIT_COLLARS = [
+    {id:'round',name:'Tondo',icon:'circle'},
+    {id:'v-neck',name:'Scollo V',icon:'sort-up'},
+    {id:'polo',name:'Polo',icon:'tshirt'}
+];
+
+const KIT_PRESETS = [
+    {name:'Classico',primary:'#1a5f2a',secondary:'#ffffff',accent:'#c9a227',pattern:'solid'},
+    {name:'Rossonero',primary:'#c62828',secondary:'#1a1a1a',accent:'#ffffff',pattern:'stripes-v'},
+    {name:'Bianconero',primary:'#ffffff',secondary:'#1a1a1a',accent:'#ffd700',pattern:'stripes-v'},
+    {name:'Azzurro',primary:'#1976d2',secondary:'#ffffff',accent:'#ffeb3b',pattern:'solid'},
+    {name:'Giallorosso',primary:'#c62828',secondary:'#ff9800',accent:'#ffffff',pattern:'half-v'},
+    {name:'Viola',primary:'#7b1fa2',secondary:'#ffffff',accent:'#e1bee7',pattern:'solid'},
+    {name:'Nerazzurro',primary:'#1a1a1a',secondary:'#1976d2',accent:'#ffd700',pattern:'stripes-v'},
+    {name:'Granata',primary:'#6d1b1b',secondary:'#ffffff',accent:'#c9a227',pattern:'solid'}
+];
+
+function generateKitSVG(kit,size=100){
+    const pattern=KIT_PATTERNS.find(p=>p.id===kit.pattern)||KIT_PATTERNS[0];
+    const patternSVG=pattern.svg(kit.primary,kit.secondary);
+    return`<svg viewBox="0 0 100 120" width="${size}" height="${size*1.2}">
+        <defs>
+            <clipPath id="shirt-clip">
+                <path d="M15,25 L5,35 L5,50 L20,50 L20,115 L80,115 L80,50 L95,50 L95,35 L85,25 L70,25 C70,35 60,45 50,45 C40,45 30,35 30,25 Z"/>
+            </clipPath>
+        </defs>
+        <g clip-path="url(#shirt-clip)">
+            ${patternSVG}
+        </g>
+        <path d="M15,25 L5,35 L5,50 L20,50 L20,115 L80,115 L80,50 L95,50 L95,35 L85,25 L70,25 C70,35 60,45 50,45 C40,45 30,35 30,25 Z" 
+              fill="none" stroke="${kit.accent}" stroke-width="2"/>
+        <path d="M30,25 C30,35 40,45 50,45 C60,45 70,35 70,25" fill="none" stroke="${kit.accent}" stroke-width="2"/>
+    </svg>`;
+}
 
 function toast(title,msg='',type='info'){
     const icons={success:'check-circle',error:'times-circle',info:'info-circle'};
@@ -1068,7 +1355,8 @@ const DB={
         const id='t_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
         const g=data.leagueId?DB.getGroupById(data.leagueId):null;
         const budget=g?g.budget||500:500;
-        const team={id,name:data.name.trim(),avatar:data.avatar||null,owner:u.id,leagueId:data.leagueId||null,players:[],budget:budget,budgetUsed:0,createdAt:new Date().toISOString()};
+        const defaultKit={primary:'#1a5f2a',secondary:'#ffffff',accent:'#c9a227',pattern:'solid',collar:'round'};
+        const team={id,name:data.name.trim(),avatar:data.avatar||null,owner:u.id,leagueId:data.leagueId||null,players:[],budget:budget,budgetUsed:0,kit:defaultKit,motto:'',stadium:'',createdAt:new Date().toISOString()};
         teams[id]=team;DB.saveTeams(teams);
         u.teams=u.teams||[];u.teams.push(id);DB.saveUsers(users);
         return{success:true,teamId:id};
@@ -1198,9 +1486,136 @@ const DB={
 
 let currentSection='home',currentGroupId=null,currentTeamId=null,openMenuId=null,returnToGroupId=null,lastGroupVersion={},pollingInterval=null,newGroupAvatarData=null,newTeamAvatarData=null;
 
+// Current kit editing state
+let currentKit={primary:'#1a5f2a',secondary:'#ffffff',accent:'#c9a227',pattern:'solid',collar:'round'};
+
 setInterval(()=>{const now=new Date();$('current-time')&&($('current-time').textContent=now.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'}))},1e3);
 
 const avatar=(u,size=44)=>`<div class="friend-avatar" style="width:${size}px;height:${size}px;font-size:${size*.021}rem">${u.avatar?`<img src="${u.avatar}" alt="${u.name}">`:(initials(u.name))}</div>`;
+
+function initKitCustomizer(){
+    // Render patterns
+    const patternGrid=$('pattern-grid');
+    if(patternGrid){
+        patternGrid.innerHTML=KIT_PATTERNS.map(p=>`
+            <div class="pattern-item${currentKit.pattern===p.id?' selected':''}" data-pattern="${p.id}" onclick="selectPattern('${p.id}')">
+                <svg viewBox="0 0 50 50">${p.svg('#1a5f2a','#ffffff')}</svg>
+                <span class="pattern-item-label">${p.name}</span>
+            </div>
+        `).join('');
+    }
+    
+    // Render collars
+    const collarGrid=$('collar-grid');
+    if(collarGrid){
+        collarGrid.innerHTML=KIT_COLLARS.map(c=>`
+            <div class="style-item${currentKit.collar===c.id?' selected':''}" data-collar="${c.id}" onclick="selectCollar('${c.id}')">
+                <i class="fas fa-${c.icon}"></i>
+                <span>${c.name}</span>
+            </div>
+        `).join('');
+    }
+    
+    // Render presets
+    const presetsGrid=$('kit-presets');
+    if(presetsGrid){
+        presetsGrid.innerHTML=KIT_PRESETS.map((p,i)=>`
+            <div class="kit-preset" title="${p.name}" onclick="applyPreset(${i})">
+                ${generateKitSVG({...p,collar:'round'},40)}
+            </div>
+        `).join('');
+    }
+    
+    // Color picker events
+    ['primary','secondary','accent'].forEach(c=>{
+        const input=$(`kit-color-${c}`);
+        if(input){
+            input.value=currentKit[c];
+            input.oninput=e=>{
+                currentKit[c]=e.target.value;
+                $(`hex-${c}`).textContent=e.target.value;
+                updateKitPreview();
+            };
+        }
+    });
+    
+    updateKitPreview();
+}
+
+window.selectPattern=id=>{
+    currentKit.pattern=id;
+    $$('.pattern-item').forEach(p=>p.classList.toggle('selected',p.dataset.pattern===id));
+    updateKitPreview();
+};
+
+window.selectCollar=id=>{
+    currentKit.collar=id;
+    $$('.style-item[data-collar]').forEach(c=>c.classList.toggle('selected',c.dataset.collar===id));
+    updateKitPreview();
+};
+
+window.applyPreset=index=>{
+    const preset=KIT_PRESETS[index];
+    currentKit={...currentKit,...preset};
+    ['primary','secondary','accent'].forEach(c=>{
+        const input=$(`kit-color-${c}`);
+        if(input){
+            input.value=currentKit[c];
+            $(`hex-${c}`).textContent=currentKit[c];
+        }
+    });
+    $$('.pattern-item').forEach(p=>p.classList.toggle('selected',p.dataset.pattern===currentKit.pattern));
+    updateKitPreview();
+    toast('Preset applicato!',preset.name,'success');
+};
+
+function updateKitPreview(){
+    const preview=$('kit-preview-large');
+    if(preview)preview.innerHTML=generateKitSVG(currentKit,160);
+    
+    const smallPreview=$('team-kit-preview');
+    if(smallPreview)smallPreview.innerHTML=generateKitSVG(currentKit,100);
+    
+    // Update header background
+    const headerBg=$('team-header-bg');
+    if(headerBg){
+        headerBg.style.background=`linear-gradient(135deg,${currentKit.primary} 0%,${currentKit.secondary} 100%)`;
+    }
+    const header=$('team-header-styled');
+    if(header){
+        header.style.background=`linear-gradient(135deg,${currentKit.primary} 0%,${adjustColor(currentKit.primary,-30)} 100%)`;
+    }
+}
+
+function adjustColor(hex,percent){
+    const num=parseInt(hex.replace('#',''),16);
+    const amt=Math.round(2.55*percent);
+    const R=Math.max(0,Math.min(255,(num>>16)+amt));
+    const G=Math.max(0,Math.min(255,((num>>8)&0x00FF)+amt));
+    const B=Math.max(0,Math.min(255,(num&0x0000FF)+amt));
+    return'#'+((1<<24)+(R<<16)+(G<<8)+B).toString(16).slice(1);
+}
+
+window.saveKitCustomization=()=>{
+    if(!currentTeamId)return;
+    DB.updateTeam(currentTeamId,{kit:currentKit});
+    toast('Divisa salvata!','La nuova divisa è stata applicata','success');
+    renderTeams();renderTeams('my-teams-list');
+};
+
+window.switchToKitTab=()=>{
+    $$('.team-tab').forEach(t=>t.classList.toggle('active',t.dataset.teamTab==='kit'));
+    $$('.team-tab-content').forEach(c=>c.classList.toggle('active',c.id==='team-tab-kit'));
+};
+
+// Team tabs
+$$('.team-tab').forEach(tab=>{
+    tab.onclick=()=>{
+        const tabId=tab.dataset.teamTab;
+        $$('.team-tab').forEach(t=>t.classList.toggle('active',t.dataset.teamTab===tabId));
+        $$('.team-tab-content').forEach(c=>c.classList.toggle('active',c.id===`team-tab-${tabId}`));
+    };
+});
 
 function renderFriends(){
     const u=DB.currentUser();if(!u)return;DB.cleanupUserFriends(u.email);const fresh=DB.currentUser();
@@ -1224,7 +1639,25 @@ function renderTeams(containerId='teams-list'){
         const g=t.leagueId?DB.getGroupById(t.leagueId):null;
         const pCount=t.players.length;
         const roles={P:0,D:0,C:0,A:0};t.players.forEach(p=>roles[p.role]++);
-        return`<div class="team-card" onclick="showTeam('${t.id}')"><div class="team-card-header"><div class="team-card-avatar">${t.avatar?`<img src="${t.avatar}">`:(initials(t.name))}</div><div class="team-card-info"><h3>${t.name}</h3><p>${pCount} giocatori</p></div></div><div class="team-card-body"><div class="team-card-stats"><div class="team-card-stat"><div class="team-card-stat-value">${roles.P}</div><div class="team-card-stat-label">Por</div></div><div class="team-card-stat"><div class="team-card-stat-value">${roles.D}</div><div class="team-card-stat-label">Dif</div></div><div class="team-card-stat"><div class="team-card-stat-value">${roles.C}</div><div class="team-card-stat-label">Cen</div></div><div class="team-card-stat"><div class="team-card-stat-value">${roles.A}</div><div class="team-card-stat-label">Att</div></div></div>${g?`<div class="team-card-league"><i class="fas fa-trophy"></i> ${g.name}</div>`:`<div class="team-card-league" style="color:var(--g400)"><i class="fas fa-unlink"></i> Nessuna lega</div>`}</div></div>`}).join('')}</div>`:`<div class="no-teams"><div class="no-teams-icon"><i class="fas fa-shield-alt"></i></div><h3>Nessuna squadra ancora</h3><p>Crea la tua prima squadra per iniziare a competere nelle leghe!</p><button class="btn btn-primary" onclick="openCreateTeamModal()"><i class="fas fa-plus"></i> Crea la tua prima squadra</button></div>`;
+        const kit=t.kit||{primary:'#1a5f2a',secondary:'#ffffff',accent:'#c9a227',pattern:'solid'};
+        return`<div class="team-card" onclick="showTeam('${t.id}')">
+            <div class="team-card-header-custom" style="background:linear-gradient(135deg,${kit.primary} 0%,${adjustColor(kit.primary,-30)} 100%)">
+                <div class="team-card-kit-preview">${generateKitSVG(kit,50)}</div>
+                <div class="team-card-info-custom">
+                    <h3>${t.name}</h3>
+                    <p>${pCount} giocatori${t.motto?` • ${t.motto}`:''}</p>
+                </div>
+            </div>
+            <div class="team-card-body">
+                <div class="team-card-stats">
+                    <div class="team-card-stat"><div class="team-card-stat-value">${roles.P}</div><div class="team-card-stat-label">Por</div></div>
+                    <div class="team-card-stat"><div class="team-card-stat-value">${roles.D}</div><div class="team-card-stat-label">Dif</div></div>
+                    <div class="team-card-stat"><div class="team-card-stat-value">${roles.C}</div><div class="team-card-stat-label">Cen</div></div>
+                    <div class="team-card-stat"><div class="team-card-stat-value">${roles.A}</div><div class="team-card-stat-label">Att</div></div>
+                </div>
+                ${g?`<div class="team-card-league"><i class="fas fa-trophy"></i> ${g.name}</div>`:`<div class="team-card-league" style="color:var(--g400)"><i class="fas fa-unlink"></i> Nessuna lega</div>`}
+            </div>
+        </div>`}).join('')}</div>`:`<div class="no-teams"><div class="no-teams-icon"><i class="fas fa-shield-alt"></i></div><h3>Nessuna squadra ancora</h3><p>Crea la tua prima squadra per iniziare a competere nelle leghe!</p><button class="btn btn-primary" onclick="openCreateTeamModal()"><i class="fas fa-plus"></i> Crea la tua prima squadra</button></div>`;
 }
 
 function renderGroups(){
@@ -1341,34 +1774,103 @@ window.showTeam=tId=>{
     currentTeamId=tId;
     const u=DB.currentUser();
     const g=t.leagueId?DB.getGroupById(t.leagueId):null;
+    const kit=t.kit||{primary:'#1a5f2a',secondary:'#ffffff',accent:'#c9a227',pattern:'solid',collar:'round'};
+    currentKit={...kit};
     
+    // Header
     $('team-detail-title').innerHTML=`<i class="fas fa-shield-alt"></i> ${t.name}`;
-    $('team-name-display').textContent=t.name;
-    $('team-avatar-large').innerHTML=t.avatar?`<img src="${t.avatar}">`:(initials(t.name));
-    $('team-players-count').textContent=t.players.length;
-    $('players-count-label').textContent=t.players.length;
-    $('team-budget-display').textContent=t.budget-t.budgetUsed;
-    $('team-budget-remaining').textContent=t.budget-t.budgetUsed;
-    $('team-settings-name').textContent=t.name;
+    $('team-name-header').textContent=t.name;
+    $('team-motto-display').textContent=t.motto||'Crea il tuo motto nelle impostazioni';
+    
+    // Update header styling with kit colors
+    const header=$('team-header-styled');
+    if(header)header.style.background=`linear-gradient(135deg,${kit.primary} 0%,${adjustColor(kit.primary,-30)} 100%)`;
+    
+    // Kit preview
+    $('team-kit-preview').innerHTML=generateKitSVG(kit,100);
     
     if(g){
-        $('team-league-badge').innerHTML=`<i class="fas fa-trophy"></i> <span>${g.name}</span>`;
-        $('team-league-badge').className='league-badge linked';
+        $('team-league-badge-header').innerHTML=`<i class="fas fa-trophy"></i> <span>${g.name}</span>`;
+        $('team-league-badge-header').className='league-badge linked';
     }else{
-        $('team-league-badge').innerHTML=`<i class="fas fa-unlink"></i> <span>Nessuna lega</span>`;
-        $('team-league-badge').className='league-badge';
+        $('team-league-badge-header').innerHTML=`<i class="fas fa-unlink"></i> <span>Nessuna lega</span>`;
+        $('team-league-badge-header').className='league-badge';
     }
     
+    // Stats
+    $('team-stat-players').textContent=t.players.length;
+    $('team-stat-budget').textContent=t.budget-t.budgetUsed;
+    $('team-stat-value').textContent=t.budgetUsed;
+    $('players-count-label').textContent=t.players.length;
+    $('roster-badge').textContent=t.players.length;
+    $('team-budget-remaining').textContent=t.budget-t.budgetUsed;
+    
+    // League select
     const groups=DB.getUserGroups(u.id);
     $('team-league-select').innerHTML='<option value="">-- Nessuna lega --</option>'+groups.map(grp=>`<option value="${grp.id}"${t.leagueId===grp.id?' selected':''}>${grp.name}</option>`).join('');
     
+    // Roster summary
     const roles={P:0,D:0,C:0,A:0};
     t.players.forEach(p=>roles[p.role]++);
     ['P','D','C','A'].forEach(r=>$('count-'+r).textContent=roles[r]);
     
+    // Players list
     $('team-players-list').innerHTML=t.players.length?t.players.map(p=>`<div class="player-item"><div class="player-info"><div class="player-role-badge ${p.role}">${p.role}</div><div class="player-details"><div class="player-name">${p.name}</div><div class="player-team">${p.team}</div></div></div><div class="player-price">${p.price} cr</div><div class="player-actions"><button class="btn btn-danger btn-sm btn-icon" onclick="removePlayer('${p.id}')" title="Rimuovi"><i class="fas fa-times"></i></button></div></div>`).join(''):`<div class="no-items"><div class="no-items-icon"><i class="fas fa-tshirt"></i></div><p>Nessun giocatore nella rosa</p><small>Usa il form qui sotto per aggiungere giocatori</small></div>`;
     
+    // Settings tab
+    $('settings-team-name').value=t.name;
+    $('settings-team-motto').value=t.motto||'';
+    $('settings-team-stadium').value=t.stadium||'';
+    $('team-founded-date').textContent=new Date(t.createdAt).toLocaleDateString('it-IT',{day:'numeric',month:'long',year:'numeric'});
+    $('settings-team-avatar').innerHTML=t.avatar?`<img src="${t.avatar}">`:(initials(t.name));
+    
+    // Settings league select
+    $('settings-team-league').innerHTML='<option value="">-- Nessuna lega --</option>'+groups.map(grp=>`<option value="${grp.id}"${t.leagueId===grp.id?' selected':''}>${grp.name}</option>`).join('');
+    
+    // Reset to roster tab
+    $$('.team-tab').forEach(tab=>tab.classList.toggle('active',tab.dataset.teamTab==='roster'));
+    $$('.team-tab-content').forEach(c=>c.classList.toggle('active',c.id==='team-tab-roster'));
+    
+    // Init kit customizer
+    initKitCustomizer();
+    
     showSection('team');
+};
+
+window.saveTeamSettings=()=>{
+    const name=$('settings-team-name').value.trim();
+    const motto=$('settings-team-motto').value.trim();
+    const stadium=$('settings-team-stadium').value.trim();
+    
+    if(!name){toast('Errore','Il nome non può essere vuoto','error');return}
+    
+    DB.updateTeam(currentTeamId,{name,motto,stadium});
+    toast('Salvato!','Informazioni squadra aggiornate','success');
+    showTeam(currentTeamId);
+    renderTeams();renderTeams('my-teams-list');
+};
+
+window.updateTeamLeague=()=>{
+    const leagueId=$('settings-team-league').value||null;
+    const r=DB.associateTeamToLeague(currentTeamId,leagueId);
+    if(r.success){
+        toast('Lega aggiornata',r.message,'success');
+        showTeam(currentTeamId);
+        renderTeams();renderTeams('my-teams-list');
+    }else toast('Errore',r.message,'error');
+};
+
+$('settings-avatar-upload').onchange=function(){
+    const file=this.files[0];if(!file||!currentTeamId)return;
+    if(!file.type.startsWith('image/')){toast('Errore','Seleziona un\'immagine valida','error');return}
+    if(file.size>2*1024*1024){toast('Errore','L\'immagine deve essere inferiore a 2MB','error');return}
+    const r=new FileReader();r.onload=e=>{
+        const b64=e.target.result;
+        DB.updateTeam(currentTeamId,{avatar:b64});
+        $('settings-team-avatar').innerHTML=`<img src="${b64}">`;
+        renderTeams();renderTeams('my-teams-list');
+        toast('Stemma aggiornato!','Lo stemma della squadra è stato cambiato','success');
+    };r.readAsDataURL(file)
 };
 
 window.addPlayerToTeam=()=>{
@@ -1410,19 +1912,6 @@ window.associateTeamToLeague=()=>{
     }else toast('Errore',r.message,'error');
 };
 
-$('team-avatar-upload').onchange=function(){
-    const file=this.files[0];if(!file||!currentTeamId)return;
-    if(!file.type.startsWith('image/')){toast('Errore','Seleziona un\'immagine valida','error');return}
-    if(file.size>2*1024*1024){toast('Errore','L\'immagine deve essere inferiore a 2MB','error');return}
-    const r=new FileReader();r.onload=e=>{
-        const b64=e.target.result;
-        DB.updateTeam(currentTeamId,{avatar:b64});
-        $('team-avatar-large').innerHTML=`<img src="${b64}">`;
-        renderTeams();renderTeams('my-teams-list');
-        toast('Stemma aggiornato!','Lo stemma della squadra è stato cambiato','success');
-    };r.readAsDataURL(file)
-};
-
 $('btn-delete-team').onclick=()=>{
     const t=DB.getTeamById(currentTeamId);
     showModal('Elimina squadra',`Sei sicuro di voler eliminare "${t?.name}"? Questa azione è irreversibile.`,()=>{
@@ -1459,7 +1948,8 @@ window.showGroup=gId=>{
     $('league-teams-count-label').textContent=leagueTeams.length;
     $('league-teams-list').innerHTML=leagueTeams.length?leagueTeams.map(t=>{
         const owner=DB.getUserById(t.owner);
-        return`<div class="member-item" onclick="showTeam('${t.id}')"><div class="member-info"><div class="member-avatar" style="background:linear-gradient(135deg,#42a5f5 0%,#1976d2 100%);color:var(--w)">${t.avatar?`<img src="${t.avatar}">`:(initials(t.name))}</div><div><div class="member-name">${t.name}</div><div style="font-size:.7rem;color:var(--g500)"><i class="fas fa-user"></i> ${owner?.name||'Sconosciuto'} | <i class="fas fa-users"></i> ${t.players.length} giocatori</div></div></div></div>`;
+        const kit=t.kit||{primary:'#1a5f2a',secondary:'#ffffff',accent:'#c9a227',pattern:'solid'};
+        return`<div class="member-item" onclick="showTeam('${t.id}')"><div class="member-info"><div class="member-avatar" style="background:linear-gradient(135deg,${kit.primary} 0%,${adjustColor(kit.primary,-20)} 100%);border:none;padding:2px">${generateKitSVG(kit,34)}</div><div><div class="member-name">${t.name}</div><div style="font-size:.7rem;color:var(--g500)"><i class="fas fa-user"></i> ${owner?.name||'Sconosciuto'} | <i class="fas fa-users"></i> ${t.players.length} giocatori</div></div></div></div>`;
     }).join(''):`<div class="no-items"><div class="no-items-icon"><i class="fas fa-shield-alt"></i></div><p>Nessuna squadra in lega</p><small>I partecipanti possono associare le loro squadre a questa lega</small></div>`;
     
     const settingsSection=$('group-settings-section');
