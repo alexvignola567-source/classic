@@ -4,280 +4,309 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FantaLega Classic - Il Fantacalcio di una volta</title>
-    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap)" rel="stylesheet">
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tahoma&family=Trebuchet+MS&family=Russo+One&family=Bangers&display=swap)" rel="stylesheet">
     <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--pri:#1a5f2a;--pri-d:#0d4a1c;--pri-l:#2d8a42;--pri-s:#e8f5e9;--sec:#c9a227;--sec-d:#a68520;--sec-l:#e6c547;--ok:#2e7d32;--ok-l:#c8e6c9;--err:#c62828;--err-l:#ffcdd2;--warn:#f57f17;--warn-l:#fff9c4;--w:#fff;--g50:#fafafa;--g100:#f0f0f0;--g200:#e0e0e0;--g300:#bdbdbd;--g400:#9e9e9e;--g500:#757575;--g600:#616161;--g700:#424242;--g800:#2d2d2d;--g900:#1a1a1a;--r:6px;--sh:0 2px 4px rgba(0,0,0,.15);--sh-lg:0 8px 16px -2px rgba(0,0,0,.25);--sh-in:inset 0 2px 4px rgba(0,0,0,.1);--tr:150ms ease;--grad-h:linear-gradient(180deg,#1a5f2a,#0d4a1c);--grad-g:linear-gradient(180deg,#e6c547,#c9a227);--grad-f:linear-gradient(180deg,#2e7d32,#1b5e20)}
-        body{font-family:'Roboto Condensed',Arial,sans-serif;background:#e8e8e8 url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='[w3.org](http://www.w3.org/2000/svg)'%3E%3Cg fill='%23d0d0d0' fill-opacity='.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");color:var(--g900);line-height:1.5;min-height:100vh}
+        :root{--pri:#1a5f2a;--pri-d:#0d4a1c;--pri-l:#2d8a42;--pri-s:#e8f5e9;--sec:#c9a227;--sec-d:#a68520;--sec-l:#e6c547;--ok:#2e7d32;--ok-l:#c8e6c9;--err:#c62828;--err-l:#ffcdd2;--warn:#f57f17;--warn-l:#fff9c4;--w:#fff;--g50:#fafafa;--g100:#f0f0f0;--g200:#e0e0e0;--g300:#bdbdbd;--g400:#9e9e9e;--g500:#757575;--g600:#616161;--g700:#424242;--g800:#2d2d2d;--g900:#1a1a1a;--r:4px;--sh:0 2px 4px rgba(0,0,0,.2);--sh-lg:0 8px 16px -2px rgba(0,0,0,.3);--sh-in:inset 0 2px 4px rgba(0,0,0,.15);--tr:150ms ease;--grad-h:linear-gradient(180deg,#1a5f2a,#0d4a1c);--grad-g:linear-gradient(180deg,#e6c547,#c9a227);--grad-f:linear-gradient(180deg,#2e7d32,#1b5e20);--font-title:'Russo One','Trebuchet MS',Impact,sans-serif;--font-body:Tahoma,Verdana,Geneva,sans-serif;--font-accent:'Bangers','Trebuchet MS',cursive}
+        body{font-family:var(--font-body);background:#d8d8d8 url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='[w3.org](http://www.w3.org/2000/svg)'%3E%3Cg fill='%23c0c0c0' fill-opacity='.5'%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3C/g%3E%3C/svg%3E");color:var(--g900);line-height:1.5;min-height:100vh;font-size:13px}
         .hidden{display:none!important}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
         @keyframes slideIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
         .animate-fade{animation:fadeIn .25s ease-out}.animate-slide{animation:slideIn .25s ease-out}
-        .retro-panel{background:var(--w);border:2px solid var(--g300);border-radius:var(--r);box-shadow:var(--sh),var(--sh-in)}
-        .retro-panel-header{background:var(--grad-h);color:var(--w);padding:.75rem 1rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:1rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--sec);border-radius:var(--r) var(--r) 0 0;display:flex;align-items:center;gap:.5rem}
+        .retro-panel{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border:2px solid var(--g400);border-radius:var(--r);box-shadow:var(--sh),inset 0 1px 0 #fff}
+        .retro-panel-header{background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 50%,#0d4a1c 100%);color:var(--w);padding:.6rem 1rem;font-family:var(--font-title);font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;border-bottom:3px solid var(--sec);border-radius:var(--r) var(--r) 0 0;display:flex;align-items:center;gap:.5rem;text-shadow:1px 1px 2px rgba(0,0,0,.5)}
         .retro-panel-body{padding:1.25rem}
-        #auth-container{display:flex;align-items:center;justify-content:center;background:var(--grad-f);padding:1.5rem;min-height:100vh}
-        .auth-box{background:var(--w);border:3px solid var(--sec);border-radius:8px;box-shadow:var(--sh-lg),0 0 0 4px rgba(0,0,0,.1);width:100%;max-width:400px;overflow:hidden}
-        .auth-logo{text-align:center;padding:2rem 2rem 1.5rem;background:var(--grad-h);border-bottom:3px solid var(--sec)}
-        .auth-logo-icon{width:70px;height:70px;background:var(--grad-g);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:2rem;color:var(--pri-d);border:3px solid var(--w);box-shadow:var(--sh)}
-        .auth-logo h1{font-family:'Oswald',sans-serif;font-size:1.75rem;font-weight:700;color:var(--w);margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.1em;text-shadow:2px 2px 0 rgba(0,0,0,.3)}
-        .auth-logo p{color:var(--sec-l);font-size:.875rem;font-style:italic}
+        #auth-container{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a5f2a 0%,#0d4a1c 50%,#063310 100%);padding:1.5rem;min-height:100vh}
+        .auth-box{background:linear-gradient(180deg,#fff 0%,#f0f0f0 100%);border:3px solid var(--sec);border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.4),inset 0 1px 0 #fff;width:100%;max-width:400px;overflow:hidden}
+        .auth-logo{text-align:center;padding:2rem 2rem 1.5rem;background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 40%,#0d4a1c 100%);border-bottom:4px solid var(--sec)}
+        .auth-logo-icon{width:80px;height:80px;background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:2.5rem;color:var(--pri-d);border:4px solid var(--w);box-shadow:0 4px 15px rgba(0,0,0,.3)}
+        .auth-logo h1{font-family:var(--font-title);font-size:1.6rem;color:var(--w);margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.15em;text-shadow:2px 2px 4px rgba(0,0,0,.5)}
+        .auth-logo p{color:var(--sec-l);font-size:.8rem;font-style:italic;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
         .auth-form{padding:1.5rem 2rem 2rem}
-        .auth-form h2{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;color:var(--g700);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--g200);padding-bottom:.5rem}
+        .auth-form h2{font-family:var(--font-title);font-size:.9rem;color:var(--g700);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--g300);padding-bottom:.5rem}
         .form-group{margin-bottom:1rem}
-        .form-group label{display:block;margin-bottom:.375rem;font-weight:700;color:var(--g700);font-size:.8125rem;text-transform:uppercase;letter-spacing:.03em}
-        .form-group input,.form-group textarea,.form-group select{width:100%;padding:.625rem .875rem;border:2px solid var(--g300);border-radius:4px;font-size:.9375rem;font-family:inherit;transition:all var(--tr);background:var(--g50);color:var(--g900);box-shadow:var(--sh-in)}
+        .form-group label{display:flex;align-items:center;gap:.4rem;margin-bottom:.375rem;font-weight:700;color:var(--g700);font-size:.75rem;text-transform:uppercase;letter-spacing:.03em}
+        .form-group label i{color:var(--pri);font-size:.8rem}
+        .form-group input,.form-group textarea,.form-group select{width:100%;padding:.6rem .8rem;border:2px solid var(--g400);border-radius:3px;font-size:.9rem;font-family:var(--font-body);transition:all var(--tr);background:linear-gradient(180deg,#fff 0%,#f8f8f8 100%);color:var(--g900);box-shadow:inset 0 2px 4px rgba(0,0,0,.1)}
         .form-group input::placeholder,.form-group textarea::placeholder{color:var(--g400)}
-        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--pri);background:var(--w);box-shadow:0 0 0 3px rgba(26,95,42,.2)}
-        .form-group input:disabled{background:var(--g100);color:var(--g500);cursor:not-allowed}
-        .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.625rem 1.25rem;border:2px solid transparent;border-radius:4px;font-family:'Oswald',sans-serif;font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:all var(--tr);text-decoration:none;box-shadow:var(--sh)}
+        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--pri);background:#fff;box-shadow:0 0 0 3px rgba(26,95,42,.25),inset 0 1px 2px rgba(0,0,0,.1)}
+        .form-group input:disabled{background:var(--g200);color:var(--g500);cursor:not-allowed}
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.6rem 1.2rem;border:2px solid transparent;border-radius:3px;font-family:var(--font-title);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:all var(--tr);text-decoration:none;box-shadow:0 2px 4px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.2)}
         .btn:disabled{opacity:.5;cursor:not-allowed}
-        .btn:active:not(:disabled){transform:translateY(1px);box-shadow:0 1px 2px rgba(0,0,0,.1)}
-        .btn-primary{background:var(--grad-f);color:var(--w);border-color:var(--pri-d)}
-        .btn-primary:hover:not(:disabled){background:var(--pri-l);border-color:var(--pri)}
-        .btn-secondary{background:var(--g100);color:var(--g700);border-color:var(--g300)}
-        .btn-secondary:hover:not(:disabled){background:var(--g200);border-color:var(--g400)}
-        .btn-gold{background:var(--grad-g);color:var(--g900);border-color:var(--sec-d)}
-        .btn-gold:hover:not(:disabled){background:var(--sec-l)}
-        .btn-danger{background:var(--err);color:var(--w);border-color:#b71c1c}
-        .btn-danger:hover:not(:disabled){background:#b71c1c}
-        .btn-success{background:var(--ok);color:var(--w);border-color:#1b5e20}
-        .btn-success:hover:not(:disabled){background:#1b5e20}
+        .btn:active:not(:disabled){transform:translateY(1px);box-shadow:0 1px 2px rgba(0,0,0,.15)}
+        .btn-primary{background:linear-gradient(180deg,#3d9e52 0%,#2e7d32 50%,#1b5e20 100%);color:var(--w);border-color:var(--pri-d);text-shadow:1px 1px 1px rgba(0,0,0,.3)}
+        .btn-primary:hover:not(:disabled){background:linear-gradient(180deg,#4caf50 0%,#3d9e52 50%,#2e7d32 100%)}
+        .btn-secondary{background:linear-gradient(180deg,#f5f5f5 0%,#e0e0e0 50%,#d0d0d0 100%);color:var(--g700);border-color:var(--g400)}
+        .btn-secondary:hover:not(:disabled){background:linear-gradient(180deg,#fff 0%,#f0f0f0 50%,#e0e0e0 100%)}
+        .btn-gold{background:linear-gradient(180deg,#ffd700 0%,#c9a227 50%,#a68520 100%);color:var(--g900);border-color:var(--sec-d);text-shadow:0 1px 0 rgba(255,255,255,.3)}
+        .btn-gold:hover:not(:disabled){background:linear-gradient(180deg,#ffe44d 0%,#e6c547 50%,#c9a227 100%)}
+        .btn-danger{background:linear-gradient(180deg,#e53935 0%,#c62828 50%,#b71c1c 100%);color:var(--w);border-color:#b71c1c;text-shadow:1px 1px 1px rgba(0,0,0,.3)}
+        .btn-danger:hover:not(:disabled){background:linear-gradient(180deg,#ef5350 0%,#e53935 50%,#c62828 100%)}
+        .btn-success{background:linear-gradient(180deg,#43a047 0%,#2e7d32 50%,#1b5e20 100%);color:var(--w);border-color:#1b5e20;text-shadow:1px 1px 1px rgba(0,0,0,.3)}
+        .btn-success:hover:not(:disabled){background:linear-gradient(180deg,#4caf50 0%,#43a047 50%,#2e7d32 100%)}
         .btn-ghost{background:transparent;color:var(--g600);border-color:transparent;box-shadow:none}
         .btn-ghost:hover:not(:disabled){background:var(--g100);color:var(--g900)}
-        .btn-warning{background:var(--warn);color:var(--w);border-color:#e65100}
-        .btn-warning:hover:not(:disabled){background:#e65100}
-        .btn-sm{padding:.375rem .75rem;font-size:.75rem}
+        .btn-warning{background:linear-gradient(180deg,#ff9800 0%,#f57f17 50%,#e65100 100%);color:var(--w);border-color:#e65100;text-shadow:1px 1px 1px rgba(0,0,0,.3)}
+        .btn-warning:hover:not(:disabled){background:linear-gradient(180deg,#ffb300 0%,#ff9800 50%,#f57f17 100%)}
+        .btn-sm{padding:.35rem .7rem;font-size:.7rem}
         .btn-full{width:100%}
-        .btn-icon{width:36px;height:36px;padding:0;border-radius:4px}
-        .switch-form{text-align:center;margin-top:1.5rem;color:var(--g500);font-size:.875rem;padding-top:1rem;border-top:1px solid var(--g200)}
+        .btn-icon{width:34px;height:34px;padding:0;border-radius:3px}
+        .switch-form{text-align:center;margin-top:1.5rem;color:var(--g500);font-size:.85rem;padding-top:1rem;border-top:2px dashed var(--g300)}
         .switch-form a{color:var(--pri);text-decoration:none;font-weight:700}
         .switch-form a:hover{text-decoration:underline}
-        .message{margin-top:1rem;padding:.75rem 1rem;border-radius:4px;text-align:center;font-size:.875rem;font-weight:600;border:2px solid}
+        .message{margin-top:1rem;padding:.7rem 1rem;border-radius:3px;text-align:center;font-size:.85rem;font-weight:600;border:2px solid}
         .message:empty{display:none}
-        .message.success{background:var(--ok-l);color:#1b5e20;border-color:#a5d6a7}
-        .message.error{background:var(--err-l);color:#b71c1c;border-color:#ef9a9a}
-        header{background:var(--grad-h);border-bottom:3px solid var(--sec);position:sticky;top:0;z-index:100;box-shadow:var(--sh)}
-        .header-top-bar{background:var(--g900);padding:.25rem 1rem;font-size:.6875rem;color:var(--g400);text-align:right;border-bottom:1px solid var(--g700)}
-        nav{max-width:1100px;margin:0 auto;padding:.875rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
+        .message.success{background:linear-gradient(180deg,#c8e6c9 0%,#a5d6a7 100%);color:#1b5e20;border-color:#81c784}
+        .message.error{background:linear-gradient(180deg,#ffcdd2 0%,#ef9a9a 100%);color:#b71c1c;border-color:#e57373}
+        header{background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 40%,#0d4a1c 100%);border-bottom:4px solid var(--sec);position:sticky;top:0;z-index:100;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+        .header-top-bar{background:linear-gradient(180deg,#1a1a1a 0%,#2d2d2d 100%);padding:.25rem 1rem;font-size:.65rem;color:var(--g400);text-align:right;border-bottom:1px solid var(--g600)}
+        .header-top-bar i{margin-right:.25rem;color:var(--sec)}
+        nav{max-width:1100px;margin:0 auto;padding:.8rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
         .logo{display:flex;align-items:center;gap:.75rem;cursor:pointer;transition:opacity var(--tr)}
         .logo:hover{opacity:.9}
-        .logo-icon{width:44px;height:44px;background:var(--grad-g);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--pri-d);font-size:1.25rem;border:2px solid var(--w);box-shadow:var(--sh)}
+        .logo-icon{width:50px;height:50px;background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--pri-d);font-size:1.5rem;border:3px solid var(--w);box-shadow:0 3px 10px rgba(0,0,0,.3)}
         .logo-text{display:flex;flex-direction:column}
-        .logo-title{font-family:'Oswald',sans-serif;font-size:1.25rem;font-weight:700;color:var(--w);text-transform:uppercase;letter-spacing:.1em;line-height:1.1;text-shadow:1px 1px 0 rgba(0,0,0,.3)}
-        .logo-subtitle{font-size:.625rem;color:var(--sec-l);text-transform:uppercase;letter-spacing:.15em}
-        .nav-user{display:flex;align-items:center;gap:.625rem}
-        .notification-bell{position:relative;width:38px;height:38px;background:var(--pri-d);border:2px solid var(--sec);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--tr);color:var(--w);font-size:1rem}
-        .notification-bell:hover{background:var(--pri);box-shadow:var(--sh)}
-        .badge{background:var(--err);color:var(--w);font-family:'Oswald',sans-serif;font-size:.625rem;font-weight:700;padding:.125rem .375rem;border-radius:10px;min-width:18px;text-align:center}
-        .notification-bell .badge{position:absolute;top:-6px;right:-6px;border:2px solid var(--w)}
+        .logo-title{font-family:var(--font-title);font-size:1.3rem;color:var(--w);text-transform:uppercase;letter-spacing:.12em;line-height:1.1;text-shadow:2px 2px 4px rgba(0,0,0,.4)}
+        .logo-subtitle{font-size:.6rem;color:var(--sec-l);text-transform:uppercase;letter-spacing:.2em;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
+        .nav-user{display:flex;align-items:center;gap:.6rem}
+        .notification-bell{position:relative;width:40px;height:40px;background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 100%);border:2px solid var(--sec);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--tr);color:var(--w);font-size:1.1rem;box-shadow:0 2px 5px rgba(0,0,0,.2)}
+        .notification-bell:hover{background:linear-gradient(180deg,#3d9e52 0%,#2d8a42 100%);box-shadow:0 3px 8px rgba(0,0,0,.3)}
+        .notification-bell i{filter:drop-shadow(1px 1px 1px rgba(0,0,0,.3))}
+        .badge{background:linear-gradient(180deg,#e53935 0%,#c62828 100%);color:var(--w);font-family:var(--font-title);font-size:.6rem;padding:.1rem .35rem;border-radius:10px;min-width:18px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+        .notification-bell .badge{position:absolute;top:-6px;right:-6px;border:2px solid var(--w);animation:pulse 2s infinite}
         .nav-avatar-container{position:relative}
-        .dropdown{position:absolute;right:0;top:100%;margin-top:.5rem;background:var(--w);border-radius:var(--r);box-shadow:var(--sh-lg);border:2px solid var(--g300);z-index:200;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all var(--tr)}
+        .dropdown{position:absolute;right:0;top:100%;margin-top:.5rem;background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:var(--r);box-shadow:0 8px 25px rgba(0,0,0,.3);border:2px solid var(--g400);z-index:200;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all var(--tr)}
         .dropdown.show{opacity:1;visibility:visible;transform:translateY(0)}
         .notification-dropdown{width:340px;max-height:450px;overflow:hidden}
-        .notification-header,.nav-dropdown-header{padding:.75rem 1rem;background:var(--grad-h);color:var(--w);display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--sec)}
-        .notification-header h3,.nav-dropdown-header .nav-dropdown-name{font-family:'Oswald',sans-serif;font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+        .notification-header,.nav-dropdown-header{padding:.7rem 1rem;background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 50%,#0d4a1c 100%);color:var(--w);display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--sec)}
+        .notification-header h3,.nav-dropdown-header .nav-dropdown-name{font-family:var(--font-title);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
+        .notification-header h3 i,.nav-dropdown-header i{margin-right:.4rem}
         .notification-list{max-height:350px;overflow-y:auto}
-        .notification-item{padding:.875rem 1rem;border-bottom:1px solid var(--g200);display:flex;gap:.75rem;cursor:pointer;transition:background var(--tr)}
-        .notification-item:hover{background:var(--g50)}
-        .notification-item.unread{background:var(--pri-s);border-left:3px solid var(--pri)}
-        .notification-item.unread:hover{background:#c8e6c9}
-        .notification-icon{width:36px;height:36px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;border:2px solid}
-        .notification-icon.friend{background:var(--pri-s);color:var(--pri);border-color:var(--pri-l)}
-        .notification-icon.group{background:var(--sec-l);color:var(--sec-d);border-color:var(--sec)}
+        .notification-item{padding:.8rem 1rem;border-bottom:1px solid var(--g200);display:flex;gap:.7rem;cursor:pointer;transition:background var(--tr)}
+        .notification-item:hover{background:var(--g100)}
+        .notification-item.unread{background:linear-gradient(90deg,var(--pri-s) 0%,#fff 100%);border-left:4px solid var(--pri)}
+        .notification-item.unread:hover{background:linear-gradient(90deg,#c8e6c9 0%,#f5f5f5 100%)}
+        .notification-icon{width:38px;height:38px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;border:2px solid;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+        .notification-icon.friend{background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);color:var(--pri);border-color:var(--pri-l)}
+        .notification-icon.group{background:linear-gradient(180deg,#fff9c4 0%,#e6c547 100%);color:var(--sec-d);border-color:var(--sec)}
         .notification-content{flex:1;min-width:0}
-        .notification-text{font-size:.8125rem;color:var(--g700);line-height:1.4}
+        .notification-text{font-size:.8rem;color:var(--g700);line-height:1.4}
         .notification-text strong{color:var(--g900);font-weight:700}
-        .notification-time{font-size:.6875rem;color:var(--g400);margin-top:.25rem;font-style:italic}
-        .notification-actions{display:flex;gap:.375rem;margin-top:.5rem}
+        .notification-time{font-size:.65rem;color:var(--g400);margin-top:.25rem;font-style:italic}
+        .notification-time i{margin-right:.25rem}
+        .notification-actions{display:flex;gap:.35rem;margin-top:.5rem}
         .notification-empty{padding:2.5rem 1.5rem;text-align:center;color:var(--g500)}
-        .notification-empty-icon{font-size:2.5rem;margin-bottom:.75rem;color:var(--g300)}
-        .nav-avatar{width:40px;height:40px;border-radius:4px;background:var(--g200);display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:.875rem;color:var(--g600);font-weight:600;overflow:hidden;cursor:pointer;transition:all var(--tr);border:2px solid var(--sec)}
-        .nav-avatar:hover{border-color:var(--w);box-shadow:var(--sh)}
+        .notification-empty-icon{font-size:3rem;margin-bottom:.75rem;color:var(--g300)}
+        .nav-avatar{width:42px;height:42px;border-radius:4px;background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:.85rem;color:var(--g600);overflow:hidden;cursor:pointer;transition:all var(--tr);border:2px solid var(--sec);box-shadow:0 2px 5px rgba(0,0,0,.2)}
+        .nav-avatar:hover{border-color:var(--w);box-shadow:0 3px 8px rgba(0,0,0,.3)}
         .nav-avatar img,.avatar img,.friend-avatar img,.member-avatar img,.league-avatar img,.league-detail-avatar img,.profile-modal-avatar img,.nav-dropdown-group-avatar img,.league-avatar-preview img,.league-members-avatars .mini-avatar img{width:100%;height:100%;object-fit:cover}
         .nav-dropdown{min-width:260px}
         .nav-dropdown-header{padding:1rem;border-radius:var(--r) var(--r) 0 0}
-        .nav-dropdown-name{font-family:'Oswald',sans-serif;font-weight:600;color:var(--w);font-size:1rem;text-transform:uppercase}
-        .nav-dropdown-id{font-size:.6875rem;color:var(--sec-l);font-family:'Courier New',monospace;margin-top:.125rem}
+        .nav-dropdown-name{font-family:var(--font-title);color:var(--w);font-size:.95rem;text-transform:uppercase}
+        .nav-dropdown-id{font-size:.65rem;color:var(--sec-l);font-family:'Courier New',monospace;margin-top:.15rem}
         .nav-dropdown-menu{padding:.5rem}
-        .nav-dropdown-section-title{font-family:'Oswald',sans-serif;font-size:.625rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:.1em;padding:.625rem .75rem .375rem;border-bottom:1px solid var(--g200);margin-bottom:.25rem}
-        .nav-dropdown-item,.dropdown-item{display:flex;align-items:center;gap:.75rem;padding:.625rem .75rem;border:none;background:none;width:100%;text-align:left;cursor:pointer;font-size:.875rem;color:var(--g700);border-radius:4px;transition:all var(--tr);font-weight:600;font-family:'Roboto Condensed',Arial,sans-serif}
-        .nav-dropdown-item:hover,.dropdown-item:hover{background:var(--g100);color:var(--g900)}
-        .nav-dropdown-item.active{background:var(--pri-s);color:var(--pri)}
+        .nav-dropdown-section-title{font-family:var(--font-title);font-size:.6rem;color:var(--g400);text-transform:uppercase;letter-spacing:.1em;padding:.6rem .75rem .35rem;border-bottom:1px dashed var(--g300);margin-bottom:.25rem}
+        .nav-dropdown-section-title i{margin-right:.35rem;color:var(--sec)}
+        .nav-dropdown-item,.dropdown-item{display:flex;align-items:center;gap:.7rem;padding:.6rem .75rem;border:none;background:none;width:100%;text-align:left;cursor:pointer;font-size:.85rem;color:var(--g700);border-radius:3px;transition:all var(--tr);font-weight:600;font-family:var(--font-body)}
+        .nav-dropdown-item:hover,.dropdown-item:hover{background:linear-gradient(180deg,#f5f5f5 0%,#e8e8e8 100%);color:var(--g900)}
+        .nav-dropdown-item.active{background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);color:var(--pri)}
         .nav-dropdown-item.danger,.dropdown-item.danger{color:var(--err)}
-        .nav-dropdown-item.danger:hover,.dropdown-item.danger:hover{background:var(--err-l)}
+        .nav-dropdown-item.danger:hover,.dropdown-item.danger:hover{background:linear-gradient(180deg,#ffcdd2 0%,#ef9a9a 100%)}
         .dropdown-item.warning{color:var(--warn)}
-        .dropdown-item.warning:hover{background:var(--warn-l)}
-        .nav-dropdown-divider,.dropdown-divider{height:1px;background:var(--g200);margin:.375rem 0}
-        .nav-dropdown-icon{width:20px;text-align:center;font-size:.875rem;color:var(--g500)}
-        .nav-dropdown-group-avatar{width:26px;height:26px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.6875rem;color:var(--w);font-weight:600;overflow:hidden;flex-shrink:0;border:1px solid var(--g300)}
+        .dropdown-item.warning:hover{background:linear-gradient(180deg,#fff9c4 0%,#fff59d 100%)}
+        .nav-dropdown-divider,.dropdown-divider{height:2px;background:linear-gradient(90deg,transparent,var(--g300),transparent);margin:.35rem 0}
+        .nav-dropdown-icon{width:22px;text-align:center;font-size:.9rem;color:var(--g500)}
+        .nav-dropdown-group-avatar{width:28px;height:28px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--w);overflow:hidden;flex-shrink:0;border:1px solid var(--g300)}
         .nav-groups-list{max-height:160px;overflow-y:auto}
-        #user-greeting{color:var(--sec-l);font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+        #user-greeting{color:var(--sec-l);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
         main{max-width:1100px;margin:0 auto;padding:1.5rem}
-        .section-header{margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;padding-bottom:1rem;border-bottom:2px solid var(--g300)}
-        .section-header-text h1{font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:var(--pri-d);margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.05em}
-        .section-header-text p{color:var(--g500);font-size:.875rem}
+        .section-header{margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;padding-bottom:1rem;border-bottom:3px solid var(--g400);background:linear-gradient(180deg,rgba(255,255,255,.5) 0%,transparent 100%);margin:-1.5rem -1.5rem 1.5rem;padding:1.5rem}
+        .section-header-text h1{font-family:var(--font-title);font-size:1.4rem;color:var(--pri-d);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.08em;text-shadow:1px 1px 0 var(--w)}
+        .section-header-text h1 i{margin-right:.5rem;color:var(--sec)}
+        .section-header-text p{color:var(--g500);font-size:.85rem}
         .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-        .card{background:var(--w);border:2px solid var(--g300);border-radius:var(--r);transition:all var(--tr);cursor:pointer;position:relative;overflow:hidden;box-shadow:var(--sh)}
-        .card:hover{border-color:var(--pri);box-shadow:var(--sh-lg);transform:translateY(-2px)}
-        .card-header{background:var(--grad-h);padding:.75rem 1rem;border-bottom:2px solid var(--sec)}
-        .card-header h3{font-family:'Oswald',sans-serif;font-size:.9375rem;font-weight:600;color:var(--w);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:.5rem}
+        .card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border:2px solid var(--g400);border-radius:var(--r);transition:all var(--tr);cursor:pointer;position:relative;overflow:hidden;box-shadow:var(--sh)}
+        .card:hover{border-color:var(--pri);box-shadow:var(--sh-lg);transform:translateY(-3px)}
+        .card-header{background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 50%,#0d4a1c 100%);padding:.7rem 1rem;border-bottom:3px solid var(--sec)}
+        .card-header h3{font-family:var(--font-title);font-size:.85rem;color:var(--w);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:.5rem;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
+        .card-header h3 i{color:var(--sec-l)}
         .card-body{padding:1.25rem}
-        .card p{color:var(--g500);font-size:.8125rem;line-height:1.5}
+        .card p{color:var(--g500);font-size:.8rem;line-height:1.5}
         .leagues-section{margin-top:2rem}
-        .leagues-section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:2px solid var(--g300)}
-        .leagues-section-header h2{font-family:'Oswald',sans-serif;font-size:1.125rem;font-weight:600;color:var(--pri-d);display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.05em}
+        .leagues-section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:3px solid var(--g400)}
+        .leagues-section-header h2{font-family:var(--font-title);font-size:1.05rem;color:var(--pri-d);display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.05em}
+        .leagues-section-header h2 i{color:var(--sec)}
         .leagues-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
-        .league-card{background:var(--w);border-radius:var(--r);border:2px solid var(--g300);overflow:hidden;cursor:pointer;transition:all var(--tr);box-shadow:var(--sh)}
-        .league-card:hover{border-color:var(--pri);box-shadow:var(--sh-lg);transform:translateY(-2px)}
-        .league-card-header{background:var(--grad-h);padding:.875rem 1rem;display:flex;align-items:center;gap:.875rem;border-bottom:2px solid var(--sec)}
-        .league-avatar{width:44px;height:44px;border-radius:4px;background:var(--grad-g);display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:1.125rem;color:var(--pri-d);font-weight:600;overflow:hidden;border:2px solid var(--w)}
-        .league-info h3{font-family:'Oswald',sans-serif;font-size:.9375rem;font-weight:600;color:var(--w);margin-bottom:.125rem;text-transform:uppercase}
-        .league-info p{font-size:.75rem;color:var(--sec-l)}
+        .league-card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:var(--r);border:2px solid var(--g400);overflow:hidden;cursor:pointer;transition:all var(--tr);box-shadow:var(--sh)}
+        .league-card:hover{border-color:var(--pri);box-shadow:var(--sh-lg);transform:translateY(-3px)}
+        .league-card-header{background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 50%,#0d4a1c 100%);padding:.8rem 1rem;display:flex;align-items:center;gap:.8rem;border-bottom:3px solid var(--sec)}
+        .league-avatar{width:46px;height:46px;border-radius:4px;background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:1.1rem;color:var(--pri-d);overflow:hidden;border:2px solid var(--w);box-shadow:0 2px 5px rgba(0,0,0,.2)}
+        .league-info h3{font-family:var(--font-title);font-size:.9rem;color:var(--w);margin-bottom:.15rem;text-transform:uppercase;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
+        .league-info p{font-size:.7rem;color:var(--sec-l)}
         .league-card-body{padding:1rem}
         .league-members{display:flex;align-items:center;gap:.5rem}
         .league-members-avatars{display:flex}
-        .league-members-avatars .mini-avatar{width:26px;height:26px;border-radius:4px;background:var(--g200);border:2px solid var(--w);margin-left:-6px;display:flex;align-items:center;justify-content:center;font-size:.5625rem;font-weight:600;color:var(--g600);overflow:hidden;font-family:'Oswald',sans-serif}
+        .league-members-avatars .mini-avatar{width:28px;height:28px;border-radius:4px;background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);border:2px solid var(--w);margin-left:-6px;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-family:var(--font-title);color:var(--g600);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.15)}
         .league-members-avatars .mini-avatar:first-child{margin-left:0}
-        .league-members-count{font-size:.75rem;color:var(--g500);font-weight:600}
-        .no-leagues,.no-items{background:var(--w);border:2px dashed var(--g300);border-radius:var(--r);padding:2.5rem 2rem;text-align:center}
-        .no-leagues-icon,.no-items-icon{width:64px;height:64px;margin:0 auto 1rem;background:var(--g100);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.75rem;color:var(--g400);border:2px solid var(--g300)}
-        .no-items-icon{width:auto;height:auto;background:none;border:none;font-size:2.5rem;color:var(--g300)}
-        .no-leagues h3,.no-items p:first-of-type{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;color:var(--g700);margin-bottom:.375rem;text-transform:uppercase}
-        .no-leagues p,.no-items small{color:var(--g500);font-size:.875rem;margin-bottom:1.25rem;max-width:380px;margin-left:auto;margin-right:auto}
-        .no-items small{font-size:.8125rem;color:var(--g400);margin-bottom:0}
+        .league-members-count{font-size:.75rem;color:var(--g500)}
+        .league-members-count i{margin-right:.3rem;color:var(--pri)}
+        .no-leagues,.no-items{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border:3px dashed var(--g400);border-radius:var(--r);padding:2.5rem 2rem;text-align:center}
+        .no-leagues-icon,.no-items-icon{width:70px;height:70px;margin:0 auto 1rem;background:linear-gradient(180deg,#f5f5f5 0%,#e0e0e0 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--g400);border:3px solid var(--g300)}
+        .no-items-icon{width:auto;height:auto;background:none;border:none;font-size:3rem;color:var(--g300)}
+        .no-leagues h3,.no-items p:first-of-type{font-family:var(--font-title);font-size:.95rem;color:var(--g700);margin-bottom:.4rem;text-transform:uppercase}
+        .no-leagues p,.no-items small{color:var(--g500);font-size:.85rem;margin-bottom:1.25rem;max-width:380px;margin-left:auto;margin-right:auto}
+        .no-items small{font-size:.8rem;color:var(--g400);margin-bottom:0}
         .profile-container{max-width:600px}
         .friends-container{max-width:750px}
         .league-container{max-width:750px}
-        .profile-card,.league-detail-card{background:var(--w);border-radius:var(--r);border:2px solid var(--g300);overflow:hidden;box-shadow:var(--sh)}
-        .profile-header,.league-detail-header{padding:1.5rem;border-bottom:2px solid var(--sec);display:flex;align-items:center;gap:1.25rem;background:var(--grad-h)}
+        .profile-card,.league-detail-card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:var(--r);border:2px solid var(--g400);overflow:hidden;box-shadow:var(--sh)}
+        .profile-header,.league-detail-header{padding:1.5rem;border-bottom:3px solid var(--sec);display:flex;align-items:center;gap:1.25rem;background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 40%,#0d4a1c 100%)}
         .avatar-container,.league-detail-avatar-container{position:relative;flex-shrink:0}
-        .avatar,.league-detail-avatar{width:72px;height:72px;border-radius:var(--r);background:var(--g200);display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:1.75rem;color:var(--g600);font-weight:600;overflow:hidden;border:3px solid var(--sec)}
-        .league-detail-avatar{width:64px;height:64px;background:var(--grad-g);color:var(--pri-d);font-size:1.5rem;border-color:var(--w);box-shadow:var(--sh)}
-        .avatar-edit,.league-avatar-edit{position:absolute;bottom:-4px;right:-4px;width:28px;height:28px;background:var(--w);border:2px solid var(--g300);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.75rem;color:var(--g600);transition:all var(--tr);box-shadow:0 1px 2px rgba(0,0,0,.1)}
-        .avatar-edit:hover,.league-avatar-edit:hover{background:var(--g100);border-color:var(--pri);color:var(--pri)}
+        .avatar,.league-detail-avatar{width:75px;height:75px;border-radius:var(--r);background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:1.8rem;color:var(--g600);overflow:hidden;border:3px solid var(--sec);box-shadow:0 3px 10px rgba(0,0,0,.2)}
+        .league-detail-avatar{width:68px;height:68px;background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);color:var(--pri-d);font-size:1.6rem;border-color:var(--w)}
+        .avatar-edit,.league-avatar-edit{position:absolute;bottom:-5px;right:-5px;width:30px;height:30px;background:linear-gradient(180deg,#fff 0%,#e0e0e0 100%);border:2px solid var(--g400);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.8rem;color:var(--g600);transition:all var(--tr);box-shadow:0 2px 5px rgba(0,0,0,.15)}
+        .avatar-edit:hover,.league-avatar-edit:hover{background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);border-color:var(--pri);color:var(--pri)}
         .avatar-edit input,.league-avatar-edit input{display:none}
-        .league-avatar-edit{width:24px;height:24px;font-size:.6875rem}
-        .profile-info h2,.league-detail-info h2{font-family:'Oswald',sans-serif;font-size:1.25rem;font-weight:600;color:var(--w);text-transform:uppercase}
-        .league-detail-info h2{font-size:1.375rem;font-weight:700;margin-bottom:.25rem}
-        .user-id-badge,.league-code-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,0,0,.2);padding:.25rem .625rem;border-radius:4px;font-family:'Courier New',monospace;font-size:.75rem;color:var(--sec-l);margin-top:.375rem;border:1px solid rgba(255,255,255,.2)}
-        .league-code-badge{padding:.3125rem .625rem}
-        .copy-btn{background:none;border:none;cursor:pointer;padding:.125rem;color:var(--sec-l);transition:color var(--tr)}
+        .league-avatar-edit{width:26px;height:26px;font-size:.7rem}
+        .profile-info h2,.league-detail-info h2{font-family:var(--font-title);font-size:1.2rem;color:var(--w);text-transform:uppercase;text-shadow:1px 1px 3px rgba(0,0,0,.4)}
+        .league-detail-info h2{font-size:1.3rem;margin-bottom:.3rem}
+        .user-id-badge,.league-code-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,0,0,.3);padding:.3rem .65rem;border-radius:3px;font-family:'Courier New',monospace;font-size:.75rem;color:var(--sec-l);margin-top:.4rem;border:1px solid rgba(255,255,255,.2)}
+        .user-id-badge i,.league-code-badge i{color:var(--sec)}
+        .league-code-badge{padding:.35rem .65rem}
+        .copy-btn{background:none;border:none;cursor:pointer;padding:.15rem;color:var(--sec-l);transition:color var(--tr)}
         .copy-btn:hover{color:var(--w)}
-        .status-badge,.profile-modal-status{display:inline-flex;align-items:center;gap:.375rem;font-size:.75rem;color:#81c784;margin-top:.375rem;font-weight:600}
-        .status-dot{width:8px;height:8px;border-radius:50%;background:#4caf50;box-shadow:0 0 4px #4caf50}
+        .status-badge,.profile-modal-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.75rem;color:#81c784;margin-top:.4rem;font-weight:600}
+        .status-dot{width:9px;height:9px;border-radius:50%;background:#4caf50;box-shadow:0 0 6px #4caf50;animation:pulse 2s infinite}
         .profile-body,.league-detail-body{padding:1.5rem}
-        .profile-form .form-actions{display:flex;gap:.625rem;margin-top:1.5rem}
-        .section-title,.league-section h3{font-family:'Oswald',sans-serif;font-size:.9375rem;font-weight:600;color:var(--pri-d);margin-bottom:.875rem;display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.03em;border-bottom:2px solid var(--g200);padding-bottom:.5rem}
-        .add-friend-form,.join-league-form{display:flex;gap:.625rem;margin-bottom:1.25rem}
-        .add-friend-form input,.join-league-form input{flex:1;padding:.75rem 1rem;border:2px solid var(--g300);border-radius:4px;font-size:1rem;font-family:'Courier New',monospace;letter-spacing:.2em;text-align:center;background:var(--g50)}
-        .add-friend-form input:focus,.join-league-form input:focus{outline:none;border-color:var(--pri);background:var(--w);box-shadow:0 0 0 3px rgba(26,95,42,.2)}
-        .join-league-form input{letter-spacing:.15em;text-transform:uppercase}
-        .join-league-form{margin-top:.875rem;margin-bottom:0}
-        .tabs{display:flex;gap:2px;margin-bottom:1rem;background:var(--g300);padding:2px;border-radius:4px;border:2px solid var(--g300)}
-        .tab{flex:1;padding:.625rem .875rem;border:none;background:var(--g100);font-family:'Oswald',sans-serif;font-size:.8125rem;font-weight:600;color:var(--g500);cursor:pointer;transition:all var(--tr);position:relative;text-transform:uppercase;letter-spacing:.03em}
-        .tab:first-child{border-radius:4px 0 0 4px}
-        .tab:last-child{border-radius:0 4px 4px 0}
-        .tab:hover{background:var(--g200);color:var(--g700)}
-        .tab.active{background:var(--pri);color:var(--w);box-shadow:var(--sh)}
-        .tab-badge{position:absolute;top:4px;right:4px;background:var(--err);color:var(--w);font-size:.5625rem;font-weight:700;padding:.0625rem .3125rem;border-radius:8px;min-width:14px}
+        .profile-form .form-actions{display:flex;gap:.6rem;margin-top:1.5rem}
+        .section-title,.league-section h3{font-family:var(--font-title);font-size:.9rem;color:var(--pri-d);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.03em;border-bottom:2px solid var(--g300);padding-bottom:.5rem}
+        .section-title i,.league-section h3 i{color:var(--sec)}
+        .add-friend-form,.join-league-form{display:flex;gap:.6rem;margin-bottom:1.25rem}
+        .add-friend-form input,.join-league-form input{flex:1;padding:.75rem 1rem;border:2px solid var(--g400);border-radius:3px;font-size:1rem;font-family:'Courier New',monospace;letter-spacing:.25em;text-align:center;background:linear-gradient(180deg,#fff 0%,#f8f8f8 100%);box-shadow:inset 0 2px 4px rgba(0,0,0,.1)}
+        .add-friend-form input:focus,.join-league-form input:focus{outline:none;border-color:var(--pri);background:#fff;box-shadow:0 0 0 3px rgba(26,95,42,.2),inset 0 1px 2px rgba(0,0,0,.1)}
+        .join-league-form input{letter-spacing:.18em;text-transform:uppercase}
+        .join-league-form{margin-top:.9rem;margin-bottom:0}
+        .tabs{display:flex;gap:0;margin-bottom:1rem;background:var(--g400);padding:3px;border-radius:4px;border:2px solid var(--g400)}
+        .tab{flex:1;padding:.6rem .85rem;border:none;background:linear-gradient(180deg,#f5f5f5 0%,#e0e0e0 100%);font-family:var(--font-title);font-size:.75rem;color:var(--g500);cursor:pointer;transition:all var(--tr);position:relative;text-transform:uppercase;letter-spacing:.03em}
+        .tab:first-child{border-radius:3px 0 0 3px}
+        .tab:last-child{border-radius:0 3px 3px 0}
+        .tab:hover{background:linear-gradient(180deg,#fff 0%,#f0f0f0 100%);color:var(--g700)}
+        .tab.active{background:linear-gradient(180deg,#3d9e52 0%,#2e7d32 50%,#1b5e20 100%);color:var(--w);box-shadow:var(--sh);text-shadow:1px 1px 1px rgba(0,0,0,.3)}
+        .tab i{margin-right:.35rem}
+        .tab-badge{position:absolute;top:3px;right:3px;background:linear-gradient(180deg,#e53935 0%,#c62828 100%);color:var(--w);font-size:.55rem;padding:.05rem .3rem;border-radius:8px;min-width:14px;box-shadow:0 1px 2px rgba(0,0,0,.2)}
         .list-container{display:flex;flex-direction:column;gap:.5rem}
-        .friend-item,.request-item,.member-item{display:flex;justify-content:space-between;align-items:center;padding:.875rem 1rem;background:var(--w);border-radius:4px;border:2px solid var(--g200);transition:all var(--tr);box-shadow:0 1px 2px rgba(0,0,0,.1)}
-        .friend-item:hover,.request-item:hover{border-color:var(--g300);box-shadow:var(--sh)}
-        .member-item{padding:.75rem .875rem;background:var(--g50);border:1px solid var(--g200);cursor:pointer}
-        .member-item:hover{background:var(--g100);border-color:var(--g300)}
-        .friend-info,.member-info{display:flex;align-items:center;gap:.875rem}
+        .friend-item,.request-item,.member-item{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1rem;background:linear-gradient(180deg,#fff 0%,#fafafa 100%);border-radius:4px;border:2px solid var(--g300);transition:all var(--tr);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+        .friend-item:hover,.request-item:hover{border-color:var(--g400);box-shadow:var(--sh)}
+        .member-item{padding:.7rem .85rem;background:linear-gradient(180deg,#fafafa 0%,#f5f5f5 100%);border:1px solid var(--g300);cursor:pointer}
+        .member-item:hover{background:linear-gradient(180deg,#fff 0%,#fafafa 100%);border-color:var(--g400)}
+        .friend-info,.member-info{display:flex;align-items:center;gap:.85rem}
         .member-info{gap:.75rem}
-        .friend-avatar,.member-avatar{width:44px;height:44px;border-radius:4px;background:var(--g200);display:flex;align-items:center;justify-content:center;color:var(--g600);font-family:'Oswald',sans-serif;font-weight:600;font-size:.9375rem;overflow:hidden;border:2px solid var(--g300)}
-        .member-avatar{width:36px;height:36px;font-size:.8125rem}
+        .friend-avatar,.member-avatar{width:46px;height:46px;border-radius:4px;background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);display:flex;align-items:center;justify-content:center;color:var(--g600);font-family:var(--font-title);font-size:.95rem;overflow:hidden;border:2px solid var(--g400)}
+        .member-avatar{width:38px;height:38px;font-size:.8rem}
         .friend-details{display:flex;flex-direction:column}
-        .friend-name,.member-name{font-weight:700;color:var(--g900);font-size:.9375rem}
-        .member-name{font-size:.875rem}
-        .friend-id{font-size:.6875rem;color:var(--g500);font-family:'Courier New',monospace}
-        .friend-status{font-size:.6875rem;color:var(--ok);display:flex;align-items:center;gap:.3125rem;margin-top:.125rem;font-weight:600}
-        .friend-status .status-dot{width:6px;height:6px}
-        .friend-actions{display:flex;gap:.375rem}
-        .member-role{font-family:'Oswald',sans-serif;font-size:.6875rem;color:var(--pri);font-weight:600;text-transform:uppercase}
+        .friend-name,.member-name{font-weight:700;color:var(--g900);font-size:.9rem}
+        .member-name{font-size:.85rem}
+        .friend-id{font-size:.7rem;color:var(--g500);font-family:'Courier New',monospace}
+        .friend-status{font-size:.7rem;color:var(--ok);display:flex;align-items:center;gap:.3rem;margin-top:.15rem}
+        .friend-status .status-dot{width:7px;height:7px}
+        .friend-actions{display:flex;gap:.35rem}
+        .member-role{font-family:var(--font-title);font-size:.65rem;color:var(--pri);text-transform:uppercase}
+        .member-role i{margin-right:.25rem}
         .member-role.owner{color:var(--sec)}
         .friend-menu,.member-actions{position:relative}
-        .friend-menu-btn{background:var(--g100);border:2px solid var(--g300);border-radius:4px;padding:.375rem .625rem;cursor:pointer;color:var(--g500);font-size:1rem;transition:all var(--tr)}
-        .friend-menu-btn:hover{background:var(--g200);color:var(--g700);border-color:var(--g400)}
-        .friend-dropdown{position:absolute;right:0;top:100%;margin-top:.25rem;background:var(--w);border-radius:4px;box-shadow:var(--sh-lg);border:2px solid var(--g300);min-width:180px;z-index:1000;opacity:0;visibility:hidden;transform:translateY(-4px);transition:all var(--tr);pointer-events:none}
+        .friend-menu-btn{background:linear-gradient(180deg,#f5f5f5 0%,#e0e0e0 100%);border:2px solid var(--g400);border-radius:3px;padding:.35rem .6rem;cursor:pointer;color:var(--g500);font-size:1rem;transition:all var(--tr)}
+        .friend-menu-btn:hover{background:linear-gradient(180deg,#fff 0%,#f0f0f0 100%);color:var(--g700);border-color:var(--g500)}
+        .friend-dropdown{position:absolute;right:0;top:100%;margin-top:.25rem;background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:4px;box-shadow:var(--sh-lg);border:2px solid var(--g400);min-width:180px;z-index:1000;opacity:0;visibility:hidden;transform:translateY(-4px);transition:all var(--tr);pointer-events:none}
         .friend-dropdown.show{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
-        .dropdown-item{font-size:.8125rem;gap:.5rem}
-        .dropdown-item:first-child{border-radius:4px 4px 0 0}
-        .dropdown-item:last-child{border-radius:0 0 4px 4px}
-        .danger-zone{margin-top:2rem;padding:1.25rem;background:var(--err-l);border:2px solid #ef9a9a;border-radius:4px}
-        .danger-zone h3{font-family:'Oswald',sans-serif;color:var(--err);font-size:.875rem;font-weight:600;margin-bottom:.375rem;display:flex;align-items:center;gap:.5rem;text-transform:uppercase}
-        .danger-zone p{color:#b71c1c;font-size:.8125rem;margin-bottom:.875rem}
-        footer{text-align:center;padding:1.5rem;background:var(--g800);color:var(--g400);font-size:.75rem;border-top:3px solid var(--sec);margin-top:2rem}
-        footer p{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.1em}
-        .toast-container{position:fixed;bottom:1rem;right:1rem;z-index:1000;display:flex;flex-direction:column;gap:.625rem}
-        .toast{background:var(--w);padding:.875rem 1rem;border-radius:4px;box-shadow:var(--sh-lg);border:2px solid var(--g300);display:flex;align-items:flex-start;gap:.75rem;animation:slideIn .25s ease-out;max-width:320px}
-        .toast.success{border-left:4px solid var(--ok);border-color:var(--ok)}
-        .toast.error{border-left:4px solid var(--err);border-color:var(--err)}
-        .toast.info{border-left:4px solid var(--pri);border-color:var(--pri)}
-        .toast-icon{font-size:1rem;flex-shrink:0}
+        .dropdown-item{font-size:.8rem;gap:.5rem}
+        .dropdown-item i{width:16px;text-align:center}
+        .dropdown-item:first-child{border-radius:3px 3px 0 0}
+        .dropdown-item:last-child{border-radius:0 0 3px 3px}
+        .danger-zone{margin-top:2rem;padding:1.25rem;background:linear-gradient(180deg,#ffcdd2 0%,#ef9a9a 100%);border:2px solid #e57373;border-radius:4px}
+        .danger-zone h3{font-family:var(--font-title);color:var(--err);font-size:.85rem;margin-bottom:.4rem;display:flex;align-items:center;gap:.5rem;text-transform:uppercase}
+        .danger-zone h3 i{color:var(--warn)}
+        .danger-zone p{color:#b71c1c;font-size:.8rem;margin-bottom:.9rem}
+        footer{text-align:center;padding:1.5rem;background:linear-gradient(180deg,#2d2d2d 0%,#1a1a1a 100%);color:var(--g400);font-size:.75rem;border-top:4px solid var(--sec);margin-top:2rem}
+        footer p{font-family:var(--font-title);text-transform:uppercase;letter-spacing:.15em}
+        footer i{color:var(--sec);margin-right:.4rem}
+        .toast-container{position:fixed;bottom:1rem;right:1rem;z-index:1000;display:flex;flex-direction:column;gap:.6rem}
+        .toast{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);padding:.85rem 1rem;border-radius:4px;box-shadow:0 5px 20px rgba(0,0,0,.25);border:2px solid var(--g400);display:flex;align-items:flex-start;gap:.75rem;animation:slideIn .25s ease-out;max-width:320px}
+        .toast.success{border-left:5px solid var(--ok);border-color:var(--ok)}
+        .toast.error{border-left:5px solid var(--err);border-color:var(--err)}
+        .toast.info{border-left:5px solid var(--pri);border-color:var(--pri)}
+        .toast-icon{font-size:1.1rem;flex-shrink:0}
+        .toast.success .toast-icon{color:var(--ok)}
+        .toast.error .toast-icon{color:var(--err)}
+        .toast.info .toast-icon{color:var(--pri)}
         .toast-content{flex:1;min-width:0}
-        .toast-title{font-family:'Oswald',sans-serif;font-weight:600;color:var(--g900);font-size:.875rem;text-transform:uppercase}
-        .toast-message{font-size:.75rem;color:var(--g500);margin-top:.125rem}
-        .toast-close{background:none;border:none;cursor:pointer;padding:.125rem;color:var(--g400);font-size:.75rem}
-        .toast-close:hover{color:var(--g600)}
-        .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:all var(--tr);padding:1rem}
+        .toast-title{font-family:var(--font-title);color:var(--g900);font-size:.85rem;text-transform:uppercase}
+        .toast-message{font-size:.75rem;color:var(--g500);margin-top:.15rem}
+        .toast-close{background:none;border:none;cursor:pointer;padding:.15rem;color:var(--g400);font-size:.8rem}
+        .toast-close:hover{color:var(--g700)}
+        .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:all var(--tr);padding:1rem}
         .modal-overlay.show{opacity:1;visibility:visible}
-        .modal{background:var(--w);border-radius:var(--r);max-width:450px;width:100%;transform:scale(.95);transition:transform var(--tr);max-height:90vh;overflow-y:auto;border:2px solid var(--g300);box-shadow:var(--sh-lg)}
+        .modal{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:var(--r);max-width:450px;width:100%;transform:scale(.95);transition:transform var(--tr);max-height:90vh;overflow-y:auto;border:3px solid var(--g400);box-shadow:0 15px 40px rgba(0,0,0,.4)}
         .modal-overlay.show .modal{transform:scale(1)}
-        .modal-header{background:var(--grad-h);padding:1rem 1.5rem;border-bottom:2px solid var(--sec);border-radius:var(--r) var(--r) 0 0}
-        .modal-header h3{font-family:'Oswald',sans-serif;font-size:1.125rem;font-weight:600;color:var(--w);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:.5rem}
-        .modal h3{font-family:'Oswald',sans-serif;font-size:1.125rem;font-weight:600;color:var(--pri-d);margin-bottom:.375rem;text-transform:uppercase}
-        .modal>p{color:var(--g500);font-size:.875rem;margin-bottom:1.25rem}
+        .modal-header{background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 50%,#0d4a1c 100%);padding:1rem 1.5rem;border-bottom:3px solid var(--sec);border-radius:var(--r) var(--r) 0 0}
+        .modal-header h3{font-family:var(--font-title);font-size:1rem;color:var(--w);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:.5rem;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
+        .modal-header h3 i{color:var(--sec-l)}
+        .modal h3{font-family:var(--font-title);font-size:1.05rem;color:var(--pri-d);margin-bottom:.4rem;text-transform:uppercase}
+        .modal h3 i{margin-right:.4rem;color:var(--sec)}
+        .modal>p{color:var(--g500);font-size:.85rem;margin-bottom:1.25rem}
         .modal-body{padding:1.5rem}
-        .modal-actions{display:flex;gap:.625rem;justify-content:flex-end;padding:1rem 1.5rem;background:var(--g100);border-top:1px solid var(--g200);border-radius:0 0 var(--r) var(--r)}
+        .modal-actions{display:flex;gap:.6rem;justify-content:flex-end;padding:1rem 1.5rem;background:linear-gradient(180deg,#f0f0f0 0%,#e0e0e0 100%);border-top:2px solid var(--g300);border-radius:0 0 var(--r) var(--r)}
         .profile-modal-content{text-align:center;padding:1.5rem}
-        .profile-modal-avatar{width:90px;height:90px;border-radius:var(--r);background:var(--g200);display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:2.25rem;color:var(--g600);font-weight:600;margin:0 auto 1rem;overflow:hidden;border:3px solid var(--sec)}
-        .profile-modal-name{font-family:'Oswald',sans-serif;font-size:1.375rem;font-weight:600;color:var(--g900);margin-bottom:.25rem;text-transform:uppercase}
-        .profile-modal-id{font-family:'Courier New',monospace;color:var(--g500);font-size:.8125rem;margin-bottom:.75rem}
-        .profile-modal-bio{color:var(--g600);padding:1rem;background:var(--g100);border-radius:4px;font-size:.875rem;font-style:italic;margin-bottom:1.25rem;border:1px solid var(--g200)}
-        .profile-modal-actions{display:flex;flex-direction:column;gap:.375rem}
+        .profile-modal-avatar{width:95px;height:95px;border-radius:var(--r);background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:2.3rem;color:var(--g600);margin:0 auto 1rem;overflow:hidden;border:3px solid var(--sec);box-shadow:0 4px 15px rgba(0,0,0,.2)}
+        .profile-modal-name{font-family:var(--font-title);font-size:1.3rem;color:var(--g900);margin-bottom:.3rem;text-transform:uppercase}
+        .profile-modal-id{font-family:'Courier New',monospace;color:var(--g500);font-size:.8rem;margin-bottom:.75rem}
+        .profile-modal-bio{color:var(--g600);padding:1rem;background:linear-gradient(180deg,#fafafa 0%,#f0f0f0 100%);border-radius:4px;font-size:.85rem;font-style:italic;margin-bottom:1.25rem;border:2px solid var(--g300)}
+        .profile-modal-actions{display:flex;flex-direction:column;gap:.4rem}
         .profile-modal-actions .btn{width:100%}
         .create-league-modal .modal{max-width:480px}
         .create-league-form{margin-top:1.25rem}
-        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.875rem}
-        .form-hint{font-size:.6875rem;color:var(--g400);margin-top:.25rem;font-style:italic}
-        .league-avatar-upload{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;padding:1rem;background:var(--g50);border-radius:4px;border:1px solid var(--g200)}
-        .league-avatar-preview{width:56px;height:56px;border-radius:4px;background:var(--grad-g);display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:1.375rem;color:var(--pri-d);font-weight:600;overflow:hidden;flex-shrink:0;border:2px solid var(--g300)}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+        .form-hint{font-size:.7rem;color:var(--g400);margin-top:.3rem;font-style:italic}
+        .form-hint i{margin-right:.25rem}
+        .league-avatar-upload{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;padding:1rem;background:linear-gradient(180deg,#fafafa 0%,#f0f0f0 100%);border-radius:4px;border:2px dashed var(--g300)}
+        .league-avatar-preview{width:60px;height:60px;border-radius:4px;background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:1.4rem;color:var(--pri-d);overflow:hidden;flex-shrink:0;border:2px solid var(--g400)}
         .league-avatar-upload-content{flex:1}
-        .league-avatar-upload-content h4{font-family:'Oswald',sans-serif;font-size:.8125rem;font-weight:600;color:var(--g800);margin-bottom:.125rem;text-transform:uppercase}
-        .league-avatar-upload-content p{font-size:.6875rem;color:var(--g500);margin-bottom:.375rem}
-        .league-avatar-upload-btn{display:inline-flex;align-items:center;gap:.375rem;padding:.3125rem .625rem;background:var(--w);border:1px solid var(--g300);border-radius:4px;font-size:.75rem;font-weight:600;color:var(--g700);cursor:pointer;transition:all var(--tr)}
-        .league-avatar-upload-btn:hover{background:var(--g100);border-color:var(--pri)}
+        .league-avatar-upload-content h4{font-family:var(--font-title);font-size:.8rem;color:var(--g800);margin-bottom:.15rem;text-transform:uppercase}
+        .league-avatar-upload-content h4 i{margin-right:.3rem;color:var(--sec)}
+        .league-avatar-upload-content p{font-size:.7rem;color:var(--g500);margin-bottom:.4rem}
+        .league-avatar-upload-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .65rem;background:linear-gradient(180deg,#fff 0%,#f0f0f0 100%);border:2px solid var(--g400);border-radius:3px;font-size:.75rem;font-weight:600;color:var(--g700);cursor:pointer;transition:all var(--tr)}
+        .league-avatar-upload-btn:hover{background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);border-color:var(--pri);color:var(--pri)}
+        .league-avatar-upload-btn i{color:var(--pri)}
         .league-avatar-upload-btn input{display:none}
         .league-detail-top{display:flex;align-items:center;gap:1.25rem;margin-bottom:1rem}
         .league-stats{display:flex;gap:2rem}
         .league-stat{text-align:center}
-        .league-stat-value{font-family:'Oswald',sans-serif;font-size:1.375rem;font-weight:700;color:var(--w)}
-        .league-stat-label{font-size:.6875rem;color:var(--sec-l);text-transform:uppercase;letter-spacing:.1em}
+        .league-stat-value{font-family:var(--font-title);font-size:1.4rem;color:var(--w);text-shadow:1px 1px 3px rgba(0,0,0,.3)}
+        .league-stat-label{font-size:.65rem;color:var(--sec-l);text-transform:uppercase;letter-spacing:.12em}
+        .league-stat-label i{margin-right:.2rem}
         .league-section{margin-bottom:1.5rem}
         .league-section:last-child{margin-bottom:0}
-        .invite-card{background:var(--g50);border-radius:4px;padding:1rem;display:flex;align-items:center;gap:.875rem;border:1px solid var(--g200)}
-        .invite-card-icon{width:44px;height:44px;background:var(--w);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.125rem;border:2px solid var(--g200);color:var(--pri)}
+        .invite-card{background:linear-gradient(180deg,#fafafa 0%,#f0f0f0 100%);border-radius:4px;padding:1rem;display:flex;align-items:center;gap:.9rem;border:2px solid var(--g300)}
+        .invite-card-icon{width:46px;height:46px;background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:2px solid var(--g300);color:var(--pri)}
         .invite-card-content{flex:1}
-        .invite-card-content h4{font-family:'Oswald',sans-serif;font-size:.8125rem;font-weight:600;color:var(--g800);margin-bottom:.125rem;text-transform:uppercase}
+        .invite-card-content h4{font-family:var(--font-title);font-size:.8rem;color:var(--g800);margin-bottom:.15rem;text-transform:uppercase}
         .invite-card-content p{font-size:.75rem;color:var(--g500)}
-        .member-list{display:flex;flex-direction:column;gap:.375rem}
-        .settings-item{display:flex;justify-content:space-between;align-items:center;padding:.875rem;background:var(--g50);border-radius:4px;margin-bottom:.5rem;border:1px solid var(--g200)}
+        .member-list{display:flex;flex-direction:column;gap:.4rem}
+        .settings-item{display:flex;justify-content:space-between;align-items:center;padding:.9rem;background:linear-gradient(180deg,#fafafa 0%,#f0f0f0 100%);border-radius:4px;margin-bottom:.5rem;border:2px solid var(--g300)}
         .settings-item:last-child{margin-bottom:0}
-        .settings-item-info strong{font-family:'Oswald',sans-serif;color:var(--g800);display:block;margin-bottom:.0625rem;font-size:.8125rem;text-transform:uppercase}
+        .settings-item-info strong{font-family:var(--font-title);color:var(--g800);display:flex;align-items:center;gap:.4rem;margin-bottom:.1rem;font-size:.8rem;text-transform:uppercase}
+        .settings-item-info strong i{color:var(--sec)}
         .settings-item-info p{font-size:.75rem;color:var(--g500)}
         @media(max-width:640px){
             .auth-form{padding:1.25rem 1.5rem 1.5rem}
             nav{padding:.75rem 1rem}
-            .nav-user{gap:.375rem}
+            .nav-user{gap:.4rem}
             #user-greeting,.logo-subtitle{display:none}
             main{padding:1rem}
+            .section-header{margin:-1rem -1rem 1rem;padding:1rem}
             .section-header,.add-friend-form,.join-league-form,.profile-form .form-actions{flex-direction:column}
-            .friend-actions{flex-direction:column;gap:.25rem}
+            .friend-actions{flex-direction:column;gap:.3rem}
             .friend-actions .btn{width:100%}
             .tabs{flex-wrap:wrap}
             .toast-container{left:.75rem;right:.75rem;bottom:.75rem}
@@ -309,7 +338,7 @@
                         <input type="password" id="login-password" required autocomplete="current-password" placeholder="••••••••">
                     </div>
                     <button type="submit" class="btn btn-gold btn-full"><i class="fas fa-sign-in-alt"></i> Entra in campo</button>
-                    <p class="switch-form">Nuovo giocatore? <a href="#" id="show-register">Registrati ora</a></p>
+                    <p class="switch-form">Nuovo giocatore? <a href="#" id="show-register"><i class="fas fa-user-plus"></i> Registrati ora</a></p>
                 </form>
                 <form id="register-form" class="auth-form hidden">
                     <div class="form-group">
@@ -325,7 +354,7 @@
                         <input type="password" id="register-password" minlength="6" required autocomplete="new-password" placeholder="Minimo 6 caratteri">
                     </div>
                     <button type="submit" class="btn btn-gold btn-full"><i class="fas fa-user-plus"></i> Crea il tuo account</button>
-                    <p class="switch-form">Già registrato? <a href="#" id="show-login">Accedi</a></p>
+                    <p class="switch-form">Già registrato? <a href="#" id="show-login"><i class="fas fa-sign-in-alt"></i> Accedi</a></p>
                 </form>
                 <div id="auth-message" class="message"></div>
             </div>
@@ -354,7 +383,7 @@
                             <div class="dropdown notification-dropdown" id="notification-dropdown">
                                 <div class="notification-header">
                                     <h3><i class="fas fa-bell"></i> Notifiche</h3>
-                                    <button class="btn btn-ghost btn-sm" id="mark-all-read">Segna lette</button>
+                                    <button class="btn btn-ghost btn-sm" id="mark-all-read"><i class="fas fa-check-double"></i> Segna lette</button>
                                 </div>
                                 <div class="notification-list" id="notification-list">
                                     <div class="notification-empty">
@@ -408,7 +437,7 @@
                         <div class="retro-panel" style="margin-top:1.25rem">
                             <div class="retro-panel-header"><i class="fas fa-ticket-alt"></i> Unisciti a una Lega</div>
                             <div class="retro-panel-body">
-                                <p style="color:var(--g500);font-size:.8125rem;margin-bottom:.875rem">Hai ricevuto un codice lega? Inseriscilo qui per entrare a far parte della competizione.</p>
+                                <p style="color:var(--g500);font-size:.8rem;margin-bottom:.9rem"><i class="fas fa-info-circle" style="color:var(--pri);margin-right:.3rem"></i>Hai ricevuto un codice lega? Inseriscilo qui per entrare a far parte della competizione.</p>
                                 <div class="join-league-form">
                                     <input type="text" id="join-group-code" placeholder="ABC123" maxlength="6">
                                     <button class="btn btn-primary" onclick="joinGroupByCode()"><i class="fas fa-sign-in-alt"></i> Unisciti</button>
@@ -467,7 +496,7 @@
                         <div class="profile-card">
                             <div class="profile-body">
                                 <h3 class="section-title"><i class="fas fa-user-plus"></i> Aggiungi Compagno</h3>
-                                <p style="color:var(--g500);font-size:.8125rem;margin-bottom:.875rem">Inserisci l'ID a 6 cifre dell'allenatore per inviargli una richiesta di amicizia.</p>
+                                <p style="color:var(--g500);font-size:.8rem;margin-bottom:.9rem"><i class="fas fa-info-circle" style="color:var(--pri);margin-right:.3rem"></i>Inserisci l'ID a 6 cifre dell'allenatore per inviargli una richiesta di amicizia.</p>
                                 <div class="add-friend-form">
                                     <input type="text" id="friend-id-input" placeholder="000000" maxlength="6">
                                     <button type="button" id="btn-add-friend" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Invia richiesta</button>
@@ -507,8 +536,8 @@
                                     </div>
                                 </div>
                                 <div class="league-stats">
-                                    <div class="league-stat"><div class="league-stat-value" id="group-members-count">1</div><div class="league-stat-label">Partecipanti</div></div>
-                                    <div class="league-stat"><div class="league-stat-value" id="group-created-date">-</div><div class="league-stat-label">Fondata</div></div>
+                                    <div class="league-stat"><div class="league-stat-value" id="group-members-count">1</div><div class="league-stat-label"><i class="fas fa-users"></i> Partecipanti</div></div>
+                                    <div class="league-stat"><div class="league-stat-value" id="group-created-date">-</div><div class="league-stat-label"><i class="fas fa-calendar"></i> Fondata</div></div>
                                 </div>
                             </div>
                             <div class="league-detail-body">
@@ -563,17 +592,17 @@
             <div class="modal">
                 <div class="modal-header"><h3><i class="fas fa-trophy"></i> Crea una Nuova Lega</h3></div>
                 <div class="modal-body">
-                    <p style="color:var(--g500);font-size:.875rem;margin-bottom:1rem">Crea una lega per sfidare i tuoi amici allenatori.</p>
+                    <p style="color:var(--g500);font-size:.85rem;margin-bottom:1rem"><i class="fas fa-info-circle" style="color:var(--pri);margin-right:.3rem"></i>Crea una lega per sfidare i tuoi amici allenatori.</p>
                     <form class="create-league-form" id="create-group-form">
                         <div class="league-avatar-upload">
                             <div class="league-avatar-preview" id="new-group-avatar-preview">L</div>
                             <div class="league-avatar-upload-content">
-                                <h4>Stemma Lega</h4>
+                                <h4><i class="fas fa-shield-alt"></i> Stemma Lega</h4>
                                 <p>JPG, PNG. Max 2MB</p>
-                                <label class="league-avatar-upload-btn"><i class="fas fa-upload"></i> Carica stemma<input type="file" id="new-group-avatar" accept="image/*"></label>
+                                <label class="league-avatar-upload-btn"><i class="fas fa-camera"></i> Carica stemma<input type="file" id="new-group-avatar" accept="image/*"></label>
                             </div>
                         </div>
-                        <div class="form-group"><label><i class="fas fa-signature"></i> Nome Lega *</label><input type="text" id="group-name" required placeholder="Es. Lega dei Campioni" maxlength="50"><div class="form-hint">Scegli un nome memorabile per la tua lega</div></div>
+                        <div class="form-group"><label><i class="fas fa-signature"></i> Nome Lega *</label><input type="text" id="group-name" required placeholder="Es. Lega dei Campioni" maxlength="50"><div class="form-hint"><i class="fas fa-lightbulb"></i> Scegli un nome memorabile per la tua lega</div></div>
                         <div class="form-group"><label><i class="fas fa-align-left"></i> Descrizione (opzionale)</label><textarea id="group-description" rows="2" placeholder="Descrivi la tua lega..." maxlength="200"></textarea></div>
                         <div class="form-row">
                             <div class="form-group"><label><i class="fas fa-eye"></i> Visibilità</label><select id="group-visibility"><option value="invite">Solo su invito</option><option value="code">Chiunque con codice</option></select></div>
@@ -607,7 +636,7 @@
         <div class="modal-overlay" id="invite-group-modal">
             <div class="modal">
                 <div class="modal-header"><h3><i class="fas fa-user-plus"></i> Invita alla Lega</h3></div>
-                <div class="modal-body"><p style="color:var(--g500);font-size:.875rem;margin-bottom:1rem">Seleziona i compagni da invitare</p><div id="invite-friends-modal-list" style="max-height:280px;overflow-y:auto"></div></div>
+                <div class="modal-body"><p style="color:var(--g500);font-size:.85rem;margin-bottom:1rem"><i class="fas fa-info-circle" style="color:var(--pri);margin-right:.3rem"></i>Seleziona i compagni da invitare</p><div id="invite-friends-modal-list" style="max-height:280px;overflow-y:auto"></div></div>
                 <div class="modal-actions"><button class="btn btn-secondary" onclick="closeInviteModal()"><i class="fas fa-times"></i> Chiudi</button></div>
             </div>
         </div>
@@ -615,7 +644,7 @@
         <div class="modal-overlay" id="transfer-ownership-modal">
             <div class="modal">
                 <div class="modal-header"><h3><i class="fas fa-crown"></i> Trasferisci Presidenza</h3></div>
-                <div class="modal-body"><p style="color:var(--g500);font-size:.875rem;margin-bottom:1rem">Seleziona il nuovo presidente della lega. Questa azione è irreversibile.</p><div id="transfer-members-list" style="max-height:280px;overflow-y:auto"></div></div>
+                <div class="modal-body"><p style="color:var(--g500);font-size:.85rem;margin-bottom:1rem"><i class="fas fa-exclamation-triangle" style="color:var(--warn);margin-right:.3rem"></i>Seleziona il nuovo presidente della lega. Questa azione è irreversibile.</p><div id="transfer-members-list" style="max-height:280px;overflow-y:auto"></div></div>
                 <div class="modal-actions"><button class="btn btn-secondary" onclick="closeTransferModal()"><i class="fas fa-times"></i> Annulla</button></div>
             </div>
         </div>
@@ -625,14 +654,12 @@
 const $=id=>document.getElementById(id),$$=sel=>document.querySelectorAll(sel);
 const LS={get:k=>JSON.parse(localStorage.getItem(k)||'{}'),set:(k,v)=>localStorage.setItem(k,JSON.stringify(v))};
 
-// Utilities
 const genId=()=>Math.floor(100000+Math.random()*900000).toString();
 const genCode=()=>{const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let r='';for(let i=0;i<6;i++)r+=c[Math.floor(Math.random()*c.length)];return r};
 const initials=n=>n.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
 const fmtDate=d=>{const now=new Date(),diff=now-new Date(d),m=Math.floor(diff/6e4),h=Math.floor(diff/36e5),dy=Math.floor(diff/864e5);return m<1?'Ora':m<60?m+'m fa':h<24?h+'h fa':dy<7?dy+'g fa':new Date(d).toLocaleDateString('it-IT',{day:'numeric',month:'short'})};
 const copy=t=>navigator.clipboard?.writeText(t)||Promise.resolve();
 
-// Toast
 function toast(title,msg='',type='info'){
     const icons={success:'check-circle',error:'times-circle',info:'info-circle'};
     const t=document.createElement('div');
@@ -644,13 +671,11 @@ function toast(title,msg='',type='info'){
 
 function showMsg(el,txt,type){el.textContent=txt;el.className=`message ${type}`;setTimeout(()=>{el.textContent='';el.className='message'},4e3)}
 
-// Modal
 let modalCb=null;
 function showModal(title,msg,cb){$('modal-title').innerHTML='<i class="fas fa-question-circle"></i> '+title;$('modal-message').textContent=msg;$('confirm-modal').classList.add('show');modalCb=cb}
 function closeModal(){$('confirm-modal').classList.remove('show');modalCb=null}
 $('modal-confirm').onclick=()=>{modalCb?.();closeModal()};
 
-// DB
 const DB={
     users:()=>LS.get('users'),saveUsers:u=>LS.set('users',u),
     groups:()=>LS.get('groups'),saveGroups:g=>LS.set('groups',g),
@@ -781,16 +806,12 @@ const DB={
     getUnreadCount(uId){const u=DB.getUserById(uId);if(!u)return 0;let c=(u.friendRequests||[]).length;Object.values(DB.groups()).forEach(g=>{if((g.pendingInvites||[]).includes(uId))c++});return c}
 };
 
-// State
 let currentSection='home',currentGroupId=null,openMenuId=null,returnToGroupId=null,lastGroupVersion={},pollingInterval=null,newGroupAvatarData=null;
 
-// Clock
 setInterval(()=>{const now=new Date();$('current-time')&&($('current-time').textContent=now.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'}))},1e3);
 
-// Avatar helper
-const avatar=(u,size=44)=>`<div class="friend-avatar" style="width:${size}px;height:${size}px;font-size:${size*.21}rem">${u.avatar?`<img src="${u.avatar}" alt="${u.name}">`:(initials(u.name))}</div>`;
+const avatar=(u,size=44)=>`<div class="friend-avatar" style="width:${size}px;height:${size}px;font-size:${size*.021}rem">${u.avatar?`<img src="${u.avatar}" alt="${u.name}">`:(initials(u.name))}</div>`;
 
-// Render functions
 function renderFriends(){
     const u=DB.currentUser();if(!u)return;DB.cleanupUserFriends(u.email);const fresh=DB.currentUser();
     const {friends=[],friendRequests:reqs=[],sentRequests:sent=[]}=fresh;
@@ -799,30 +820,30 @@ function renderFriends(){
     
     const noItems=(icon,t1,t2)=>`<div class="no-items"><div class="no-items-icon"><i class="fas fa-${icon}"></i></div><p>${t1}</p><small>${t2}</small></div>`;
     
-    $('friends-list').innerHTML=friends.length?friends.map(id=>{const f=DB.getUserById(id);return f?`<div class="friend-item" data-id="${f.id}"><div class="friend-info">${avatar(f)}<div class="friend-details"><span class="friend-name">${f.name}</span><span class="friend-id">#${f.id}</span><span class="friend-status"><span class="status-dot"></span> In panchina</span></div></div><div class="friend-menu" onclick="event.stopPropagation()"><button class="friend-menu-btn" onclick="toggleMenu('${f.id}')"><i class="fas fa-ellipsis-v"></i></button><div class="friend-dropdown" id="menu-${f.id}"><button class="dropdown-item" onclick="showProfileModal('${f.id}');closeMenus()"><i class="fas fa-user"></i> Vedi scheda</button><button class="dropdown-item" onclick="toast('Saluto inviato!','Hai salutato ${f.name}','success');closeMenus()"><i class="fas fa-hand-paper"></i> Saluta</button><div class="dropdown-divider"></div><button class="dropdown-item danger" onclick="confirmRemoveFriend('${f.id}')"><i class="fas fa-user-minus"></i> Rimuovi</button></div></div></div>`:''}).join(''):noItems('users','Nessun compagno ancora','Aggiungi compagni inserendo il loro ID a 6 cifre!');
+    $('friends-list').innerHTML=friends.length?friends.map(id=>{const f=DB.getUserById(id);return f?`<div class="friend-item" data-id="${f.id}"><div class="friend-info">${avatar(f)}<div class="friend-details"><span class="friend-name">${f.name}</span><span class="friend-id"><i class="fas fa-hashtag"></i>${f.id}</span><span class="friend-status"><span class="status-dot"></span> In panchina</span></div></div><div class="friend-menu" onclick="event.stopPropagation()"><button class="friend-menu-btn" onclick="toggleMenu('${f.id}')"><i class="fas fa-ellipsis-v"></i></button><div class="friend-dropdown" id="menu-${f.id}"><button class="dropdown-item" onclick="showProfileModal('${f.id}');closeMenus()"><i class="fas fa-user"></i> Vedi scheda</button><button class="dropdown-item" onclick="toast('Saluto inviato!','Hai salutato ${f.name}','success');closeMenus()"><i class="fas fa-hand-paper"></i> Saluta</button><div class="dropdown-divider"></div><button class="dropdown-item danger" onclick="confirmRemoveFriend('${f.id}')"><i class="fas fa-user-minus"></i> Rimuovi</button></div></div></div>`:''}).join(''):noItems('users','Nessun compagno ancora','Aggiungi compagni inserendo il loro ID a 6 cifre!');
     
-    $('requests-list').innerHTML=reqs.length?reqs.map(id=>{const r=DB.getUserById(id);return r?`<div class="request-item" data-id="${r.id}"><div class="friend-info">${avatar(r)}<div class="friend-details"><span class="friend-name">${r.name}</span><span class="friend-id">#${r.id}</span></div></div><div class="friend-actions"><button class="btn btn-success btn-sm" data-action="accept" data-id="${r.id}"><i class="fas fa-check"></i> Accetta</button><button class="btn btn-secondary btn-sm" data-action="reject" data-id="${r.id}"><i class="fas fa-times"></i> Rifiuta</button></div></div>`:''}).join(''):noItems('inbox','Nessuna richiesta in arrivo','Le richieste appariranno qui');
+    $('requests-list').innerHTML=reqs.length?reqs.map(id=>{const r=DB.getUserById(id);return r?`<div class="request-item" data-id="${r.id}"><div class="friend-info">${avatar(r)}<div class="friend-details"><span class="friend-name">${r.name}</span><span class="friend-id"><i class="fas fa-hashtag"></i>${r.id}</span></div></div><div class="friend-actions"><button class="btn btn-success btn-sm" data-action="accept" data-id="${r.id}"><i class="fas fa-check"></i> Accetta</button><button class="btn btn-secondary btn-sm" data-action="reject" data-id="${r.id}"><i class="fas fa-times"></i> Rifiuta</button></div></div>`:''}).join(''):noItems('inbox','Nessuna richiesta in arrivo','Le richieste appariranno qui');
     
-    $('sent-list').innerHTML=sent.length?sent.map(id=>{const t=DB.getUserById(id);return t?`<div class="request-item" data-id="${t.id}"><div class="friend-info">${avatar(t)}<div class="friend-details"><span class="friend-name">${t.name}</span><span class="friend-id">#${t.id}</span><span style="font-size:.6875rem;color:var(--warn);font-weight:600"><i class="fas fa-clock"></i> In attesa</span></div></div><div class="friend-actions"><button class="btn btn-secondary btn-sm" data-action="cancel" data-id="${t.id}"><i class="fas fa-times"></i> Annulla</button></div></div>`:''}).join(''):noItems('paper-plane','Nessuna richiesta inviata','Le tue richieste in attesa appariranno qui');
+    $('sent-list').innerHTML=sent.length?sent.map(id=>{const t=DB.getUserById(id);return t?`<div class="request-item" data-id="${t.id}"><div class="friend-info">${avatar(t)}<div class="friend-details"><span class="friend-name">${t.name}</span><span class="friend-id"><i class="fas fa-hashtag"></i>${t.id}</span><span style="font-size:.7rem;color:var(--warn)"><i class="fas fa-clock"></i> In attesa</span></div></div><div class="friend-actions"><button class="btn btn-secondary btn-sm" data-action="cancel" data-id="${t.id}"><i class="fas fa-times"></i> Annulla</button></div></div>`:''}).join(''):noItems('paper-plane','Nessuna richiesta inviata','Le tue richieste in attesa appariranno qui');
 }
 
 function renderGroups(){
     const u=DB.currentUser();if(!u)return;const groups=DB.getUserGroups(u.id);
     $('groups-list').innerHTML=groups.length?`<div class="leagues-grid">${groups.map(g=>{
         const members=g.members.slice(0,3).map(id=>{const m=DB.getUserById(id);return m?`<div class="mini-avatar">${m.avatar?`<img src="${m.avatar}">`:(initials(m.name))}</div>`:''}).join('');
-        return`<div class="league-card" onclick="showGroup('${g.id}')"><div class="league-card-header"><div class="league-avatar">${g.avatar?`<img src="${g.avatar}">`:(initials(g.name))}</div><div class="league-info"><h3>${g.name}</h3><p>${g.description||'Nessuna descrizione'}</p></div></div><div class="league-card-body"><div class="league-members"><div class="league-members-avatars">${members}</div><span class="league-members-count">${g.members.length} partecipanti</span></div></div></div>`}).join('')}</div>`:`<div class="no-leagues"><div class="no-leagues-icon"><i class="fas fa-trophy"></i></div><h3>Nessuna lega ancora</h3><p>Le leghe ti permettono di sfidare altri allenatori. Crea la tua prima lega per iniziare la competizione!</p><button class="btn btn-gold" onclick="openCreateGroupModal()"><i class="fas fa-plus"></i> Crea la tua prima lega</button></div>`;
+        return`<div class="league-card" onclick="showGroup('${g.id}')"><div class="league-card-header"><div class="league-avatar">${g.avatar?`<img src="${g.avatar}">`:(initials(g.name))}</div><div class="league-info"><h3>${g.name}</h3><p>${g.description||'Nessuna descrizione'}</p></div></div><div class="league-card-body"><div class="league-members"><div class="league-members-avatars">${members}</div><span class="league-members-count"><i class="fas fa-users"></i> ${g.members.length} partecipanti</span></div></div></div>`}).join('')}</div>`:`<div class="no-leagues"><div class="no-leagues-icon"><i class="fas fa-trophy"></i></div><h3>Nessuna lega ancora</h3><p>Le leghe ti permettono di sfidare altri allenatori. Crea la tua prima lega per iniziare la competizione!</p><button class="btn btn-gold" onclick="openCreateGroupModal()"><i class="fas fa-plus"></i> Crea la tua prima lega</button></div>`;
 }
 
 function renderNavGroups(){
     const u=DB.currentUser();if(!u)return;const groups=DB.getUserGroups(u.id);
-    $('nav-groups-list').innerHTML=groups.length?groups.slice(0,5).map(g=>`<button class="nav-dropdown-item" onclick="closeNavDropdown();showGroup('${g.id}')"><div class="nav-dropdown-group-avatar" style="${g.avatar?'':`background:var(--grad-g);color:var(--pri-d)`}">${g.avatar?`<img src="${g.avatar}">`:(initials(g.name))}</div><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${g.name}</span><span style="font-size:.6875rem;color:var(--g400)">${g.members.length}</span></button>`).join('')+(groups.length>5?`<button class="nav-dropdown-item" onclick="closeNavDropdown();showSection('home')" style="color:var(--pri);font-size:.75rem"><i class="fas fa-list"></i> Vedi tutte le leghe (${groups.length})</button>`:''):`<div style="padding:.625rem .75rem;color:var(--g400);font-size:.75rem;font-style:italic">Nessuna lega</div>`;
+    $('nav-groups-list').innerHTML=groups.length?groups.slice(0,5).map(g=>`<button class="nav-dropdown-item" onclick="closeNavDropdown();showGroup('${g.id}')"><div class="nav-dropdown-group-avatar" style="${g.avatar?'':`background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);color:var(--pri-d)`}">${g.avatar?`<img src="${g.avatar}">`:(initials(g.name))}</div><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${g.name}</span><span style="font-size:.7rem;color:var(--g400)"><i class="fas fa-users"></i> ${g.members.length}</span></button>`).join('')+(groups.length>5?`<button class="nav-dropdown-item" onclick="closeNavDropdown();showSection('home')" style="color:var(--pri);font-size:.75rem"><i class="fas fa-list"></i> Vedi tutte le leghe (${groups.length})</button>`:''):`<div style="padding:.6rem .75rem;color:var(--g400);font-size:.75rem;font-style:italic"><i class="fas fa-info-circle"></i> Nessuna lega</div>`;
 }
 
 function renderNotifications(){
     const u=DB.currentUser();if(!u)return;const reqs=u.friendRequests||[],groups=DB.groups();
     let items=[];
     reqs.forEach(id=>{const f=DB.getUserById(id);if(f)items.push({id:'fr_'+id,type:'friend_request',fromId:id,message:`${f.name} vuole diventare tuo compagno`,timestamp:new Date().toISOString(),isFriendRequest:true})});
-    Object.values(groups).forEach(g=>{if((g.pendingInvites||[]).includes(u.id)){const inv=DB.getUserById(g.creator);items.push({id:'gi_'+g.id,type:'group_invite',groupId:g.id,message:`Sei stato invitato alla lega "${g.name}"`,timestamp:g.createdAt})}});
+    Object.values(groups).forEach(g=>{if((g.pendingInvites||[]).includes(u.id)){items.push({id:'gi_'+g.id,type:'group_invite',groupId:g.id,message:`Sei stato invitato alla lega "${g.name}"`,timestamp:g.createdAt})}});
     items.sort((a,b)=>new Date(b.timestamp)-new Date(a.timestamp));
     
     $('notification-list').innerHTML=items.length?items.map(i=>{
@@ -830,19 +851,17 @@ function renderNotifications(){
         let actions='';
         if(i.type==='friend_request'&&i.isFriendRequest)actions=`<div class="notification-actions"><button class="btn btn-success btn-sm" onclick="acceptFriendNotif('${i.fromId}')"><i class="fas fa-check"></i> Accetta</button><button class="btn btn-secondary btn-sm" onclick="rejectFriendNotif('${i.fromId}')"><i class="fas fa-times"></i> Rifiuta</button></div>`;
         else if(i.type==='group_invite')actions=`<div class="notification-actions"><button class="btn btn-success btn-sm" onclick="acceptGroupNotif('${i.groupId}')"><i class="fas fa-sign-in-alt"></i> Unisciti</button><button class="btn btn-secondary btn-sm" onclick="rejectGroupNotif('${i.groupId}')"><i class="fas fa-times"></i> Rifiuta</button></div>`;
-        return`<div class="notification-item unread"><div class="notification-icon ${icon}"><i class="fas fa-${ic}"></i></div><div class="notification-content"><div class="notification-text">${i.message}</div><div class="notification-time">${fmtDate(i.timestamp)}</div>${actions}</div></div>`}).join(''):`<div class="notification-empty"><div class="notification-empty-icon"><i class="fas fa-bell-slash"></i></div><p>Nessuna notifica</p></div>`;
+        return`<div class="notification-item unread"><div class="notification-icon ${icon}"><i class="fas fa-${ic}"></i></div><div class="notification-content"><div class="notification-text">${i.message}</div><div class="notification-time"><i class="fas fa-clock"></i> ${fmtDate(i.timestamp)}</div>${actions}</div></div>`}).join(''):`<div class="notification-empty"><div class="notification-empty-icon"><i class="fas fa-bell-slash"></i></div><p>Nessuna notifica</p></div>`;
 }
 
 function updateNotificationBadge(){const u=DB.currentUser();if(!u)return;const c=DB.getUnreadCount(u.id);$('notification-badge').textContent=c;$('notification-badge').classList.toggle('hidden',!c)}
 function updateNavAvatar(){const u=DB.currentUser();if(!u)return;$('nav-avatar').innerHTML=u.avatar?`<img src="${u.avatar}">`:(initials(u.name))}
 
-// Notifications actions
 window.acceptFriendNotif=id=>{const u=DB.currentUser(),r=DB.acceptFriendRequest(u.email,id);if(r.success){toast('Nuovo compagno!',r.message,'success');renderNotifications();updateNotificationBadge();renderFriends()}};
 window.rejectFriendNotif=id=>{DB.rejectFriendRequest(DB.currentUser().email,id);toast('Richiesta rifiutata','','info');renderNotifications();updateNotificationBadge();renderFriends()};
 window.acceptGroupNotif=gId=>{const r=DB.acceptGroupInvite(DB.currentUser().id,gId);if(r.success){toast('Benvenuto in lega!',r.message,'success');renderNotifications();updateNotificationBadge();renderGroups();renderNavGroups()}};
 window.rejectGroupNotif=gId=>{DB.rejectGroupInvite(DB.currentUser().id,gId);toast('Invito rifiutato','','info');renderNotifications();updateNotificationBadge()};
 
-// Profile Modal
 window.showProfileModal=uId=>{
     const u=DB.getUserById(uId),cur=DB.currentUser();if(!u)return;
     const isOwn=cur&&cur.id===uId,isFriend=cur&&(cur.friends||[]).includes(uId),hasSent=cur&&(cur.sentRequests||[]).includes(uId),hasReq=cur&&(cur.friendRequests||[]).includes(uId);
@@ -851,7 +870,7 @@ window.showProfileModal=uId=>{
     let act='';
     if(!isOwn&&cur){
         if(isFriend)act=`<button class="btn btn-secondary" onclick="toast('Saluto inviato!','Hai salutato ${u.name}','success')"><i class="fas fa-hand-paper"></i> Saluta</button><button class="btn btn-danger" onclick="removeFriendProfile('${uId}')"><i class="fas fa-user-minus"></i> Rimuovi compagno</button>`;
-        else if(hasSent)act=`<button class="btn btn-secondary" disabled><i class="fas fa-clock"></i> Richiesta inviata</button><button class="btn btn-ghost" onclick="cancelReqProfile('${uId}')">Annulla richiesta</button>`;
+        else if(hasSent)act=`<button class="btn btn-secondary" disabled><i class="fas fa-clock"></i> Richiesta inviata</button><button class="btn btn-ghost" onclick="cancelReqProfile('${uId}')"><i class="fas fa-times"></i> Annulla richiesta</button>`;
         else if(hasReq)act=`<button class="btn btn-success" onclick="acceptFriendProfile('${uId}')"><i class="fas fa-check"></i> Accetta</button><button class="btn btn-secondary" onclick="rejectFriendProfile('${uId}')"><i class="fas fa-times"></i> Rifiuta</button>`;
         else act=`<button class="btn btn-primary" onclick="addFriendProfile('${uId}')"><i class="fas fa-user-plus"></i> Aggiungi compagno</button>`;
     }
@@ -864,19 +883,17 @@ window.rejectFriendProfile=uId=>{DB.rejectFriendRequest(DB.currentUser().email,u
 window.cancelReqProfile=uId=>{DB.cancelFriendRequest(DB.currentUser().email,uId);toast('Richiesta annullata','','info');closeProfileModal();renderFriends()};
 window.removeFriendProfile=uId=>{const f=DB.getUserById(uId);closeProfileModal();showModal('Rimuovi compagno',`Sei sicuro di voler rimuovere ${f?.name||'questo allenatore'} dai compagni?`,()=>{DB.removeFriend(DB.currentUser().email,uId);toast('Compagno rimosso','','info');renderFriends()})};
 
-// Group modals
 window.openCreateGroupModal=()=>{$('create-group-modal').classList.add('show');$('group-name').value='';$('group-description').value='';$('group-visibility').value='invite';$('group-invite-permission').value='all';$('group-max-members').value='10';$('new-group-avatar-preview').innerHTML='L';newGroupAvatarData=null};
 window.closeCreateGroupModal=()=>{$('create-group-modal').classList.remove('show');newGroupAvatarData=null};
 window.openEditGroupModal=()=>{const g=DB.getGroupById(currentGroupId);if(!g)return;$('edit-group-name').value=g.name;$('edit-group-description').value=g.description||'';$('edit-group-visibility').value=g.visibility||'invite';$('edit-group-invite-permission').value=g.invitePermission||'all';$('edit-group-max-members').value=g.maxMembers||'0';$('edit-group-modal').classList.add('show')};
 window.closeEditGroupModal=()=>$('edit-group-modal').classList.remove('show');
-window.openTransferModal=()=>{const g=DB.getGroupById(currentGroupId),u=DB.currentUser();if(!g)return;const others=g.members.filter(id=>id!==u.id);$('transfer-members-list').innerHTML=others.length?others.map(id=>{const m=DB.getUserById(id);return m?`<div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem;border-bottom:1px solid var(--g200)"><div style="display:flex;align-items:center;gap:.75rem">${avatar(m,36)}<div><div style="font-weight:600;color:var(--g900)">${m.name}</div><div style="font-size:.6875rem;color:var(--g500);font-family:'Courier New',monospace">#${m.id}</div></div></div><button class="btn btn-warning btn-sm" onclick="confirmTransfer('${id}')"><i class="fas fa-crown"></i> Trasferisci</button></div>`:''}).join(''):`<div style="text-align:center;padding:2rem;color:var(--g500)"><p>Non ci sono altri partecipanti</p></div>`;$('transfer-ownership-modal').classList.add('show')};
+window.openTransferModal=()=>{const g=DB.getGroupById(currentGroupId),u=DB.currentUser();if(!g)return;const others=g.members.filter(id=>id!==u.id);$('transfer-members-list').innerHTML=others.length?others.map(id=>{const m=DB.getUserById(id);return m?`<div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem;border-bottom:1px solid var(--g200)"><div style="display:flex;align-items:center;gap:.75rem">${avatar(m,36)}<div><div style="font-weight:600;color:var(--g900)">${m.name}</div><div style="font-size:.7rem;color:var(--g500);font-family:'Courier New',monospace"><i class="fas fa-hashtag"></i>${m.id}</div></div></div><button class="btn btn-warning btn-sm" onclick="confirmTransfer('${id}')"><i class="fas fa-crown"></i> Trasferisci</button></div>`:''}).join(''):`<div style="text-align:center;padding:2rem;color:var(--g500)"><i class="fas fa-users-slash" style="font-size:2rem;margin-bottom:.5rem;display:block"></i><p>Non ci sono altri partecipanti</p></div>`;$('transfer-ownership-modal').classList.add('show')};
 window.closeTransferModal=()=>$('transfer-ownership-modal').classList.remove('show');
 window.confirmTransfer=newOwnerId=>{const m=DB.getUserById(newOwnerId);closeTransferModal();showModal('Conferma trasferimento',`Sei sicuro di voler trasferire la presidenza a ${m?.name}? Questa azione è irreversibile.`,()=>{const r=DB.transferOwnership(currentGroupId,newOwnerId);r.success?(toast('Presidenza trasferita!',`${m?.name} è ora il presidente`,'success'),showGroup(currentGroupId)):toast('Errore',r.message,'error')})};
-window.openInviteModal=gId=>{const u=DB.currentUser(),friends=u.friends||[],g=DB.getGroupById(gId);if(!g)return;$('invite-friends-modal-list').innerHTML=friends.length?friends.map(id=>{const f=DB.getUserById(id);if(!f)return'';const inG=g.members.includes(id),pend=(g.pendingInvites||[]).includes(id);let btn=inG?`<span style="color:var(--ok);font-size:.75rem;font-weight:600"><i class="fas fa-check"></i> Già in lega</span>`:pend?`<span style="color:var(--warn);font-size:.75rem;font-weight:600"><i class="fas fa-clock"></i> Invito inviato</span>`:`<button class="btn btn-primary btn-sm" onclick="sendGroupInvite('${gId}','${id}')"><i class="fas fa-paper-plane"></i> Invita</button>`;return`<div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem;border-bottom:1px solid var(--g200)"><div style="display:flex;align-items:center;gap:.75rem">${avatar(f,36)}<div><div style="font-weight:600;color:var(--g900)">${f.name}</div><div style="font-size:.6875rem;color:var(--g500);font-family:'Courier New',monospace">#${f.id}</div></div></div>${btn}</div>`}).join(''):`<div style="text-align:center;padding:2rem;color:var(--g500)"><p>Non hai ancora compagni da invitare</p><button class="btn btn-primary btn-sm" style="margin-top:1rem" onclick="closeInviteModal();navigateToFriendsFromGroup('${gId}')"><i class="fas fa-user-plus"></i> Aggiungi compagni</button></div>`;$('invite-group-modal').classList.add('show');window.currentInviteGroupId=gId};
+window.openInviteModal=gId=>{const u=DB.currentUser(),friends=u.friends||[],g=DB.getGroupById(gId);if(!g)return;$('invite-friends-modal-list').innerHTML=friends.length?friends.map(id=>{const f=DB.getUserById(id);if(!f)return'';const inG=g.members.includes(id),pend=(g.pendingInvites||[]).includes(id);let btn=inG?`<span style="color:var(--ok);font-size:.75rem"><i class="fas fa-check"></i> Già in lega</span>`:pend?`<span style="color:var(--warn);font-size:.75rem"><i class="fas fa-clock"></i> Invito inviato</span>`:`<button class="btn btn-primary btn-sm" onclick="sendGroupInvite('${gId}','${id}')"><i class="fas fa-paper-plane"></i> Invita</button>`;return`<div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem;border-bottom:1px solid var(--g200)"><div style="display:flex;align-items:center;gap:.75rem">${avatar(f,36)}<div><div style="font-weight:600;color:var(--g900)">${f.name}</div><div style="font-size:.7rem;color:var(--g500);font-family:'Courier New',monospace"><i class="fas fa-hashtag"></i>${f.id}</div></div></div>${btn}</div>`}).join(''):`<div style="text-align:center;padding:2rem;color:var(--g500)"><i class="fas fa-user-friends" style="font-size:2rem;margin-bottom:.5rem;display:block;color:var(--g300)"></i><p>Non hai ancora compagni da invitare</p><button class="btn btn-primary btn-sm" style="margin-top:1rem" onclick="closeInviteModal();navigateToFriendsFromGroup('${gId}')"><i class="fas fa-user-plus"></i> Aggiungi compagni</button></div>`;$('invite-group-modal').classList.add('show');window.currentInviteGroupId=gId};
 window.closeInviteModal=()=>$('invite-group-modal').classList.remove('show');
 window.sendGroupInvite=(gId,fId)=>{const r=DB.inviteToGroup(gId,fId,DB.currentUser().id);r.success?(toast('Invito inviato!',r.message,'success'),openInviteModal(gId),renderNotifications()):toast('Errore',r.message,'error')};
 
-// Show group
 window.showGroup=gId=>{
     const g=DB.getGroupById(gId);if(!g)return;currentGroupId=gId;const u=DB.currentUser(),isOwner=g.owner===u.id,isAdmin=g.admins.includes(u.id),canSeeCode=DB.canSeeGroupCode(gId,u.id),canInvite=DB.canInvite(gId,u.id);
     $('group-detail-title').innerHTML=`<i class="fas fa-trophy"></i> ${g.name}`;$('group-name-display').textContent=g.name;
@@ -887,22 +904,19 @@ window.showGroup=gId=>{
     $('group-members-count').textContent=g.members.length;$('members-count-label').textContent=g.members.length;
     $('group-created-date').textContent=new Date(g.createdAt).toLocaleDateString('it-IT',{day:'numeric',month:'short'});
     
-    // Settings
     const settingsSection=$('group-settings-section');
     if(isAdmin||isOwner){
         settingsSection.style.display='block';
         const vt=g.visibility==='invite'?'Solo su invito':'Chiunque con codice',it=g.invitePermission==='all'?'Tutti i partecipanti':'Solo amministratori',mt=g.maxMembers>0?g.maxMembers+' allenatori':'Illimitato';
-        $('group-settings-content').innerHTML=`<div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-eye"></i> Visibilità</strong><p>${vt}</p></div></div><div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-user-shield"></i> Chi può invitare</strong><p>${it}</p></div></div><div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-users-cog"></i> Limite partecipanti</strong><p>${mt}</p></div></div>${isAdmin?`<button class="btn btn-secondary" style="margin-top:.875rem" onclick="openEditGroupModal()"><i class="fas fa-edit"></i> Modifica impostazioni</button>`:''}${isOwner?`<button class="btn btn-warning" style="margin-top:.375rem" onclick="openTransferModal()"><i class="fas fa-crown"></i> Trasferisci presidenza</button>`:''}`;
+        $('group-settings-content').innerHTML=`<div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-eye"></i> Visibilità</strong><p>${vt}</p></div></div><div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-user-shield"></i> Chi può invitare</strong><p>${it}</p></div></div><div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-users-cog"></i> Limite partecipanti</strong><p>${mt}</p></div></div>${isAdmin?`<button class="btn btn-secondary" style="margin-top:.9rem" onclick="openEditGroupModal()"><i class="fas fa-edit"></i> Modifica impostazioni</button>`:''}${isOwner?`<button class="btn btn-warning" style="margin-top:.4rem" onclick="openTransferModal()"><i class="fas fa-crown"></i> Trasferisci presidenza</button>`:''}`;
     }else settingsSection.style.display='none';
     
-    // Invite friends section
     const friends=u.friends||[],invSec=$('invite-friends-section'),invEl=$('invite-friends-list');
     if(!canInvite)invEl.innerHTML=`<div class="invite-card"><div class="invite-card-icon"><i class="fas fa-lock"></i></div><div class="invite-card-content"><h4>Inviti limitati</h4><p>Solo gli amministratori possono invitare nuovi partecipanti</p></div></div>`;
     else if(!friends.length)invEl.innerHTML=`<div class="invite-card"><div class="invite-card-icon"><i class="fas fa-users"></i></div><div class="invite-card-content"><h4>Aggiungi compagni</h4><p>Per invitare allenatori, prima aggiungili come compagni</p></div><button class="btn btn-secondary btn-sm" onclick="navigateToFriendsFromGroup('${gId}')"><i class="fas fa-user-plus"></i> Vai</button></div>`;
     else{const avail=friends.filter(f=>!g.members.includes(f));invEl.innerHTML=avail.length?`<div class="invite-card"><div class="invite-card-icon"><i class="fas fa-user-friends"></i></div><div class="invite-card-content"><h4>${avail.length} compagni disponibili</h4><p>Invita i tuoi compagni a partecipare</p></div><button class="btn btn-primary btn-sm" onclick="openInviteModal('${gId}')"><i class="fas fa-paper-plane"></i> Invita</button></div>`:`<div class="invite-card"><div class="invite-card-icon"><i class="fas fa-check-circle"></i></div><div class="invite-card-content"><h4>Tutti invitati!</h4><p>Tutti i tuoi compagni sono già nella lega</p></div></div>`}
     invSec.style.display='block';
     
-    // Members
     $('group-members-list').innerHTML=g.members.map(mId=>{
         const m=DB.getUserById(mId);if(!m)return'';
         const mIsOwner=g.owner===mId,mIsAdmin=g.admins.includes(mId),isCur=m.id===u.id;
@@ -917,7 +931,6 @@ window.showGroup=gId=>{
         return`<div class="member-item" onclick="showProfileModal('${mId}')"><div class="member-info"><div class="member-avatar">${m.avatar?`<img src="${m.avatar}">`:(initials(m.name))}</div><div><div class="member-name">${m.name}${isCur?' (tu)':''}</div>${role?`<div class="member-role ${roleClass}">${role}</div>`:''}</div></div>${act}</div>`;
     }).join('');
     
-    // Danger zone
     const dText=$('group-danger-text'),dBtn=$('btn-leave-group');
     if(isOwner&&g.members.length===1){dText.textContent='Eliminando la lega, essa sarà rimossa definitivamente.';dBtn.innerHTML='<i class="fas fa-trash"></i> Elimina lega'}else{dText.textContent='Abbandonando la lega, non potrai più accedere ai suoi contenuti.';dBtn.innerHTML='<i class="fas fa-door-open"></i> Abbandona lega'}
     
@@ -928,12 +941,10 @@ window.promoteMember=mId=>{event.stopPropagation();const r=DB.promoteToAdmin(cur
 window.demoteMember=mId=>{event.stopPropagation();const m=DB.getUserById(mId);closeMenus();showModal('Rimuovi privilegi admin',`Sei sicuro di voler rimuovere i privilegi admin di ${m?.name}?`,()=>{const r=DB.demoteFromAdmin(currentGroupId,mId,DB.currentUser().id);r.success?(toast('Admin rimosso',r.message,'success'),showGroup(currentGroupId)):toast('Errore',r.message,'error')})};
 window.kickMember=mId=>{event.stopPropagation();const m=DB.getUserById(mId);closeMenus();showModal('Espelli partecipante',`Sei sicuro di voler espellere ${m?.name} dalla lega?`,()=>{const r=DB.kickFromGroup(currentGroupId,mId,DB.currentUser().id);r.success?(toast('Partecipante espulso',r.message,'success'),showGroup(currentGroupId)):toast('Errore',r.message,'error')})};
 
-// Menus
 window.toggleMenu=id=>{event.stopPropagation();const menuId='menu-'+id,menu=$(menuId);if(openMenuId===menuId)closeMenus();else{closeMenus();openMenuId=menuId;menu?.classList.add('show')}};
 window.closeMenus=()=>{openMenuId=null;$$('.friend-dropdown').forEach(m=>m.classList.remove('show'))};
 window.confirmRemoveFriend=fId=>{const f=DB.getUserById(fId);closeMenus();showModal('Rimuovi compagno',`Sei sicuro di voler rimuovere ${f?.name||'questo allenatore'} dai compagni?`,()=>{DB.removeFriend(DB.currentUser().email,fId);toast('Compagno rimosso','','info');renderFriends()})};
 
-// Nav dropdowns
 let navDropdownOpen=false,notifDropdownOpen=false;
 $('notification-bell').onclick=e=>{e.stopPropagation();notifDropdownOpen=!notifDropdownOpen;$('notification-dropdown').classList.toggle('show',notifDropdownOpen);if(notifDropdownOpen){closeNavDropdown();renderNotifications()}};
 $('nav-avatar').onclick=e=>{e.stopPropagation();navDropdownOpen=!navDropdownOpen;$('nav-dropdown').classList.toggle('show',navDropdownOpen);if(navDropdownOpen){closeNotifDropdown();$('dropdown-name').textContent=DB.currentUser()?.name;$('dropdown-id').textContent='#'+DB.currentUser()?.id;renderNavGroups()}};
@@ -947,7 +958,6 @@ $('mark-all-read').onclick=()=>{const u=DB.currentUser();if(u){DB.markAllRead(u.
 
 document.addEventListener('click',e=>{if(!e.target.closest('.nav-avatar-container')&&!e.target.closest('.notification-bell')){closeNavDropdown();closeNotifDropdown()}if(!e.target.closest('.friend-menu')&&!e.target.closest('.member-actions'))closeMenus()});
 
-// Section navigation
 window.showSection=sec=>{
     currentSection=sec;['home','profile','friends','group'].forEach(s=>$('section-'+s).classList.add('hidden'));
     $$('.nav-dropdown-item[data-section]').forEach(i=>i.classList.toggle('active',i.dataset.section===sec));
@@ -960,52 +970,39 @@ window.showSection=sec=>{
 window.navigateToFriendsFromGroup=gId=>{returnToGroupId=gId;showSection('friends')};
 window.goBackFromFriends=()=>{if(returnToGroupId){const gId=returnToGroupId;returnToGroupId=null;showGroup(gId)}else showSection('home')};
 
-// Copy
 window.copyUserId=()=>{const id=$('profile-user-id').textContent;copy(id).then(()=>toast('Copiato!',`ID #${id} copiato negli appunti`,'success')).catch(()=>toast('Errore','Impossibile copiare','error'))};
 window.copyGroupCode=()=>{const c=$('group-code-display').textContent;copy(c).then(()=>toast('Copiato!',`Codice ${c} copiato negli appunti`,'success')).catch(()=>toast('Errore','Impossibile copiare','error'))};
 
-// Join group
 window.joinGroupByCode=()=>{const code=$('join-group-code').value.trim().toUpperCase(),msgEl=$('join-group-message');if(!code||code.length!==6){showMsg(msgEl,'Inserisci un codice valido di 6 caratteri','error');return}const r=DB.joinGroupByCode(DB.currentUser().id,code);if(r.success){$('join-group-code').value='';toast('Benvenuto in lega!',r.message,'success');renderGroups();renderNavGroups();showGroup(r.groupId)}else showMsg(msgEl,r.message,'error')};
 $('join-group-code').oninput=e=>e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'');
 $('join-group-code').onkeypress=e=>{if(e.key==='Enter'){e.preventDefault();joinGroupByCode()}};
 
-// Tabs
 $$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');const tab=t.dataset.tab;['friends','requests','sent'].forEach(x=>$('tab-'+x).classList.toggle('hidden',x!==tab))});
 
-// Request actions (delegation)
 $('requests-list').onclick=e=>{const btn=e.target.closest('[data-action]');if(!btn)return;const{action,id}=btn.dataset,u=DB.currentUser();if(action==='accept'){const r=DB.acceptFriendRequest(u.email,id);if(r.success){toast('Nuovo compagno!',r.message,'success');renderFriends();updateNotificationBadge();renderNotifications()}}else if(action==='reject'){DB.rejectFriendRequest(u.email,id);toast('Richiesta rifiutata','','info');renderFriends();updateNotificationBadge();renderNotifications()}};
 $('sent-list').onclick=e=>{const btn=e.target.closest('[data-action]');if(!btn)return;const{action,id}=btn.dataset;if(action==='cancel'){DB.cancelFriendRequest(DB.currentUser().email,id);toast('Richiesta annullata','','info');renderFriends()}};
 
-// Add friend
 const friendInput=$('friend-id-input'),friendMsg=$('friend-message');
 friendInput.oninput=e=>e.target.value=e.target.value.replace(/[^0-9]/g,'');
 $('btn-add-friend').onclick=()=>{const id=friendInput.value.trim();if(!id){showMsg(friendMsg,'Inserisci un ID allenatore','error');return}if(id.length!==6||!/^\d{6}$/.test(id)){showMsg(friendMsg,'L\'ID deve essere di 6 cifre','error');return}const r=DB.sendFriendRequest(DB.currentUser().email,id);if(r.success){toast('Richiesta inviata!',r.message,'success');friendInput.value='';friendMsg.textContent='';friendMsg.className='message';renderFriends();$$('.tab').forEach(t=>t.classList.remove('active'));document.querySelector('.tab[data-tab="sent"]').classList.add('active');['friends','requests'].forEach(x=>$('tab-'+x).classList.add('hidden'));$('tab-sent').classList.remove('hidden')}else showMsg(friendMsg,r.message,'error')};
 friendInput.onkeypress=e=>{if(e.key==='Enter'){e.preventDefault();$('btn-add-friend').click()}};
 
-// Avatar upload
 $('avatar-upload').onchange=function(){const file=this.files[0];if(!file)return;if(!file.type.startsWith('image/')){toast('Errore','Seleziona un\'immagine valida','error');return}if(file.size>2*1024*1024){toast('Errore','L\'immagine deve essere inferiore a 2MB','error');return}const r=new FileReader();r.onload=e=>{const b64=e.target.result,u=DB.currentUser();DB.updateUser(u.email,{avatar:b64});$('profile-avatar').innerHTML=`<img src="${b64}">`;updateNavAvatar();toast('Foto aggiornata!','La tua foto è stata cambiata','success')};r.readAsDataURL(file)};
 
-// Profile form
 $('profile-form').onsubmit=e=>{e.preventDefault();const u=DB.currentUser(),name=$('profile-name').value.trim(),bio=$('profile-bio').value;if(!name){showMsg($('profile-message'),'Il nome non può essere vuoto','error');return}DB.updateUser(u.email,{name,bio});$('user-greeting').textContent='Mister '+name;$('profile-display-name').textContent=name;if(!u.avatar)$('profile-avatar').innerHTML=initials(name);updateNavAvatar();toast('Salvato!','Profilo aggiornato con successo','success')};
 
-// Logout
 $('btn-logout').onclick=()=>showModal('Esci dall\'account','Sei sicuro di voler uscire?',()=>{stopPolling();DB.logout();showAuth()});
 
-// Leave group
 $('btn-leave-group').onclick=()=>{const g=DB.getGroupById(currentGroupId),u=DB.currentUser();if(!g)return;const isOwner=g.owner===u.id,only=g.members.length===1;showModal(isOwner&&only?'Elimina lega':'Abbandona lega',isOwner&&only?`Sei sicuro di voler eliminare "${g.name}"? Questa azione è irreversibile.`:`Sei sicuro di voler abbandonare "${g.name}"?`,()=>{DB.leaveGroup(u.id,currentGroupId);toast(isOwner&&only?'Lega eliminata':'Hai lasciato la lega','','info');showSection('home');renderGroups();renderNavGroups()})};
 
-// Create group form
 $('new-group-avatar').onchange=function(){const file=this.files[0];if(!file)return;if(!file.type.startsWith('image/')){toast('Errore','Seleziona un\'immagine valida','error');return}if(file.size>2*1024*1024){toast('Errore','L\'immagine deve essere inferiore a 2MB','error');return}const r=new FileReader();r.onload=e=>{newGroupAvatarData=e.target.result;$('new-group-avatar-preview').innerHTML=`<img src="${newGroupAvatarData}">`};r.readAsDataURL(file)};
 $('group-name').oninput=e=>{if(!newGroupAvatarData){const n=e.target.value.trim();$('new-group-avatar-preview').innerHTML=n?initials(n):'L'}};
 $('create-group-form').onsubmit=e=>{e.preventDefault();const name=$('group-name').value.trim();if(!name){toast('Errore','Inserisci un nome per la lega','error');return}const r=DB.createGroup(DB.currentUser().email,{name,description:$('group-description').value,avatar:newGroupAvatarData,visibility:$('group-visibility').value,invitePermission:$('group-invite-permission').value,maxMembers:$('group-max-members').value});if(r.success){closeCreateGroupModal();toast('Lega creata!','Codice: '+r.groupCode,'success');renderGroups();renderNavGroups();showGroup(r.groupId)}else toast('Errore',r.message,'error')};
 
-// Edit group form
 $('edit-group-form').onsubmit=e=>{e.preventDefault();const name=$('edit-group-name').value.trim();if(!name){toast('Errore','Il nome non può essere vuoto','error');return}DB.updateGroup(currentGroupId,{name,description:$('edit-group-description').value,visibility:$('edit-group-visibility').value,invitePermission:$('edit-group-invite-permission').value,maxMembers:parseInt($('edit-group-max-members').value)});closeEditGroupModal();toast('Salvato!','Impostazioni aggiornate','success');showGroup(currentGroupId);renderGroups();renderNavGroups()};
 
-// Group avatar upload
 $('group-avatar-upload').onchange=function(){const file=this.files[0];if(!file||!currentGroupId)return;if(!file.type.startsWith('image/')){toast('Errore','Seleziona un\'immagine valida','error');return}if(file.size>2*1024*1024){toast('Errore','L\'immagine deve essere inferiore a 2MB','error');return}const r=new FileReader();r.onload=e=>{const b64=e.target.result;DB.updateGroup(currentGroupId,{avatar:b64});$('group-avatar-large').innerHTML=`<img src="${b64}">`;renderGroups();renderNavGroups();toast('Stemma aggiornato!','Lo stemma della lega è stato cambiato','success')};r.readAsDataURL(file)};
 
-// Auth
 $('show-register').onclick=e=>{e.preventDefault();$('login-form').classList.add('hidden');$('register-form').classList.remove('hidden');$('auth-message').textContent=''};
 $('show-login').onclick=e=>{e.preventDefault();$('register-form').classList.add('hidden');$('login-form').classList.remove('hidden');$('auth-message').textContent=''};
 
@@ -1016,12 +1013,10 @@ $('register-form').onsubmit=e=>{e.preventDefault();const name=$('register-name')
 function showHome(){const u=DB.currentUser();if(!u){showAuth();return}$('auth-container').classList.add('hidden');$('home-container').classList.remove('hidden');$('user-greeting').textContent='Mister '+u.name;updateNavAvatar();updateNotificationBadge();showSection('home');startPolling()}
 function showAuth(){stopPolling();$('home-container').classList.add('hidden');$('auth-container').classList.remove('hidden');$('login-form').reset();$('register-form').reset();$('login-form').classList.remove('hidden');$('register-form').classList.add('hidden')}
 
-// Polling
 function startPolling(){checkUpdates();pollingInterval=setInterval(checkUpdates,1e3)}
 function stopPolling(){if(pollingInterval){clearInterval(pollingInterval);pollingInterval=null}}
 function checkUpdates(){const u=DB.currentUser();if(!u)return;updateNotificationBadge();if(currentSection==='friends')renderFriends();if(currentSection==='group'&&currentGroupId){const g=DB.getGroupById(currentGroupId);if(g){if(lastGroupVersion[currentGroupId]!==JSON.stringify(g))showGroup(currentGroupId)}else{toast('Lega eliminata','La lega non esiste più','info');showSection('home')}}if(currentSection==='home'){renderGroups();renderNavGroups()}}
 
-// Init
 if(DB.currentUser()){DB.cleanupUserFriends(DB.currentUser().email);showHome()}
 </script>
 </body>
