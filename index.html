@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FantaLega Classic - Il Fantacalcio di una volta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap)" rel="stylesheet">
+    <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--pri:#1a5f2a;--pri-d:#0d4a1c;--pri-l:#2d8a42;--pri-s:#e8f5e9;--sec:#c9a227;--sec-d:#a68520;--sec-l:#e6c547;--ok:#2e7d32;--ok-l:#c8e6c9;--err:#c62828;--err-l:#ffcdd2;--warn:#f57f17;--warn-l:#fff9c4;--w:#fff;--g50:#fafafa;--g100:#f0f0f0;--g200:#e0e0e0;--g300:#bdbdbd;--g400:#9e9e9e;--g500:#757575;--g600:#616161;--g700:#424242;--g800:#2d2d2d;--g900:#1a1a1a;--r:4px;--sh:0 2px 4px rgba(0,0,0,.2);--sh-lg:0 8px 16px -2px rgba(0,0,0,.3);--sh-in:inset 0 2px 4px rgba(0,0,0,.15);--tr:150ms ease;--grad-h:linear-gradient(180deg,#1a5f2a,#0d4a1c);--grad-g:linear-gradient(180deg,#e6c547,#c9a227);--grad-f:linear-gradient(180deg,#2e7d32,#1b5e20);--font-title:'Russo One','Trebuchet MS',Impact,sans-serif;--font-body:Tahoma,Verdana,Geneva,sans-serif;--font-accent:'Bangers','Trebuchet MS',cursive}
@@ -101,7 +101,7 @@
         .notification-empty-icon{font-size:3rem;margin-bottom:.75rem;color:var(--g300)}
         .nav-avatar{width:42px;height:42px;border-radius:4px;background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:.85rem;color:var(--g600);overflow:hidden;cursor:pointer;transition:all var(--tr);border:2px solid var(--sec);box-shadow:0 2px 5px rgba(0,0,0,.2)}
         .nav-avatar:hover{border-color:var(--w);box-shadow:0 3px 8px rgba(0,0,0,.3)}
-        .nav-avatar img,.avatar img,.friend-avatar img,.member-avatar img,.league-avatar img,.league-detail-avatar img,.profile-modal-avatar img,.nav-dropdown-group-avatar img,.league-avatar-preview img,.league-members-avatars .mini-avatar img{width:100%;height:100%;object-fit:cover}
+        .nav-avatar img,.avatar img,.friend-avatar img,.member-avatar img,.league-avatar img,.league-detail-avatar img,.profile-modal-avatar img,.nav-dropdown-group-avatar img,.league-avatar-preview img,.league-members-avatars .mini-avatar img,.team-avatar img,.team-card-avatar img{width:100%;height:100%;object-fit:cover}
         .nav-dropdown{min-width:260px}
         .nav-dropdown-header{padding:1rem;border-radius:var(--r) var(--r) 0 0}
         .nav-dropdown-name{font-family:var(--font-title);color:var(--w);font-size:.95rem;text-transform:uppercase}
@@ -126,6 +126,7 @@
         .section-header-text h1{font-family:var(--font-title);font-size:1.4rem;color:var(--pri-d);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.08em;text-shadow:1px 1px 0 var(--w)}
         .section-header-text h1 i{margin-right:.5rem;color:var(--sec)}
         .section-header-text p{color:var(--g500);font-size:.85rem}
+        .section-header-actions{display:flex;gap:.5rem;flex-wrap:wrap}
         .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
         .card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border:2px solid var(--g400);border-radius:var(--r);transition:all var(--tr);cursor:pointer;position:relative;overflow:hidden;box-shadow:var(--sh)}
         .card:hover{border-color:var(--pri);box-shadow:var(--sh-lg);transform:translateY(-3px)}
@@ -134,44 +135,53 @@
         .card-header h3 i{color:var(--sec-l)}
         .card-body{padding:1.25rem}
         .card p{color:var(--g500);font-size:.8rem;line-height:1.5}
-        .leagues-section{margin-top:2rem}
-        .leagues-section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:3px solid var(--g400)}
-        .leagues-section-header h2{font-family:var(--font-title);font-size:1.05rem;color:var(--pri-d);display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.05em}
-        .leagues-section-header h2 i{color:var(--sec)}
-        .leagues-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
-        .league-card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:var(--r);border:2px solid var(--g400);overflow:hidden;cursor:pointer;transition:all var(--tr);box-shadow:var(--sh)}
-        .league-card:hover{border-color:var(--pri);box-shadow:var(--sh-lg);transform:translateY(-3px)}
-        .league-card-header{background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 50%,#0d4a1c 100%);padding:.8rem 1rem;display:flex;align-items:center;gap:.8rem;border-bottom:3px solid var(--sec)}
-        .league-avatar{width:46px;height:46px;border-radius:4px;background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:1.1rem;color:var(--pri-d);overflow:hidden;border:2px solid var(--w);box-shadow:0 2px 5px rgba(0,0,0,.2)}
-        .league-info h3{font-family:var(--font-title);font-size:.9rem;color:var(--w);margin-bottom:.15rem;text-transform:uppercase;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
-        .league-info p{font-size:.7rem;color:var(--sec-l)}
-        .league-card-body{padding:1rem}
+        .leagues-section,.teams-section{margin-top:2rem}
+        .leagues-section-header,.teams-section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:3px solid var(--g400)}
+        .leagues-section-header h2,.teams-section-header h2{font-family:var(--font-title);font-size:1.05rem;color:var(--pri-d);display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.05em}
+        .leagues-section-header h2 i,.teams-section-header h2 i{color:var(--sec)}
+        .leagues-grid,.teams-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+        .league-card,.team-card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:var(--r);border:2px solid var(--g400);overflow:hidden;cursor:pointer;transition:all var(--tr);box-shadow:var(--sh)}
+        .league-card:hover,.team-card:hover{border-color:var(--pri);box-shadow:var(--sh-lg);transform:translateY(-3px)}
+        .league-card-header,.team-card-header{background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 50%,#0d4a1c 100%);padding:.8rem 1rem;display:flex;align-items:center;gap:.8rem;border-bottom:3px solid var(--sec)}
+        .league-avatar,.team-card-avatar{width:46px;height:46px;border-radius:4px;background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:1.1rem;color:var(--pri-d);overflow:hidden;border:2px solid var(--w);box-shadow:0 2px 5px rgba(0,0,0,.2)}
+        .team-card-avatar{background:linear-gradient(135deg,#42a5f5 0%,#1976d2 100%);color:var(--w)}
+        .league-info h3,.team-card-info h3{font-family:var(--font-title);font-size:.9rem;color:var(--w);margin-bottom:.15rem;text-transform:uppercase;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
+        .league-info p,.team-card-info p{font-size:.7rem;color:var(--sec-l)}
+        .league-card-body,.team-card-body{padding:1rem}
         .league-members{display:flex;align-items:center;gap:.5rem}
         .league-members-avatars{display:flex}
         .league-members-avatars .mini-avatar{width:28px;height:28px;border-radius:4px;background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);border:2px solid var(--w);margin-left:-6px;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-family:var(--font-title);color:var(--g600);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.15)}
         .league-members-avatars .mini-avatar:first-child{margin-left:0}
         .league-members-count{font-size:.75rem;color:var(--g500)}
         .league-members-count i{margin-right:.3rem;color:var(--pri)}
-        .no-leagues,.no-items{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border:3px dashed var(--g400);border-radius:var(--r);padding:2.5rem 2rem;text-align:center}
-        .no-leagues-icon,.no-items-icon{width:70px;height:70px;margin:0 auto 1rem;background:linear-gradient(180deg,#f5f5f5 0%,#e0e0e0 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--g400);border:3px solid var(--g300)}
-        .no-items-icon{width:auto;height:auto;background:none;border:none;font-size:3rem;color:var(--g300)}
-        .no-leagues h3,.no-items p:first-of-type{font-family:var(--font-title);font-size:.95rem;color:var(--g700);margin-bottom:.4rem;text-transform:uppercase}
-        .no-leagues p,.no-items small{color:var(--g500);font-size:.85rem;margin-bottom:1.25rem;max-width:380px;margin-left:auto;margin-right:auto}
+        .team-card-stats{display:flex;gap:1rem}
+        .team-card-stat{text-align:center}
+        .team-card-stat-value{font-family:var(--font-title);font-size:1rem;color:var(--pri-d)}
+        .team-card-stat-label{font-size:.65rem;color:var(--g500);text-transform:uppercase}
+        .team-card-league{display:flex;align-items:center;gap:.5rem;margin-top:.75rem;padding-top:.75rem;border-top:1px dashed var(--g300);font-size:.75rem;color:var(--g500)}
+        .team-card-league i{color:var(--sec)}
+        .no-leagues,.no-items,.no-teams{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border:3px dashed var(--g400);border-radius:var(--r);padding:2.5rem 2rem;text-align:center}
+        .no-leagues-icon,.no-items-icon,.no-teams-icon{width:70px;height:70px;margin:0 auto 1rem;background:linear-gradient(180deg,#f5f5f5 0%,#e0e0e0 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--g400);border:3px solid var(--g300)}
+        .no-items-icon,.no-teams-icon{width:auto;height:auto;background:none;border:none;font-size:3rem;color:var(--g300)}
+        .no-leagues h3,.no-items p:first-of-type,.no-teams h3{font-family:var(--font-title);font-size:.95rem;color:var(--g700);margin-bottom:.4rem;text-transform:uppercase}
+        .no-leagues p,.no-items small,.no-teams p{color:var(--g500);font-size:.85rem;margin-bottom:1.25rem;max-width:380px;margin-left:auto;margin-right:auto}
         .no-items small{font-size:.8rem;color:var(--g400);margin-bottom:0}
         .profile-container{max-width:600px}
         .friends-container{max-width:750px}
         .league-container{max-width:750px}
-        .profile-card,.league-detail-card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:var(--r);border:2px solid var(--g400);overflow:hidden;box-shadow:var(--sh)}
-        .profile-header,.league-detail-header{padding:1.5rem;border-bottom:3px solid var(--sec);display:flex;align-items:center;gap:1.25rem;background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 40%,#0d4a1c 100%)}
-        .avatar-container,.league-detail-avatar-container{position:relative;flex-shrink:0}
-        .avatar,.league-detail-avatar{width:75px;height:75px;border-radius:var(--r);background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:1.8rem;color:var(--g600);overflow:hidden;border:3px solid var(--sec);box-shadow:0 3px 10px rgba(0,0,0,.2)}
+        .team-container{max-width:850px}
+        .profile-card,.league-detail-card,.team-detail-card{background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:var(--r);border:2px solid var(--g400);overflow:hidden;box-shadow:var(--sh)}
+        .profile-header,.league-detail-header,.team-detail-header{padding:1.5rem;border-bottom:3px solid var(--sec);display:flex;align-items:center;gap:1.25rem;background:linear-gradient(180deg,#2d8a42 0%,#1a5f2a 40%,#0d4a1c 100%)}
+        .avatar-container,.league-detail-avatar-container,.team-avatar-container{position:relative;flex-shrink:0}
+        .avatar,.league-detail-avatar,.team-avatar{width:75px;height:75px;border-radius:var(--r);background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:1.8rem;color:var(--g600);overflow:hidden;border:3px solid var(--sec);box-shadow:0 3px 10px rgba(0,0,0,.2)}
         .league-detail-avatar{width:68px;height:68px;background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);color:var(--pri-d);font-size:1.6rem;border-color:var(--w)}
-        .avatar-edit,.league-avatar-edit{position:absolute;bottom:-5px;right:-5px;width:30px;height:30px;background:linear-gradient(180deg,#fff 0%,#e0e0e0 100%);border:2px solid var(--g400);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.8rem;color:var(--g600);transition:all var(--tr);box-shadow:0 2px 5px rgba(0,0,0,.15)}
-        .avatar-edit:hover,.league-avatar-edit:hover{background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);border-color:var(--pri);color:var(--pri)}
-        .avatar-edit input,.league-avatar-edit input{display:none}
-        .league-avatar-edit{width:26px;height:26px;font-size:.7rem}
-        .profile-info h2,.league-detail-info h2{font-family:var(--font-title);font-size:1.2rem;color:var(--w);text-transform:uppercase;text-shadow:1px 1px 3px rgba(0,0,0,.4)}
-        .league-detail-info h2{font-size:1.3rem;margin-bottom:.3rem}
+        .team-avatar{width:68px;height:68px;background:linear-gradient(135deg,#42a5f5 0%,#1976d2 100%);color:var(--w);font-size:1.6rem;border-color:var(--w)}
+        .avatar-edit,.league-avatar-edit,.team-avatar-edit{position:absolute;bottom:-5px;right:-5px;width:30px;height:30px;background:linear-gradient(180deg,#fff 0%,#e0e0e0 100%);border:2px solid var(--g400);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.8rem;color:var(--g600);transition:all var(--tr);box-shadow:0 2px 5px rgba(0,0,0,.15)}
+        .avatar-edit:hover,.league-avatar-edit:hover,.team-avatar-edit:hover{background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);border-color:var(--pri);color:var(--pri)}
+        .avatar-edit input,.league-avatar-edit input,.team-avatar-edit input{display:none}
+        .league-avatar-edit,.team-avatar-edit{width:26px;height:26px;font-size:.7rem}
+        .profile-info h2,.league-detail-info h2,.team-detail-info h2{font-family:var(--font-title);font-size:1.2rem;color:var(--w);text-transform:uppercase;text-shadow:1px 1px 3px rgba(0,0,0,.4)}
+        .league-detail-info h2,.team-detail-info h2{font-size:1.3rem;margin-bottom:.3rem}
         .user-id-badge,.league-code-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,0,0,.3);padding:.3rem .65rem;border-radius:3px;font-family:'Courier New',monospace;font-size:.75rem;color:var(--sec-l);margin-top:.4rem;border:1px solid rgba(255,255,255,.2)}
         .user-id-badge i,.league-code-badge i{color:var(--sec)}
         .league-code-badge{padding:.35rem .65rem}
@@ -179,10 +189,10 @@
         .copy-btn:hover{color:var(--w)}
         .status-badge,.profile-modal-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.75rem;color:#81c784;margin-top:.4rem;font-weight:600}
         .status-dot{width:9px;height:9px;border-radius:50%;background:#4caf50;box-shadow:0 0 6px #4caf50;animation:pulse 2s infinite}
-        .profile-body,.league-detail-body{padding:1.5rem}
+        .profile-body,.league-detail-body,.team-detail-body{padding:1.5rem}
         .profile-form .form-actions{display:flex;gap:.6rem;margin-top:1.5rem}
-        .section-title,.league-section h3{font-family:var(--font-title);font-size:.9rem;color:var(--pri-d);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.03em;border-bottom:2px solid var(--g300);padding-bottom:.5rem}
-        .section-title i,.league-section h3 i{color:var(--sec)}
+        .section-title,.league-section h3,.team-section h3{font-family:var(--font-title);font-size:.9rem;color:var(--pri-d);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.03em;border-bottom:2px solid var(--g300);padding-bottom:.5rem}
+        .section-title i,.league-section h3 i,.team-section h3 i{color:var(--sec)}
         .add-friend-form,.join-league-form{display:flex;gap:.6rem;margin-bottom:1.25rem}
         .add-friend-form input,.join-league-form input{flex:1;padding:.75rem 1rem;border:2px solid var(--g400);border-radius:3px;font-size:1rem;font-family:'Courier New',monospace;letter-spacing:.25em;text-align:center;background:linear-gradient(180deg,#fff 0%,#f8f8f8 100%);box-shadow:inset 0 2px 4px rgba(0,0,0,.1)}
         .add-friend-form input:focus,.join-league-form input:focus{outline:none;border-color:var(--pri);background:#fff;box-shadow:0 0 0 3px rgba(26,95,42,.2),inset 0 1px 2px rgba(0,0,0,.1)}
@@ -197,11 +207,11 @@
         .tab i{margin-right:.35rem}
         .tab-badge{position:absolute;top:3px;right:3px;background:linear-gradient(180deg,#e53935 0%,#c62828 100%);color:var(--w);font-size:.55rem;padding:.05rem .3rem;border-radius:8px;min-width:14px;box-shadow:0 1px 2px rgba(0,0,0,.2)}
         .list-container{display:flex;flex-direction:column;gap:.5rem}
-        .friend-item,.request-item,.member-item{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1rem;background:linear-gradient(180deg,#fff 0%,#fafafa 100%);border-radius:4px;border:2px solid var(--g300);transition:all var(--tr);box-shadow:0 1px 3px rgba(0,0,0,.1)}
-        .friend-item:hover,.request-item:hover{border-color:var(--g400);box-shadow:var(--sh)}
+        .friend-item,.request-item,.member-item,.player-item{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1rem;background:linear-gradient(180deg,#fff 0%,#fafafa 100%);border-radius:4px;border:2px solid var(--g300);transition:all var(--tr);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+        .friend-item:hover,.request-item:hover,.player-item:hover{border-color:var(--g400);box-shadow:var(--sh)}
         .member-item{padding:.7rem .85rem;background:linear-gradient(180deg,#fafafa 0%,#f5f5f5 100%);border:1px solid var(--g300);cursor:pointer}
         .member-item:hover{background:linear-gradient(180deg,#fff 0%,#fafafa 100%);border-color:var(--g400)}
-        .friend-info,.member-info{display:flex;align-items:center;gap:.85rem}
+        .friend-info,.member-info,.player-info{display:flex;align-items:center;gap:.85rem}
         .member-info{gap:.75rem}
         .friend-avatar,.member-avatar{width:46px;height:46px;border-radius:4px;background:linear-gradient(180deg,#e0e0e0 0%,#bdbdbd 100%);display:flex;align-items:center;justify-content:center;color:var(--g600);font-family:var(--font-title);font-size:.95rem;overflow:hidden;border:2px solid var(--g400)}
         .member-avatar{width:38px;height:38px;font-size:.8rem}
@@ -264,40 +274,77 @@
         .profile-modal-bio{color:var(--g600);padding:1rem;background:linear-gradient(180deg,#fafafa 0%,#f0f0f0 100%);border-radius:4px;font-size:.85rem;font-style:italic;margin-bottom:1.25rem;border:2px solid var(--g300)}
         .profile-modal-actions{display:flex;flex-direction:column;gap:.4rem}
         .profile-modal-actions .btn{width:100%}
-        .create-league-modal .modal{max-width:480px}
-        .create-league-form{margin-top:1.25rem}
+        .create-league-modal .modal,.create-team-modal .modal{max-width:520px}
+        .create-league-form,.create-team-form{margin-top:1.25rem}
         .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
         .form-hint{font-size:.7rem;color:var(--g400);margin-top:.3rem;font-style:italic}
         .form-hint i{margin-right:.25rem}
-        .league-avatar-upload{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;padding:1rem;background:linear-gradient(180deg,#fafafa 0%,#f0f0f0 100%);border-radius:4px;border:2px dashed var(--g300)}
-        .league-avatar-preview{width:60px;height:60px;border-radius:4px;background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:1.4rem;color:var(--pri-d);overflow:hidden;flex-shrink:0;border:2px solid var(--g400)}
-        .league-avatar-upload-content{flex:1}
-        .league-avatar-upload-content h4{font-family:var(--font-title);font-size:.8rem;color:var(--g800);margin-bottom:.15rem;text-transform:uppercase}
-        .league-avatar-upload-content h4 i{margin-right:.3rem;color:var(--sec)}
-        .league-avatar-upload-content p{font-size:.7rem;color:var(--g500);margin-bottom:.4rem}
-        .league-avatar-upload-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .65rem;background:linear-gradient(180deg,#fff 0%,#f0f0f0 100%);border:2px solid var(--g400);border-radius:3px;font-size:.75rem;font-weight:600;color:var(--g700);cursor:pointer;transition:all var(--tr)}
-        .league-avatar-upload-btn:hover{background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);border-color:var(--pri);color:var(--pri)}
-        .league-avatar-upload-btn i{color:var(--pri)}
-        .league-avatar-upload-btn input{display:none}
-        .league-detail-top{display:flex;align-items:center;gap:1.25rem;margin-bottom:1rem}
-        .league-stats{display:flex;gap:2rem}
-        .league-stat{text-align:center}
-        .league-stat-value{font-family:var(--font-title);font-size:1.4rem;color:var(--w);text-shadow:1px 1px 3px rgba(0,0,0,.3)}
-        .league-stat-label{font-size:.65rem;color:var(--sec-l);text-transform:uppercase;letter-spacing:.12em}
-        .league-stat-label i{margin-right:.2rem}
-        .league-section{margin-bottom:1.5rem}
-        .league-section:last-child{margin-bottom:0}
+        .league-avatar-upload,.team-avatar-upload{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;padding:1rem;background:linear-gradient(180deg,#fafafa 0%,#f0f0f0 100%);border-radius:4px;border:2px dashed var(--g300)}
+        .league-avatar-preview,.team-avatar-preview{width:60px;height:60px;border-radius:4px;background:linear-gradient(135deg,#ffd700 0%,#c9a227 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:1.4rem;color:var(--pri-d);overflow:hidden;flex-shrink:0;border:2px solid var(--g400)}
+        .team-avatar-preview{background:linear-gradient(135deg,#42a5f5 0%,#1976d2 100%);color:var(--w)}
+        .league-avatar-upload-content,.team-avatar-upload-content{flex:1}
+        .league-avatar-upload-content h4,.team-avatar-upload-content h4{font-family:var(--font-title);font-size:.8rem;color:var(--g800);margin-bottom:.15rem;text-transform:uppercase}
+        .league-avatar-upload-content h4 i,.team-avatar-upload-content h4 i{margin-right:.3rem;color:var(--sec)}
+        .league-avatar-upload-content p,.team-avatar-upload-content p{font-size:.7rem;color:var(--g500);margin-bottom:.4rem}
+        .league-avatar-upload-btn,.team-avatar-upload-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .65rem;background:linear-gradient(180deg,#fff 0%,#f0f0f0 100%);border:2px solid var(--g400);border-radius:3px;font-size:.75rem;font-weight:600;color:var(--g700);cursor:pointer;transition:all var(--tr)}
+        .league-avatar-upload-btn:hover,.team-avatar-upload-btn:hover{background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);border-color:var(--pri);color:var(--pri)}
+        .league-avatar-upload-btn i,.team-avatar-upload-btn i{color:var(--pri)}
+        .league-avatar-upload-btn input,.team-avatar-upload-btn input{display:none}
+        .league-detail-top,.team-detail-top{display:flex;align-items:center;gap:1.25rem;margin-bottom:1rem}
+        .league-stats,.team-stats{display:flex;gap:2rem}
+        .league-stat,.team-stat{text-align:center}
+        .league-stat-value,.team-stat-value{font-family:var(--font-title);font-size:1.4rem;color:var(--w);text-shadow:1px 1px 3px rgba(0,0,0,.3)}
+        .league-stat-label,.team-stat-label{font-size:.65rem;color:var(--sec-l);text-transform:uppercase;letter-spacing:.12em}
+        .league-stat-label i,.team-stat-label i{margin-right:.2rem}
+        .league-section,.team-section{margin-bottom:1.5rem}
+        .league-section:last-child,.team-section:last-child{margin-bottom:0}
         .invite-card{background:linear-gradient(180deg,#fafafa 0%,#f0f0f0 100%);border-radius:4px;padding:1rem;display:flex;align-items:center;gap:.9rem;border:2px solid var(--g300)}
         .invite-card-icon{width:46px;height:46px;background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:2px solid var(--g300);color:var(--pri)}
         .invite-card-content{flex:1}
         .invite-card-content h4{font-family:var(--font-title);font-size:.8rem;color:var(--g800);margin-bottom:.15rem;text-transform:uppercase}
         .invite-card-content p{font-size:.75rem;color:var(--g500)}
-        .member-list{display:flex;flex-direction:column;gap:.4rem}
+        .member-list,.player-list{display:flex;flex-direction:column;gap:.4rem}
         .settings-item{display:flex;justify-content:space-between;align-items:center;padding:.9rem;background:linear-gradient(180deg,#fafafa 0%,#f0f0f0 100%);border-radius:4px;margin-bottom:.5rem;border:2px solid var(--g300)}
         .settings-item:last-child{margin-bottom:0}
         .settings-item-info strong{font-family:var(--font-title);color:var(--g800);display:flex;align-items:center;gap:.4rem;margin-bottom:.1rem;font-size:.8rem;text-transform:uppercase}
         .settings-item-info strong i{color:var(--sec)}
         .settings-item-info p{font-size:.75rem;color:var(--g500)}
+        
+        /* Player/Rosa styles */
+        .player-item{padding:.6rem .85rem}
+        .player-info{gap:.6rem}
+        .player-role-badge{width:32px;height:32px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:.7rem;color:var(--w);font-weight:700;flex-shrink:0}
+        .player-role-badge.P{background:linear-gradient(135deg,#ff9800 0%,#e65100 100%)}
+        .player-role-badge.D{background:linear-gradient(135deg,#4caf50 0%,#2e7d32 100%)}
+        .player-role-badge.C{background:linear-gradient(135deg,#2196f3 0%,#1565c0 100%)}
+        .player-role-badge.A{background:linear-gradient(135deg,#f44336 0%,#c62828 100%)}
+        .player-details{flex:1}
+        .player-name{font-weight:700;color:var(--g900);font-size:.85rem}
+        .player-team{font-size:.7rem;color:var(--g500)}
+        .player-price{font-family:var(--font-title);color:var(--sec-d);font-size:.85rem}
+        .player-actions{display:flex;gap:.3rem}
+        .roster-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:1rem;padding:1rem;background:linear-gradient(180deg,#fafafa 0%,#f0f0f0 100%);border-radius:4px;border:2px solid var(--g300)}
+        .roster-summary-item{text-align:center}
+        .roster-summary-item .role{font-family:var(--font-title);font-size:.7rem;color:var(--g500);text-transform:uppercase;margin-bottom:.25rem}
+        .roster-summary-item .count{font-family:var(--font-title);font-size:1.2rem;color:var(--pri-d)}
+        .roster-summary-item .count.full{color:var(--ok)}
+        .roster-summary-item .count.over{color:var(--err)}
+        .budget-display{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;background:linear-gradient(180deg,#fff9c4 0%,#e6c547 100%);border-radius:4px;border:2px solid var(--sec);margin-bottom:1rem}
+        .budget-display-label{font-family:var(--font-title);font-size:.8rem;color:var(--g800);text-transform:uppercase}
+        .budget-display-value{font-family:var(--font-title);font-size:1.3rem;color:var(--pri-d)}
+        .add-player-section{margin-top:1rem;padding:1rem;background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);border-radius:4px;border:2px solid var(--pri-l)}
+        .add-player-section h4{font-family:var(--font-title);font-size:.8rem;color:var(--pri-d);margin-bottom:.75rem;display:flex;align-items:center;gap:.4rem}
+        .add-player-form{display:grid;grid-template-columns:1fr auto auto auto;gap:.5rem;align-items:end}
+        .add-player-form .form-group{margin-bottom:0}
+        .add-player-form .form-group label{font-size:.65rem;margin-bottom:.25rem}
+        .add-player-form .form-group input,.add-player-form .form-group select{padding:.5rem;font-size:.8rem}
+        .league-select-section{margin-bottom:1rem;padding:1rem;background:linear-gradient(180deg,#fff9c4 0%,#fff59d 100%);border-radius:4px;border:2px solid var(--sec)}
+        .league-select-section h4{font-family:var(--font-title);font-size:.8rem;color:var(--g800);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+        .league-select-section h4 i{color:var(--sec)}
+        .league-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .65rem;background:linear-gradient(180deg,#fff 0%,#f5f5f5 100%);border-radius:3px;font-size:.75rem;color:var(--g700);border:2px solid var(--g400)}
+        .league-badge i{color:var(--sec)}
+        .league-badge.linked{background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 100%);border-color:var(--pri);color:var(--pri-d)}
+        
         @media(max-width:640px){
             .auth-form{padding:1.25rem 1.5rem 1.5rem}
             nav{padding:.75rem 1rem}
@@ -305,17 +352,19 @@
             #user-greeting,.logo-subtitle{display:none}
             main{padding:1rem}
             .section-header{margin:-1rem -1rem 1rem;padding:1rem}
-            .section-header,.add-friend-form,.join-league-form,.profile-form .form-actions{flex-direction:column}
+            .section-header,.add-friend-form,.join-league-form,.profile-form .form-actions,.section-header-actions{flex-direction:column}
             .friend-actions{flex-direction:column;gap:.3rem}
             .friend-actions .btn{width:100%}
             .tabs{flex-wrap:wrap}
             .toast-container{left:.75rem;right:.75rem;bottom:.75rem}
             .toast{max-width:100%}
-            .cards-grid,.leagues-grid,.form-row{grid-template-columns:1fr}
+            .cards-grid,.leagues-grid,.teams-grid,.form-row{grid-template-columns:1fr}
             .notification-dropdown{width:calc(100vw - 1.5rem);right:-50px}
             .nav-dropdown{width:calc(100vw - 1.5rem);right:-8px}
-            .league-stats{gap:1.25rem}
-            .invite-card,.league-detail-top,.league-avatar-upload{flex-direction:column;text-align:center}
+            .league-stats,.team-stats{gap:1.25rem}
+            .invite-card,.league-detail-top,.team-detail-top,.league-avatar-upload,.team-avatar-upload{flex-direction:column;text-align:center}
+            .add-player-form{grid-template-columns:1fr;gap:.75rem}
+            .roster-summary{grid-template-columns:repeat(2,1fr)}
         }
     </style>
 </head>
@@ -403,6 +452,7 @@
                                 <div class="nav-dropdown-menu">
                                     <button class="nav-dropdown-item" data-section="profile"><span class="nav-dropdown-icon"><i class="fas fa-user-circle"></i></span>Il mio profilo</button>
                                     <button class="nav-dropdown-item" data-section="friends"><span class="nav-dropdown-icon"><i class="fas fa-users"></i></span>Compagni di Lega</button>
+                                    <button class="nav-dropdown-item" data-section="myteams"><span class="nav-dropdown-icon"><i class="fas fa-shield-alt"></i></span>Le mie Squadre</button>
                                     <div class="nav-dropdown-divider"></div>
                                     <div class="nav-dropdown-section-title"><i class="fas fa-trophy"></i> Le tue Leghe</div>
                                     <div class="nav-groups-list" id="nav-groups-list"></div>
@@ -420,14 +470,24 @@
                     <div class="section-header">
                         <div class="section-header-text">
                             <h1><i class="fas fa-home"></i> Bacheca Allenatore</h1>
-                            <p>Benvenuto Mister! Gestisci le tue leghe e i tuoi contatti.</p>
+                            <p>Benvenuto Mister! Gestisci le tue leghe, squadre e contatti.</p>
                         </div>
                     </div>
                     <div class="cards-grid">
+                        <div class="card" onclick="showSection('myteams')"><div class="card-header"><h3><i class="fas fa-shield-alt"></i> Le mie Squadre</h3></div><div class="card-body"><p>Crea e gestisci le tue rose per competere nelle leghe.</p></div></div>
                         <div class="card" onclick="showSection('friends')"><div class="card-header"><h3><i class="fas fa-users"></i> Compagni di Lega</h3></div><div class="card-body"><p>Aggiungi altri allenatori alla tua lista contatti per sfidarli nelle leghe.</p></div></div>
                         <div class="card" onclick="showSection('profile')"><div class="card-header"><h3><i class="fas fa-id-card"></i> Scheda Allenatore</h3></div><div class="card-body"><p>Modifica il tuo profilo allenatore, il nickname e la tua foto.</p></div></div>
-                        <div class="card"><div class="card-header"><h3><i class="fas fa-comments"></i> Messaggi</h3></div><div class="card-body"><p>Chatta con gli altri allenatori per concordare scambi e strategie.</p></div></div>
                     </div>
+                    
+                    <!-- Teams Section -->
+                    <div class="teams-section">
+                        <div class="teams-section-header">
+                            <h2><i class="fas fa-shield-alt"></i> Le tue Squadre</h2>
+                            <button class="btn btn-primary" onclick="openCreateTeamModal()"><i class="fas fa-plus"></i> Crea Squadra</button>
+                        </div>
+                        <div id="teams-list"></div>
+                    </div>
+                    
                     <div class="leagues-section">
                         <div class="leagues-section-header">
                             <h2><i class="fas fa-trophy"></i> Le tue Leghe</h2>
@@ -517,6 +577,122 @@
                     </div>
                 </section>
 
+                <section id="section-myteams" class="section hidden">
+                    <div class="section-header">
+                        <div class="section-header-text"><h1><i class="fas fa-shield-alt"></i> Le mie Squadre</h1><p>Gestisci le tue rose</p></div>
+                        <div class="section-header-actions">
+                            <button class="btn btn-primary" onclick="openCreateTeamModal()"><i class="fas fa-plus"></i> Crea Squadra</button>
+                            <button class="btn btn-secondary" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Indietro</button>
+                        </div>
+                    </div>
+                    <div id="my-teams-list"></div>
+                </section>
+
+                <section id="section-team" class="section hidden">
+                    <div class="section-header">
+                        <div class="section-header-text"><h1 id="team-detail-title"><i class="fas fa-shield-alt"></i> Nome Squadra</h1><p>Gestisci la tua rosa</p></div>
+                        <button class="btn btn-secondary" onclick="showSection('myteams')"><i class="fas fa-arrow-left"></i> Torna alle Squadre</button>
+                    </div>
+                    <div class="team-container">
+                        <div class="team-detail-card">
+                            <div class="team-detail-header">
+                                <div class="team-detail-top">
+                                    <div class="team-avatar-container">
+                                        <div class="team-avatar" id="team-avatar-large">S</div>
+                                        <label class="team-avatar-edit" title="Cambia stemma"><i class="fas fa-camera"></i><input type="file" id="team-avatar-upload" accept="image/*"></label>
+                                    </div>
+                                    <div class="team-detail-info">
+                                        <h2 id="team-name-display">Nome Squadra</h2>
+                                        <div id="team-league-badge" class="league-badge"><i class="fas fa-trophy"></i> <span>Nessuna lega</span></div>
+                                    </div>
+                                </div>
+                                <div class="team-stats">
+                                    <div class="team-stat"><div class="team-stat-value" id="team-players-count">0</div><div class="team-stat-label"><i class="fas fa-users"></i> Giocatori</div></div>
+                                    <div class="team-stat"><div class="team-stat-value" id="team-budget-display">500</div><div class="team-stat-label"><i class="fas fa-coins"></i> Crediti</div></div>
+                                </div>
+                            </div>
+                            <div class="team-detail-body">
+                                <!-- League Association -->
+                                <div class="league-select-section" id="league-select-section">
+                                    <h4><i class="fas fa-link"></i> Associa a una Lega</h4>
+                                    <select id="team-league-select" class="form-group" style="margin-bottom:0">
+                                        <option value="">-- Nessuna lega --</option>
+                                    </select>
+                                    <button class="btn btn-primary btn-sm" style="margin-top:.5rem" onclick="associateTeamToLeague()"><i class="fas fa-check"></i> Associa</button>
+                                </div>
+                                
+                                <!-- Budget -->
+                                <div class="budget-display">
+                                    <span class="budget-display-label"><i class="fas fa-coins"></i> Budget Disponibile</span>
+                                    <span class="budget-display-value" id="team-budget-remaining">500</span>
+                                </div>
+                                
+                                <!-- Roster Summary -->
+                                <div class="roster-summary" id="roster-summary">
+                                    <div class="roster-summary-item"><div class="role">Portieri</div><div class="count" id="count-P">0</div></div>
+                                    <div class="roster-summary-item"><div class="role">Difensori</div><div class="count" id="count-D">0</div></div>
+                                    <div class="roster-summary-item"><div class="role">Centrocampisti</div><div class="count" id="count-C">0</div></div>
+                                    <div class="roster-summary-item"><div class="role">Attaccanti</div><div class="count" id="count-A">0</div></div>
+                                </div>
+                                
+                                <!-- Team Settings -->
+                                <div class="team-section" id="team-settings-section">
+                                    <h3><i class="fas fa-cog"></i> Impostazioni Squadra</h3>
+                                    <div class="settings-item">
+                                        <div class="settings-item-info">
+                                            <strong><i class="fas fa-signature"></i> Nome Squadra</strong>
+                                            <p id="team-settings-name">Nome</p>
+                                        </div>
+                                        <button class="btn btn-secondary btn-sm" onclick="openEditTeamModal()"><i class="fas fa-edit"></i> Modifica</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Players List -->
+                                <div class="team-section">
+                                    <h3><i class="fas fa-tshirt"></i> Rosa (<span id="players-count-label">0</span>)</h3>
+                                    <div class="player-list" id="team-players-list"></div>
+                                    
+                                    <!-- Add Player Form -->
+                                    <div class="add-player-section">
+                                        <h4><i class="fas fa-user-plus"></i> Aggiungi Giocatore</h4>
+                                        <div class="add-player-form">
+                                            <div class="form-group">
+                                                <label>Nome</label>
+                                                <input type="text" id="add-player-name" placeholder="Es. Osimhen">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Squadra</label>
+                                                <input type="text" id="add-player-team" placeholder="Es. Napoli">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Ruolo</label>
+                                                <select id="add-player-role">
+                                                    <option value="P">P</option>
+                                                    <option value="D">D</option>
+                                                    <option value="C">C</option>
+                                                    <option value="A" selected>A</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Prezzo</label>
+                                                <input type="number" id="add-player-price" placeholder="50" min="1" max="500" value="1">
+                                            </div>
+                                            <button class="btn btn-success btn-sm" onclick="addPlayerToTeam()"><i class="fas fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Danger Zone -->
+                                <div class="danger-zone">
+                                    <h3><i class="fas fa-exclamation-triangle"></i> Zona Pericolosa</h3>
+                                    <p>Elimina definitivamente questa squadra e tutti i suoi giocatori.</p>
+                                    <button type="button" class="btn btn-danger" id="btn-delete-team"><i class="fas fa-trash"></i> Elimina squadra</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <section id="section-group" class="section hidden">
                     <div class="section-header">
                         <div class="section-header-text"><h1 id="group-detail-title"><i class="fas fa-trophy"></i> Nome Lega</h1><p>Gestisci la tua lega</p></div>
@@ -537,10 +713,17 @@
                                 </div>
                                 <div class="league-stats">
                                     <div class="league-stat"><div class="league-stat-value" id="group-members-count">1</div><div class="league-stat-label"><i class="fas fa-users"></i> Partecipanti</div></div>
+                                    <div class="league-stat"><div class="league-stat-value" id="group-teams-count">0</div><div class="league-stat-label"><i class="fas fa-shield-alt"></i> Squadre</div></div>
                                     <div class="league-stat"><div class="league-stat-value" id="group-created-date">-</div><div class="league-stat-label"><i class="fas fa-calendar"></i> Fondata</div></div>
                                 </div>
                             </div>
                             <div class="league-detail-body">
+                                <!-- League Teams -->
+                                <div class="league-section">
+                                    <h3><i class="fas fa-shield-alt"></i> Squadre in Lega (<span id="league-teams-count-label">0</span>)</h3>
+                                    <div id="league-teams-list"></div>
+                                </div>
+                                
                                 <div class="league-section" id="invite-friends-section"><h3><i class="fas fa-user-plus"></i> Invita Allenatori</h3><div id="invite-friends-list"></div></div>
                                 <div class="league-section" id="share-code-section">
                                     <h3><i class="fas fa-share-alt"></i> Condividi Codice</h3>
@@ -608,7 +791,10 @@
                             <div class="form-group"><label><i class="fas fa-eye"></i> Visibilità</label><select id="group-visibility"><option value="invite">Solo su invito</option><option value="code">Chiunque con codice</option></select></div>
                             <div class="form-group"><label><i class="fas fa-user-shield"></i> Chi può invitare</label><select id="group-invite-permission"><option value="all">Tutti i partecipanti</option><option value="admin">Solo amministratori</option></select></div>
                         </div>
-                        <div class="form-group"><label><i class="fas fa-users-cog"></i> Numero partecipanti</label><select id="group-max-members"><option value="8">8 allenatori</option><option value="10" selected>10 allenatori</option><option value="12">12 allenatori</option><option value="14">14 allenatori</option><option value="16">16 allenatori</option><option value="20">20 allenatori</option><option value="0">Illimitato</option></select></div>
+                        <div class="form-row">
+                            <div class="form-group"><label><i class="fas fa-users-cog"></i> Numero partecipanti</label><select id="group-max-members"><option value="8">8 allenatori</option><option value="10" selected>10 allenatori</option><option value="12">12 allenatori</option><option value="14">14 allenatori</option><option value="16">16 allenatori</option><option value="20">20 allenatori</option><option value="0">Illimitato</option></select></div>
+                            <div class="form-group"><label><i class="fas fa-coins"></i> Budget iniziale</label><input type="number" id="group-budget" value="500" min="100" max="1000" step="50"></div>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-actions"><button type="button" class="btn btn-secondary" onclick="closeCreateGroupModal()"><i class="fas fa-times"></i> Annulla</button><button type="submit" form="create-group-form" class="btn btn-gold"><i class="fas fa-plus"></i> Crea Lega</button></div>
@@ -648,6 +834,42 @@
                 <div class="modal-actions"><button class="btn btn-secondary" onclick="closeTransferModal()"><i class="fas fa-times"></i> Annulla</button></div>
             </div>
         </div>
+
+        <!-- Create Team Modal -->
+        <div class="modal-overlay create-team-modal" id="create-team-modal">
+            <div class="modal">
+                <div class="modal-header"><h3><i class="fas fa-shield-alt"></i> Crea una Nuova Squadra</h3></div>
+                <div class="modal-body">
+                    <p style="color:var(--g500);font-size:.85rem;margin-bottom:1rem"><i class="fas fa-info-circle" style="color:var(--pri);margin-right:.3rem"></i>Crea una squadra per competere nelle leghe.</p>
+                    <form class="create-team-form" id="create-team-form">
+                        <div class="team-avatar-upload">
+                            <div class="team-avatar-preview" id="new-team-avatar-preview">S</div>
+                            <div class="team-avatar-upload-content">
+                                <h4><i class="fas fa-shield-alt"></i> Stemma Squadra</h4>
+                                <p>JPG, PNG. Max 2MB</p>
+                                <label class="team-avatar-upload-btn"><i class="fas fa-camera"></i> Carica stemma<input type="file" id="new-team-avatar" accept="image/*"></label>
+                            </div>
+                        </div>
+                        <div class="form-group"><label><i class="fas fa-signature"></i> Nome Squadra *</label><input type="text" id="team-name-input" required placeholder="Es. I Campioni FC" maxlength="50"><div class="form-hint"><i class="fas fa-lightbulb"></i> Scegli un nome unico per la tua squadra</div></div>
+                        <div class="form-group"><label><i class="fas fa-trophy"></i> Associa a Lega (opzionale)</label><select id="team-league-input"><option value="">-- Nessuna lega --</option></select><div class="form-hint"><i class="fas fa-info-circle"></i> Puoi associare la squadra a una lega anche in seguito</div></div>
+                    </form>
+                </div>
+                <div class="modal-actions"><button type="button" class="btn btn-secondary" onclick="closeCreateTeamModal()"><i class="fas fa-times"></i> Annulla</button><button type="submit" form="create-team-form" class="btn btn-primary"><i class="fas fa-plus"></i> Crea Squadra</button></div>
+            </div>
+        </div>
+
+        <!-- Edit Team Modal -->
+        <div class="modal-overlay" id="edit-team-modal">
+            <div class="modal">
+                <div class="modal-header"><h3><i class="fas fa-edit"></i> Modifica Squadra</h3></div>
+                <div class="modal-body">
+                    <form id="edit-team-form">
+                        <div class="form-group"><label><i class="fas fa-signature"></i> Nome Squadra</label><input type="text" id="edit-team-name" required maxlength="50"></div>
+                    </form>
+                </div>
+                <div class="modal-actions"><button type="button" class="btn btn-secondary" onclick="closeEditTeamModal()"><i class="fas fa-times"></i> Annulla</button><button type="submit" form="edit-team-form" class="btn btn-primary"><i class="fas fa-save"></i> Salva</button></div>
+            </div>
+        </div>
     </div>
 
 <script>
@@ -679,11 +901,13 @@ $('modal-confirm').onclick=()=>{modalCb?.();closeModal()};
 const DB={
     users:()=>LS.get('users'),saveUsers:u=>LS.set('users',u),
     groups:()=>LS.get('groups'),saveGroups:g=>LS.set('groups',g),
+    teams:()=>LS.get('teams'),saveTeams:t=>LS.set('teams',t),
     notifs:()=>LS.get('notifications'),saveNotifs:n=>LS.set('notifications',n),
     getUser:e=>DB.users()[e.toLowerCase()]||null,
     getUserById:id=>Object.values(DB.users()).find(u=>u.id===id)||null,
     getGroupById:id=>DB.groups()[id]||null,
     getGroupByCode:c=>Object.values(DB.groups()).find(g=>g.code.toUpperCase()===c.toUpperCase())||null,
+    getTeamById:id=>DB.teams()[id]||null,
     currentUser:()=>{const e=sessionStorage.getItem('currentUser');return e?DB.getUser(e):null},
     setCurrentUser:e=>sessionStorage.setItem('currentUser',e.toLowerCase()),
     logout:()=>sessionStorage.removeItem('currentUser'),
@@ -693,7 +917,7 @@ const DB={
         if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e))return{success:false,message:'Formato email non valido'};
         if(DB.getUser(e))return{success:false,message:'Questa email è già registrata.'};
         const users=DB.users();let id;do{id=genId()}while(DB.getUserById(id));
-        users[e]={id,email:e,password:pwd,name:name.trim(),bio:'',avatar:null,friends:[],friendRequests:[],sentRequests:[],groups:[],lastOnline:new Date().toISOString(),createdAt:new Date().toISOString()};
+        users[e]={id,email:e,password:pwd,name:name.trim(),bio:'',avatar:null,friends:[],friendRequests:[],sentRequests:[],groups:[],teams:[],lastOnline:new Date().toISOString(),createdAt:new Date().toISOString()};
         DB.saveUsers(users);return{success:true,userId:id};
     },
     
@@ -731,11 +955,68 @@ const DB={
     cancelFriendRequest(userEmail,toId){const users=DB.users(),u=users[userEmail.toLowerCase()],to=Object.values(users).find(x=>x.id===toId);u.sentRequests=(u.sentRequests||[]).filter(id=>id!==toId);if(to)to.friendRequests=(to.friendRequests||[]).filter(id=>id!==u.id);DB.saveUsers(users);return{success:true}},
     removeFriend(userEmail,fId){const users=DB.users(),u=users[userEmail.toLowerCase()],f=Object.values(users).find(x=>x.id===fId);u.friends=(u.friends||[]).filter(id=>id!==fId);if(f)f.friends=(f.friends||[]).filter(id=>id!==u.id);DB.saveUsers(users);return{success:true}},
     
+    // Team methods
+    createTeam(ownerEmail,data){
+        const users=DB.users(),teams=DB.teams(),u=users[ownerEmail.toLowerCase()];
+        if(!u)return{success:false,message:'Utente non trovato'};
+        const id='t_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
+        const g=data.leagueId?DB.getGroupById(data.leagueId):null;
+        const budget=g?g.budget||500:500;
+        const team={id,name:data.name.trim(),avatar:data.avatar||null,owner:u.id,leagueId:data.leagueId||null,players:[],budget:budget,budgetUsed:0,createdAt:new Date().toISOString()};
+        teams[id]=team;DB.saveTeams(teams);
+        u.teams=u.teams||[];u.teams.push(id);DB.saveUsers(users);
+        return{success:true,teamId:id};
+    },
+    
+    updateTeam(id,data){const t=DB.teams();if(!t[id])return false;t[id]={...t[id],...data};DB.saveTeams(t);return true},
+    
+    deleteTeam(teamId){
+        const teams=DB.teams(),users=DB.users(),t=teams[teamId];
+        if(!t)return{success:false,message:'Squadra non trovata'};
+        delete teams[teamId];DB.saveTeams(teams);
+        const ue=Object.keys(users).find(e=>users[e].id===t.owner);
+        if(ue){users[ue].teams=(users[ue].teams||[]).filter(id=>id!==teamId);DB.saveUsers(users)}
+        return{success:true};
+    },
+    
+    addPlayerToTeam(teamId,player){
+        const teams=DB.teams(),t=teams[teamId];if(!t)return{success:false,message:'Squadra non trovata'};
+        const price=parseInt(player.price)||1;
+        if(t.budgetUsed+price>t.budget)return{success:false,message:'Budget insufficiente'};
+        const p={id:'p_'+Date.now()+'_'+Math.random().toString(36).substr(2,5),name:player.name.trim(),team:player.team.trim(),role:player.role,price:price};
+        t.players.push(p);t.budgetUsed+=price;DB.saveTeams(teams);
+        return{success:true,player:p};
+    },
+    
+    removePlayerFromTeam(teamId,playerId){
+        const teams=DB.teams(),t=teams[teamId];if(!t)return{success:false};
+        const p=t.players.find(x=>x.id===playerId);
+        if(p){t.budgetUsed-=p.price;t.players=t.players.filter(x=>x.id!==playerId);DB.saveTeams(teams)}
+        return{success:true};
+    },
+    
+    getUserTeams(uId){const u=DB.getUserById(uId),t=DB.teams();return u?(u.teams||[]).map(id=>t[id]).filter(Boolean):[]},
+    
+    getLeagueTeams(gId){return Object.values(DB.teams()).filter(t=>t.leagueId===gId)},
+    
+    associateTeamToLeague(teamId,leagueId){
+        const teams=DB.teams(),t=teams[teamId],g=leagueId?DB.getGroupById(leagueId):null;
+        if(!t)return{success:false,message:'Squadra non trovata'};
+        if(leagueId&&!g)return{success:false,message:'Lega non trovata'};
+        if(leagueId&&!g.members.includes(t.owner))return{success:false,message:'Devi essere membro della lega per associare la squadra'};
+        // Check if user already has a team in this league
+        if(leagueId){const existing=Object.values(teams).find(x=>x.leagueId===leagueId&&x.owner===t.owner&&x.id!==teamId);if(existing)return{success:false,message:'Hai già una squadra in questa lega'}}
+        t.leagueId=leagueId;
+        if(g)t.budget=g.budget||500;
+        DB.saveTeams(teams);
+        return{success:true,message:leagueId?`Squadra associata a "${g.name}"`:'Squadra rimossa dalla lega'};
+    },
+    
     createGroup(creatorEmail,data){
         const users=DB.users(),groups=DB.groups(),c=users[creatorEmail.toLowerCase()];if(!c)return{success:false,message:'Allenatore non trovato'};
         let code;do{code=genCode()}while(DB.getGroupByCode(code));
         const id='g_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
-        const g={id,code,name:data.name.trim(),description:data.description||'',avatar:data.avatar||null,visibility:data.visibility||'invite',invitePermission:data.invitePermission||'all',maxMembers:parseInt(data.maxMembers)||0,creator:c.id,owner:c.id,admins:[c.id],members:[c.id],pendingInvites:[],createdAt:new Date().toISOString()};
+        const g={id,code,name:data.name.trim(),description:data.description||'',avatar:data.avatar||null,visibility:data.visibility||'invite',invitePermission:data.invitePermission||'all',maxMembers:parseInt(data.maxMembers)||0,budget:parseInt(data.budget)||500,creator:c.id,owner:c.id,admins:[c.id],members:[c.id],pendingInvites:[],createdAt:new Date().toISOString()};
         groups[id]=g;DB.saveGroups(groups);c.groups=c.groups||[];c.groups.push(id);DB.saveUsers(users);return{success:true,groupId:id,groupCode:code};
     },
     
@@ -775,20 +1056,26 @@ const DB={
     },
     
     leaveGroup(uId,gId){
-        const groups=DB.groups(),users=DB.users(),g=groups[gId];if(!g)return{success:false};
+        const groups=DB.groups(),users=DB.users(),teams=DB.teams(),g=groups[gId];if(!g)return{success:false};
         g.members=g.members.filter(id=>id!==uId);g.admins=g.admins.filter(id=>id!==uId);
+        // Disassociate user's teams from this league
+        Object.values(teams).filter(t=>t.owner===uId&&t.leagueId===gId).forEach(t=>{t.leagueId=null});
+        DB.saveTeams(teams);
         if(g.members.length===0)delete groups[gId];
         else{if(g.owner===uId){g.owner=g.admins[0]||g.members[0];if(!g.admins.includes(g.owner))g.admins.push(g.owner)}if(g.admins.length===0)g.admins.push(g.members[0])}
         DB.saveGroups(groups);const ue=Object.keys(users).find(e=>users[e].id===uId);if(ue){users[ue].groups=(users[ue].groups||[]).filter(id=>id!==gId);DB.saveUsers(users)}return{success:true};
     },
     
     kickFromGroup(gId,uId,kickerId){
-        const groups=DB.groups(),users=DB.users(),g=groups[gId];if(!g)return{success:false,message:'Lega non trovata'};
+        const groups=DB.groups(),users=DB.users(),teams=DB.teams(),g=groups[gId];if(!g)return{success:false,message:'Lega non trovata'};
         const isOwner=g.owner===kickerId,isAdmin=g.admins.includes(kickerId),targetIsAdmin=g.admins.includes(uId),targetIsOwner=g.owner===uId;
         if(targetIsOwner)return{success:false,message:'Non puoi espellere il presidente'};
         if(!isOwner&&!isAdmin)return{success:false,message:'Solo admin e presidente possono espellere'};
         if(targetIsAdmin&&!isOwner)return{success:false,message:'Solo il presidente può espellere un admin'};
-        g.members=g.members.filter(id=>id!==uId);g.admins=g.admins.filter(id=>id!==uId);DB.saveGroups(groups);
+        g.members=g.members.filter(id=>id!==uId);g.admins=g.admins.filter(id=>id!==uId);
+        // Disassociate kicked user's teams
+        Object.values(teams).filter(t=>t.owner===uId&&t.leagueId===gId).forEach(t=>{t.leagueId=null});
+        DB.saveTeams(teams);DB.saveGroups(groups);
         const ue=Object.keys(users).find(e=>users[e].id===uId);if(ue){users[ue].groups=(users[ue].groups||[]).filter(id=>id!==gId);DB.saveUsers(users)}
         return{success:true,message:`${DB.getUserById(uId)?.name||'Allenatore'} è stato espulso`};
     },
@@ -806,7 +1093,7 @@ const DB={
     getUnreadCount(uId){const u=DB.getUserById(uId);if(!u)return 0;let c=(u.friendRequests||[]).length;Object.values(DB.groups()).forEach(g=>{if((g.pendingInvites||[]).includes(uId))c++});return c}
 };
 
-let currentSection='home',currentGroupId=null,openMenuId=null,returnToGroupId=null,lastGroupVersion={},pollingInterval=null,newGroupAvatarData=null;
+let currentSection='home',currentGroupId=null,currentTeamId=null,openMenuId=null,returnToGroupId=null,lastGroupVersion={},pollingInterval=null,newGroupAvatarData=null,newTeamAvatarData=null;
 
 setInterval(()=>{const now=new Date();$('current-time')&&($('current-time').textContent=now.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'}))},1e3);
 
@@ -827,11 +1114,22 @@ function renderFriends(){
     $('sent-list').innerHTML=sent.length?sent.map(id=>{const t=DB.getUserById(id);return t?`<div class="request-item" data-id="${t.id}"><div class="friend-info">${avatar(t)}<div class="friend-details"><span class="friend-name">${t.name}</span><span class="friend-id"><i class="fas fa-hashtag"></i>${t.id}</span><span style="font-size:.7rem;color:var(--warn)"><i class="fas fa-clock"></i> In attesa</span></div></div><div class="friend-actions"><button class="btn btn-secondary btn-sm" data-action="cancel" data-id="${t.id}"><i class="fas fa-times"></i> Annulla</button></div></div>`:''}).join(''):noItems('paper-plane','Nessuna richiesta inviata','Le tue richieste in attesa appariranno qui');
 }
 
+function renderTeams(containerId='teams-list'){
+    const u=DB.currentUser();if(!u)return;const teams=DB.getUserTeams(u.id);
+    const container=$(containerId);if(!container)return;
+    container.innerHTML=teams.length?`<div class="teams-grid">${teams.map(t=>{
+        const g=t.leagueId?DB.getGroupById(t.leagueId):null;
+        const pCount=t.players.length;
+        const roles={P:0,D:0,C:0,A:0};t.players.forEach(p=>roles[p.role]++);
+        return`<div class="team-card" onclick="showTeam('${t.id}')"><div class="team-card-header"><div class="team-card-avatar">${t.avatar?`<img src="${t.avatar}">`:(initials(t.name))}</div><div class="team-card-info"><h3>${t.name}</h3><p>${pCount} giocatori</p></div></div><div class="team-card-body"><div class="team-card-stats"><div class="team-card-stat"><div class="team-card-stat-value">${roles.P}</div><div class="team-card-stat-label">Por</div></div><div class="team-card-stat"><div class="team-card-stat-value">${roles.D}</div><div class="team-card-stat-label">Dif</div></div><div class="team-card-stat"><div class="team-card-stat-value">${roles.C}</div><div class="team-card-stat-label">Cen</div></div><div class="team-card-stat"><div class="team-card-stat-value">${roles.A}</div><div class="team-card-stat-label">Att</div></div></div>${g?`<div class="team-card-league"><i class="fas fa-trophy"></i> ${g.name}</div>`:`<div class="team-card-league" style="color:var(--g400)"><i class="fas fa-unlink"></i> Nessuna lega</div>`}</div></div>`}).join('')}</div>`:`<div class="no-teams"><div class="no-teams-icon"><i class="fas fa-shield-alt"></i></div><h3>Nessuna squadra ancora</h3><p>Crea la tua prima squadra per iniziare a competere nelle leghe!</p><button class="btn btn-primary" onclick="openCreateTeamModal()"><i class="fas fa-plus"></i> Crea la tua prima squadra</button></div>`;
+}
+
 function renderGroups(){
     const u=DB.currentUser();if(!u)return;const groups=DB.getUserGroups(u.id);
     $('groups-list').innerHTML=groups.length?`<div class="leagues-grid">${groups.map(g=>{
         const members=g.members.slice(0,3).map(id=>{const m=DB.getUserById(id);return m?`<div class="mini-avatar">${m.avatar?`<img src="${m.avatar}">`:(initials(m.name))}</div>`:''}).join('');
-        return`<div class="league-card" onclick="showGroup('${g.id}')"><div class="league-card-header"><div class="league-avatar">${g.avatar?`<img src="${g.avatar}">`:(initials(g.name))}</div><div class="league-info"><h3>${g.name}</h3><p>${g.description||'Nessuna descrizione'}</p></div></div><div class="league-card-body"><div class="league-members"><div class="league-members-avatars">${members}</div><span class="league-members-count"><i class="fas fa-users"></i> ${g.members.length} partecipanti</span></div></div></div>`}).join('')}</div>`:`<div class="no-leagues"><div class="no-leagues-icon"><i class="fas fa-trophy"></i></div><h3>Nessuna lega ancora</h3><p>Le leghe ti permettono di sfidare altri allenatori. Crea la tua prima lega per iniziare la competizione!</p><button class="btn btn-gold" onclick="openCreateGroupModal()"><i class="fas fa-plus"></i> Crea la tua prima lega</button></div>`;
+        const teamsCount=DB.getLeagueTeams(g.id).length;
+        return`<div class="league-card" onclick="showGroup('${g.id}')"><div class="league-card-header"><div class="league-avatar">${g.avatar?`<img src="${g.avatar}">`:(initials(g.name))}</div><div class="league-info"><h3>${g.name}</h3><p>${g.description||'Nessuna descrizione'}</p></div></div><div class="league-card-body"><div class="league-members"><div class="league-members-avatars">${members}</div><span class="league-members-count"><i class="fas fa-users"></i> ${g.members.length} | <i class="fas fa-shield-alt"></i> ${teamsCount}</span></div></div></div>`}).join('')}</div>`:`<div class="no-leagues"><div class="no-leagues-icon"><i class="fas fa-trophy"></i></div><h3>Nessuna lega ancora</h3><p>Le leghe ti permettono di sfidare altri allenatori. Crea la tua prima lega per iniziare la competizione!</p><button class="btn btn-gold" onclick="openCreateGroupModal()"><i class="fas fa-plus"></i> Crea la tua prima lega</button></div>`;
 }
 
 function renderNavGroups(){
@@ -883,7 +1181,162 @@ window.rejectFriendProfile=uId=>{DB.rejectFriendRequest(DB.currentUser().email,u
 window.cancelReqProfile=uId=>{DB.cancelFriendRequest(DB.currentUser().email,uId);toast('Richiesta annullata','','info');closeProfileModal();renderFriends()};
 window.removeFriendProfile=uId=>{const f=DB.getUserById(uId);closeProfileModal();showModal('Rimuovi compagno',`Sei sicuro di voler rimuovere ${f?.name||'questo allenatore'} dai compagni?`,()=>{DB.removeFriend(DB.currentUser().email,uId);toast('Compagno rimosso','','info');renderFriends()})};
 
-window.openCreateGroupModal=()=>{$('create-group-modal').classList.add('show');$('group-name').value='';$('group-description').value='';$('group-visibility').value='invite';$('group-invite-permission').value='all';$('group-max-members').value='10';$('new-group-avatar-preview').innerHTML='L';newGroupAvatarData=null};
+// Team Modal Functions
+window.openCreateTeamModal=()=>{
+    $('create-team-modal').classList.add('show');
+    $('team-name-input').value='';
+    $('new-team-avatar-preview').innerHTML='S';
+    newTeamAvatarData=null;
+    // Populate league select
+    const u=DB.currentUser();
+    const groups=DB.getUserGroups(u.id);
+    $('team-league-input').innerHTML='<option value="">-- Nessuna lega --</option>'+groups.map(g=>`<option value="${g.id}">${g.name}</option>`).join('');
+};
+window.closeCreateTeamModal=()=>{$('create-team-modal').classList.remove('show');newTeamAvatarData=null};
+
+window.openEditTeamModal=()=>{
+    const t=DB.getTeamById(currentTeamId);if(!t)return;
+    $('edit-team-name').value=t.name;
+    $('edit-team-modal').classList.add('show');
+};
+window.closeEditTeamModal=()=>$('edit-team-modal').classList.remove('show');
+
+$('new-team-avatar').onchange=function(){
+    const file=this.files[0];if(!file)return;
+    if(!file.type.startsWith('image/')){toast('Errore','Seleziona un\'immagine valida','error');return}
+    if(file.size>2*1024*1024){toast('Errore','L\'immagine deve essere inferiore a 2MB','error');return}
+    const r=new FileReader();r.onload=e=>{newTeamAvatarData=e.target.result;$('new-team-avatar-preview').innerHTML=`<img src="${newTeamAvatarData}">`};r.readAsDataURL(file)
+};
+
+$('team-name-input').oninput=e=>{if(!newTeamAvatarData){const n=e.target.value.trim();$('new-team-avatar-preview').innerHTML=n?initials(n):'S'}};
+
+$('create-team-form').onsubmit=e=>{
+    e.preventDefault();
+    const name=$('team-name-input').value.trim();
+    if(!name){toast('Errore','Inserisci un nome per la squadra','error');return}
+    const leagueId=$('team-league-input').value||null;
+    const r=DB.createTeam(DB.currentUser().email,{name,avatar:newTeamAvatarData,leagueId});
+    if(r.success){
+        closeCreateTeamModal();
+        toast('Squadra creata!','La tua nuova squadra è pronta','success');
+        renderTeams();renderTeams('my-teams-list');
+        showTeam(r.teamId);
+    }else toast('Errore',r.message,'error');
+};
+
+$('edit-team-form').onsubmit=e=>{
+    e.preventDefault();
+    const name=$('edit-team-name').value.trim();
+    if(!name){toast('Errore','Il nome non può essere vuoto','error');return}
+    DB.updateTeam(currentTeamId,{name});
+    closeEditTeamModal();
+    toast('Salvato!','Nome squadra aggiornato','success');
+    showTeam(currentTeamId);
+    renderTeams();renderTeams('my-teams-list');
+};
+
+window.showTeam=tId=>{
+    const t=DB.getTeamById(tId);if(!t)return;
+    currentTeamId=tId;
+    const u=DB.currentUser();
+    const g=t.leagueId?DB.getGroupById(t.leagueId):null;
+    
+    $('team-detail-title').innerHTML=`<i class="fas fa-shield-alt"></i> ${t.name}`;
+    $('team-name-display').textContent=t.name;
+    $('team-avatar-large').innerHTML=t.avatar?`<img src="${t.avatar}">`:(initials(t.name));
+    $('team-players-count').textContent=t.players.length;
+    $('players-count-label').textContent=t.players.length;
+    $('team-budget-display').textContent=t.budget-t.budgetUsed;
+    $('team-budget-remaining').textContent=t.budget-t.budgetUsed;
+    $('team-settings-name').textContent=t.name;
+    
+    // League badge
+    if(g){
+        $('team-league-badge').innerHTML=`<i class="fas fa-trophy"></i> <span>${g.name}</span>`;
+        $('team-league-badge').className='league-badge linked';
+    }else{
+        $('team-league-badge').innerHTML=`<i class="fas fa-unlink"></i> <span>Nessuna lega</span>`;
+        $('team-league-badge').className='league-badge';
+    }
+    
+    // League select
+    const groups=DB.getUserGroups(u.id);
+    $('team-league-select').innerHTML='<option value="">-- Nessuna lega --</option>'+groups.map(grp=>`<option value="${grp.id}"${t.leagueId===grp.id?' selected':''}>${grp.name}</option>`).join('');
+    
+    // Roster summary
+    const roles={P:0,D:0,C:0,A:0};
+    t.players.forEach(p=>roles[p.role]++);
+    ['P','D','C','A'].forEach(r=>$('count-'+r).textContent=roles[r]);
+    
+    // Players list
+    $('team-players-list').innerHTML=t.players.length?t.players.map(p=>`<div class="player-item"><div class="player-info"><div class="player-role-badge ${p.role}">${p.role}</div><div class="player-details"><div class="player-name">${p.name}</div><div class="player-team">${p.team}</div></div></div><div class="player-price">${p.price} cr</div><div class="player-actions"><button class="btn btn-danger btn-sm btn-icon" onclick="removePlayer('${p.id}')" title="Rimuovi"><i class="fas fa-times"></i></button></div></div>`).join(''):`<div class="no-items"><div class="no-items-icon"><i class="fas fa-tshirt"></i></div><p>Nessun giocatore nella rosa</p><small>Usa il form qui sotto per aggiungere giocatori</small></div>`;
+    
+    showSection('team');
+};
+
+window.addPlayerToTeam=()=>{
+    const name=$('add-player-name').value.trim();
+    const team=$('add-player-team').value.trim();
+    const role=$('add-player-role').value;
+    const price=parseInt($('add-player-price').value)||1;
+    
+    if(!name){toast('Errore','Inserisci il nome del giocatore','error');return}
+    if(!team){toast('Errore','Inserisci la squadra del giocatore','error');return}
+    
+    const r=DB.addPlayerToTeam(currentTeamId,{name,team,role,price});
+    if(r.success){
+        $('add-player-name').value='';
+        $('add-player-team').value='';
+        $('add-player-price').value='1';
+        toast('Giocatore aggiunto!',`${name} è stato inserito nella rosa`,'success');
+        showTeam(currentTeamId);
+    }else toast('Errore',r.message,'error');
+};
+
+window.removePlayer=pId=>{
+    const t=DB.getTeamById(currentTeamId);
+    const p=t?.players.find(x=>x.id===pId);
+    showModal('Rimuovi giocatore',`Sei sicuro di voler rimuovere ${p?.name||'questo giocatore'} dalla rosa?`,()=>{
+        DB.removePlayerFromTeam(currentTeamId,pId);
+        toast('Giocatore rimosso','','info');
+        showTeam(currentTeamId);
+    });
+};
+
+window.associateTeamToLeague=()=>{
+    const leagueId=$('team-league-select').value||null;
+    const r=DB.associateTeamToLeague(currentTeamId,leagueId);
+    if(r.success){
+        toast('Associazione aggiornata',r.message,'success');
+        showTeam(currentTeamId);
+        renderTeams();renderTeams('my-teams-list');
+    }else toast('Errore',r.message,'error');
+};
+
+$('team-avatar-upload').onchange=function(){
+    const file=this.files[0];if(!file||!currentTeamId)return;
+    if(!file.type.startsWith('image/')){toast('Errore','Seleziona un\'immagine valida','error');return}
+    if(file.size>2*1024*1024){toast('Errore','L\'immagine deve essere inferiore a 2MB','error');return}
+    const r=new FileReader();r.onload=e=>{
+        const b64=e.target.result;
+        DB.updateTeam(currentTeamId,{avatar:b64});
+        $('team-avatar-large').innerHTML=`<img src="${b64}">`;
+        renderTeams();renderTeams('my-teams-list');
+        toast('Stemma aggiornato!','Lo stemma della squadra è stato cambiato','success');
+    };r.readAsDataURL(file)
+};
+
+$('btn-delete-team').onclick=()=>{
+    const t=DB.getTeamById(currentTeamId);
+    showModal('Elimina squadra',`Sei sicuro di voler eliminare "${t?.name}"? Questa azione è irreversibile.`,()=>{
+        DB.deleteTeam(currentTeamId);
+        toast('Squadra eliminata','','info');
+        showSection('myteams');
+        renderTeams();renderTeams('my-teams-list');
+    });
+};
+
+window.openCreateGroupModal=()=>{$('create-group-modal').classList.add('show');$('group-name').value='';$('group-description').value='';$('group-visibility').value='invite';$('group-invite-permission').value='all';$('group-max-members').value='10';$('group-budget').value='500';$('new-group-avatar-preview').innerHTML='L';newGroupAvatarData=null};
 window.closeCreateGroupModal=()=>{$('create-group-modal').classList.remove('show');newGroupAvatarData=null};
 window.openEditGroupModal=()=>{const g=DB.getGroupById(currentGroupId);if(!g)return;$('edit-group-name').value=g.name;$('edit-group-description').value=g.description||'';$('edit-group-visibility').value=g.visibility||'invite';$('edit-group-invite-permission').value=g.invitePermission||'all';$('edit-group-max-members').value=g.maxMembers||'0';$('edit-group-modal').classList.add('show')};
 window.closeEditGroupModal=()=>$('edit-group-modal').classList.remove('show');
@@ -904,11 +1357,20 @@ window.showGroup=gId=>{
     $('group-members-count').textContent=g.members.length;$('members-count-label').textContent=g.members.length;
     $('group-created-date').textContent=new Date(g.createdAt).toLocaleDateString('it-IT',{day:'numeric',month:'short'});
     
+    // League teams
+    const leagueTeams=DB.getLeagueTeams(gId);
+    $('group-teams-count').textContent=leagueTeams.length;
+    $('league-teams-count-label').textContent=leagueTeams.length;
+    $('league-teams-list').innerHTML=leagueTeams.length?leagueTeams.map(t=>{
+        const owner=DB.getUserById(t.owner);
+        return`<div class="member-item" onclick="showTeam('${t.id}')"><div class="member-info"><div class="member-avatar" style="background:linear-gradient(135deg,#42a5f5 0%,#1976d2 100%);color:var(--w)">${t.avatar?`<img src="${t.avatar}">`:(initials(t.name))}</div><div><div class="member-name">${t.name}</div><div style="font-size:.7rem;color:var(--g500)"><i class="fas fa-user"></i> ${owner?.name||'Sconosciuto'} | <i class="fas fa-users"></i> ${t.players.length} giocatori</div></div></div></div>`;
+    }).join(''):`<div class="no-items"><div class="no-items-icon"><i class="fas fa-shield-alt"></i></div><p>Nessuna squadra in lega</p><small>I partecipanti possono associare le loro squadre a questa lega</small></div>`;
+    
     const settingsSection=$('group-settings-section');
     if(isAdmin||isOwner){
         settingsSection.style.display='block';
         const vt=g.visibility==='invite'?'Solo su invito':'Chiunque con codice',it=g.invitePermission==='all'?'Tutti i partecipanti':'Solo amministratori',mt=g.maxMembers>0?g.maxMembers+' allenatori':'Illimitato';
-        $('group-settings-content').innerHTML=`<div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-eye"></i> Visibilità</strong><p>${vt}</p></div></div><div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-user-shield"></i> Chi può invitare</strong><p>${it}</p></div></div><div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-users-cog"></i> Limite partecipanti</strong><p>${mt}</p></div></div>${isAdmin?`<button class="btn btn-secondary" style="margin-top:.9rem" onclick="openEditGroupModal()"><i class="fas fa-edit"></i> Modifica impostazioni</button>`:''}${isOwner?`<button class="btn btn-warning" style="margin-top:.4rem" onclick="openTransferModal()"><i class="fas fa-crown"></i> Trasferisci presidenza</button>`:''}`;
+        $('group-settings-content').innerHTML=`<div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-eye"></i> Visibilità</strong><p>${vt}</p></div></div><div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-user-shield"></i> Chi può invitare</strong><p>${it}</p></div></div><div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-users-cog"></i> Limite partecipanti</strong><p>${mt}</p></div></div><div class="settings-item"><div class="settings-item-info"><strong><i class="fas fa-coins"></i> Budget iniziale</strong><p>${g.budget||500} crediti</p></div></div>${isAdmin?`<button class="btn btn-secondary" style="margin-top:.9rem" onclick="openEditGroupModal()"><i class="fas fa-edit"></i> Modifica impostazioni</button>`:''}${isOwner?`<button class="btn btn-warning" style="margin-top:.4rem" onclick="openTransferModal()"><i class="fas fa-crown"></i> Trasferisci presidenza</button>`:''}`;
     }else settingsSection.style.display='none';
     
     const friends=u.friends||[],invSec=$('invite-friends-section'),invEl=$('invite-friends-list');
@@ -921,6 +1383,7 @@ window.showGroup=gId=>{
         const m=DB.getUserById(mId);if(!m)return'';
         const mIsOwner=g.owner===mId,mIsAdmin=g.admins.includes(mId),isCur=m.id===u.id;
         let role='',roleClass='';if(mIsOwner){role='<i class="fas fa-crown"></i> Presidente';roleClass='owner'}else if(mIsAdmin){role='<i class="fas fa-shield-alt"></i> Admin'}
+        const memberTeam=Object.values(DB.teams()).find(t=>t.owner===mId&&t.leagueId===gId);
         let act='';
         if(!isCur){
             let menu=`<button class="dropdown-item" onclick="showProfileModal('${mId}');closeMenus()"><i class="fas fa-user"></i> Vedi scheda</button>`;
@@ -928,7 +1391,7 @@ window.showGroup=gId=>{
             if((isOwner&&!mIsOwner)||(isAdmin&&!mIsAdmin&&!mIsOwner))menu+=`<div class="dropdown-divider"></div><button class="dropdown-item danger" onclick="kickMember('${mId}')"><i class="fas fa-ban"></i> Espelli</button>`;
             act=`<div class="member-actions" onclick="event.stopPropagation()"><button class="friend-menu-btn" onclick="toggleMenu('member-${mId}')"><i class="fas fa-ellipsis-v"></i></button><div class="friend-dropdown" id="menu-member-${mId}">${menu}</div></div>`;
         }
-        return`<div class="member-item" onclick="showProfileModal('${mId}')"><div class="member-info"><div class="member-avatar">${m.avatar?`<img src="${m.avatar}">`:(initials(m.name))}</div><div><div class="member-name">${m.name}${isCur?' (tu)':''}</div>${role?`<div class="member-role ${roleClass}">${role}</div>`:''}</div></div>${act}</div>`;
+        return`<div class="member-item" onclick="showProfileModal('${mId}')"><div class="member-info"><div class="member-avatar">${m.avatar?`<img src="${m.avatar}">`:(initials(m.name))}</div><div><div class="member-name">${m.name}${isCur?' (tu)':''}</div>${role?`<div class="member-role ${roleClass}">${role}</div>`:''}${memberTeam?`<div style="font-size:.65rem;color:var(--g500);margin-top:.1rem"><i class="fas fa-shield-alt"></i> ${memberTeam.name}</div>`:''}</div></div>${act}</div>`;
     }).join('');
     
     const dText=$('group-danger-text'),dBtn=$('btn-leave-group');
@@ -959,11 +1422,13 @@ $('mark-all-read').onclick=()=>{const u=DB.currentUser();if(u){DB.markAllRead(u.
 document.addEventListener('click',e=>{if(!e.target.closest('.nav-avatar-container')&&!e.target.closest('.notification-bell')){closeNavDropdown();closeNotifDropdown()}if(!e.target.closest('.friend-menu')&&!e.target.closest('.member-actions'))closeMenus()});
 
 window.showSection=sec=>{
-    currentSection=sec;['home','profile','friends','group'].forEach(s=>$('section-'+s).classList.add('hidden'));
+    currentSection=sec;['home','profile','friends','group','team','myteams'].forEach(s=>{const el=$('section-'+s);if(el)el.classList.add('hidden')});
     $$('.nav-dropdown-item[data-section]').forEach(i=>i.classList.toggle('active',i.dataset.section===sec));
-    if(sec==='home'){$('section-home').classList.remove('hidden');renderGroups();returnToGroupId=null}
+    if(sec==='home'){$('section-home').classList.remove('hidden');renderGroups();renderTeams();returnToGroupId=null}
     else if(sec==='profile'){const u=DB.currentUser();DB.cleanupUserFriends(u.email);const f=DB.currentUser();$('profile-name').value=f.name;$('profile-email').value=f.email;$('profile-bio').value=f.bio||'';$('profile-user-id').textContent=f.id;$('profile-display-name').textContent=f.name;$('profile-avatar').innerHTML=f.avatar?`<img src="${f.avatar}">`:(initials(f.name));$('section-profile').classList.remove('hidden')}
     else if(sec==='friends'){$('section-friends').classList.remove('hidden');$$('.tab').forEach(t=>t.classList.remove('active'));document.querySelector('.tab[data-tab="friends"]').classList.add('active');$('tab-friends').classList.remove('hidden');$('tab-requests').classList.add('hidden');$('tab-sent').classList.add('hidden');renderFriends()}
+    else if(sec==='myteams'){$('section-myteams').classList.remove('hidden');renderTeams('my-teams-list')}
+    else if(sec==='team')$('section-team').classList.remove('hidden');
     else if(sec==='group')$('section-group').classList.remove('hidden');
 };
 
@@ -997,7 +1462,7 @@ $('btn-leave-group').onclick=()=>{const g=DB.getGroupById(currentGroupId),u=DB.c
 
 $('new-group-avatar').onchange=function(){const file=this.files[0];if(!file)return;if(!file.type.startsWith('image/')){toast('Errore','Seleziona un\'immagine valida','error');return}if(file.size>2*1024*1024){toast('Errore','L\'immagine deve essere inferiore a 2MB','error');return}const r=new FileReader();r.onload=e=>{newGroupAvatarData=e.target.result;$('new-group-avatar-preview').innerHTML=`<img src="${newGroupAvatarData}">`};r.readAsDataURL(file)};
 $('group-name').oninput=e=>{if(!newGroupAvatarData){const n=e.target.value.trim();$('new-group-avatar-preview').innerHTML=n?initials(n):'L'}};
-$('create-group-form').onsubmit=e=>{e.preventDefault();const name=$('group-name').value.trim();if(!name){toast('Errore','Inserisci un nome per la lega','error');return}const r=DB.createGroup(DB.currentUser().email,{name,description:$('group-description').value,avatar:newGroupAvatarData,visibility:$('group-visibility').value,invitePermission:$('group-invite-permission').value,maxMembers:$('group-max-members').value});if(r.success){closeCreateGroupModal();toast('Lega creata!','Codice: '+r.groupCode,'success');renderGroups();renderNavGroups();showGroup(r.groupId)}else toast('Errore',r.message,'error')};
+$('create-group-form').onsubmit=e=>{e.preventDefault();const name=$('group-name').value.trim();if(!name){toast('Errore','Inserisci un nome per la lega','error');return}const r=DB.createGroup(DB.currentUser().email,{name,description:$('group-description').value,avatar:newGroupAvatarData,visibility:$('group-visibility').value,invitePermission:$('group-invite-permission').value,maxMembers:$('group-max-members').value,budget:$('group-budget').value});if(r.success){closeCreateGroupModal();toast('Lega creata!','Codice: '+r.groupCode,'success');renderGroups();renderNavGroups();showGroup(r.groupId)}else toast('Errore',r.message,'error')};
 
 $('edit-group-form').onsubmit=e=>{e.preventDefault();const name=$('edit-group-name').value.trim();if(!name){toast('Errore','Il nome non può essere vuoto','error');return}DB.updateGroup(currentGroupId,{name,description:$('edit-group-description').value,visibility:$('edit-group-visibility').value,invitePermission:$('edit-group-invite-permission').value,maxMembers:parseInt($('edit-group-max-members').value)});closeEditGroupModal();toast('Salvato!','Impostazioni aggiornate','success');showGroup(currentGroupId);renderGroups();renderNavGroups()};
 
@@ -1015,7 +1480,7 @@ function showAuth(){stopPolling();$('home-container').classList.add('hidden');$(
 
 function startPolling(){checkUpdates();pollingInterval=setInterval(checkUpdates,1e3)}
 function stopPolling(){if(pollingInterval){clearInterval(pollingInterval);pollingInterval=null}}
-function checkUpdates(){const u=DB.currentUser();if(!u)return;updateNotificationBadge();if(currentSection==='friends')renderFriends();if(currentSection==='group'&&currentGroupId){const g=DB.getGroupById(currentGroupId);if(g){if(lastGroupVersion[currentGroupId]!==JSON.stringify(g))showGroup(currentGroupId)}else{toast('Lega eliminata','La lega non esiste più','info');showSection('home')}}if(currentSection==='home'){renderGroups();renderNavGroups()}}
+function checkUpdates(){const u=DB.currentUser();if(!u)return;updateNotificationBadge();if(currentSection==='friends')renderFriends();if(currentSection==='group'&&currentGroupId){const g=DB.getGroupById(currentGroupId);if(g){if(lastGroupVersion[currentGroupId]!==JSON.stringify(g))showGroup(currentGroupId)}else{toast('Lega eliminata','La lega non esiste più','info');showSection('home')}}if(currentSection==='home'){renderGroups();renderTeams();renderNavGroups()}}
 
 if(DB.currentUser()){DB.cleanupUserFriends(DB.currentUser().email);showHome()}
 </script>
